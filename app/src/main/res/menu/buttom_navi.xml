@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/icons_navi_home"
+        android:title="home"
+        />
+    <item
+        android:id="@+id/travelinfo"
+        android:icon="@drawable/icons_navi_menu"
+        android:title="menu"
+        />
+    <item
+        android:id="@+id/checkinnavi"
+        android:icon="@drawable/icons_navi_placemarker"
+        android:title="checkin"
+        />
+    <item
+        android:id="@+id/map"
+        android:icon="@drawable/icons_navi_map"
+        android:title="map"
+        />
+
+</menu>
