@@ -4,7 +4,140 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Home">
+<LinearLayout
+    android:layout_marginTop="15dp"
+    android:id="@+id/Li1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="1">
+    <TextView
+        android:paddingStart="15dp"
+        android:drawablePadding="8dp"
+        android:textSize="17sp"
+        android:drawableLeft="@drawable/icontravel"
 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_weight="0.5"
+
+        android:fontFamily="@font/viga"
+        android:text="Travel"
+        android:textColor="@color/darkgrey" />
+
+    <TextView
+        android:id="@+id/next1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_weight="0.5"
+        android:fontFamily="@font/viga"
+        android:gravity="end"
+        android:text="More+"
+        android:textColor="@color/colorPrimary"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+</LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:id="@+id/recyclerView"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/Li1">
+    </android.support.v7.widget.RecyclerView>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/Li2"
+        android:layout_below="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <TextView
+            android:paddingStart="15dp"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/iconthemes"
+            android:textSize="17sp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/viga"
+            android:layout_weight="0.5"
+            android:text="Themes"
+            android:textColor="@color/darkgrey" />
+        <TextView
+            android:id="@+id/next2"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="0.5"
+            android:fontFamily="@font/viga"
+            android:layout_marginEnd="15dp"
+            android:gravity="end"
+            android:textStyle="bold"
+            android:text="More+"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:id="@+id/recyclerView2"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+
+        android:layout_below="@+id/Li2">
+    </android.support.v7.widget.RecyclerView>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/Li3"
+        android:layout_below="@+id/recyclerView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <TextView
+            android:paddingStart="15dp"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/iconres"
+            android:textSize="17sp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="0.5"
+            android:fontFamily="@font/viga"
+            android:text="Restaurants"
+            android:textColor="@color/darkgrey" />
+        <TextView
+            android:id="@+id/next3"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="0.5"
+            android:layout_marginEnd="15dp"
+            android:gravity="end"
+            android:fontFamily="@font/viga"
+            android:textStyle="bold"
+            android:text="More+"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:id="@+id/recyclerView3"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+
+        android:layout_below="@+id/Li3">
+    </android.support.v7.widget.RecyclerView>
     <include layout="@layout/buttom_navi"/>
 </RelativeLayout>
