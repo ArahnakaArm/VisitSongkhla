@@ -39,8 +39,8 @@
     <color name="ColorPrimaryText">#050505</color>
     <color name="Columm3Dark">#2196f3</color>
     <color name="Columm3">#42a5f5</color>
-    <color name="GreenColumm3">#00897b   </color>
-    <color name="GreenColumm3Dark"> #00796b    </color>
+    <color name="GreenColumm3">#ffb74d    </color>
+    <color name="GreenColumm3Dark"> #ffa726     </color>
     <color name="GreenColumm2">#26a69a  </color>
     <color name="GreenColumm2Dark">#009688  </color>
     <color name="GreenColumm1">#80cbc4 </color>

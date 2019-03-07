@@ -15,7 +15,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="255dp"
-                    android:background="@drawable/imageformenu"
+                    android:background="@drawable/pd"
                     android:textAlignment="center"
                     android:id="@+id/image"
                     android:textSize="24sp"
@@ -111,7 +111,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="13dp"
+                        android:layout_marginTop="16dp"
                         android:padding="1dp"
                         android:text="Hightlight"
                         android:background="@color/GreenColumm1Dark"
@@ -142,7 +142,7 @@
                         android:layout_height="match_parent"
                         android:padding="1dp"
                         android:text="News"
-                        android:layout_marginTop="13dp"
+                        android:layout_marginTop="16dp"
                         android:background="@color/GreenColumm2Dark"
                         android:textSize="17sp"
 
@@ -170,7 +170,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="1dp"
-                        android:layout_marginTop="13dp"
+                        android:layout_marginTop="16dp"
                         android:text="Travel"
                         android:background="@color/GreenColumm3Dark"
                         android:textSize="17sp"
@@ -195,7 +195,7 @@
                     android:layout_weight="1"
                     android:layout_margin="2dp"
                     android:orientation="vertical"
-                    android:background="@color/GreenColumm1"
+                    android:background="@color/GreenColumm3"
                     >
                     <ImageView
                         android:layout_width="40dp"
@@ -207,9 +207,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="13dp"
+                        android:layout_marginTop="16dp"
                         android:padding="1dp"
-                        android:background="@color/GreenColumm1Dark"
+                        android:background="@color/GreenColumm3Dark"
                         android:textSize="17sp"
                         android:text="Package"
 
@@ -224,7 +224,7 @@
                     android:layout_weight="1"
                     android:layout_margin="2dp"
                     android:orientation="vertical"
-                    android:background="@color/GreenColumm2"
+                    android:background="@color/GreenColumm1"
                     >
                     <ImageView
                         android:layout_width="40dp"
@@ -237,8 +237,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="1dp"
-                        android:layout_marginTop="13dp"
-                        android:background="@color/GreenColumm2Dark"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/GreenColumm1Dark"
                         android:textSize="17sp"
                         android:text="Diary"
                         android:textAlignment="center"
@@ -252,7 +252,7 @@
                     android:layout_weight="1"
                     android:layout_margin="2dp"
                     android:orientation="vertical"
-                    android:background="@color/GreenColumm3"
+                    android:background="@color/GreenColumm2"
                     >
                     <ImageView
                         android:layout_width="40dp"
@@ -265,8 +265,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="1dp"
-                        android:layout_marginTop="13dp"
-                        android:background="@color/GreenColumm3Dark"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/GreenColumm2Dark"
                         android:textSize="17sp"
                         android:text="Restaurants"
                         android:textAlignment="center"
@@ -291,7 +291,7 @@
                     android:layout_weight="1"
                     android:layout_margin="2dp"
                     android:orientation="vertical"
-                    android:background="@color/GreenColumm1"
+                    android:background="@color/GreenColumm2"
                     >
                     <ImageView
                         android:layout_width="40dp"
@@ -303,10 +303,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="13dp"
+                        android:layout_marginTop="16dp"
                         android:text="Accom"
                         android:padding="1dp"
-                        android:background="@color/GreenColumm1Dark"
+                        android:background="@color/GreenColumm2Dark"
                         android:textSize="17sp"
 
                         android:textAlignment="center"
@@ -320,7 +320,7 @@
                     android:layout_weight="1"
                     android:layout_margin="2dp"
                     android:orientation="vertical"
-                    android:background="@color/GreenColumm2"
+                    android:background="@color/GreenColumm3"
                     >
                     <ImageView
                         android:layout_width="40dp"
@@ -334,8 +334,8 @@
                         android:layout_height="match_parent"
                         android:padding="1dp"
                         android:text="Shop"
-                        android:layout_marginTop="13dp"
-                        android:background="@color/GreenColumm2Dark"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/GreenColumm3Dark"
                         android:textSize="17sp"
 
 
@@ -350,7 +350,7 @@
                     android:layout_weight="1"
                     android:layout_margin="2dp"
                     android:orientation="vertical"
-                    android:background="@color/GreenColumm3"
+                    android:background="@color/GreenColumm1"
                     >
                     <ImageView
                         android:layout_width="40dp"
@@ -364,8 +364,8 @@
                         android:layout_height="match_parent"
                         android:padding="1dp"
                         android:text="Help"
-                        android:layout_marginTop="13dp"
-                        android:background="@color/GreenColumm3Dark"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/GreenColumm1Dark"
                         android:textSize="17sp"
 
                         android:textAlignment="center"
