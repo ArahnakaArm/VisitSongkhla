@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Home">
 
 
@@ -11,8 +12,18 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <ImageView
 
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="255dp"
+
+                    android:id="@+id/viewflipper"
+
+
+                    ></ViewFlipper>
+
+               <!-- <ImageView
+                    android:scaleType="fitXY"
                     android:layout_width="match_parent"
                     android:layout_height="255dp"
                     android:background="@drawable/pd"
@@ -20,7 +31,7 @@
                     android:id="@+id/image"
                     android:textSize="24sp"
                     android:gravity="bottom"
-                    android:textColor="@color/Dark"/>
+                    android:textColor="@color/Dark"/>-->
 
                 <TextView
                     android:id="@+id/txtCity"
