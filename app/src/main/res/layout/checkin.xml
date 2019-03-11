@@ -4,14 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/checkinbackground"
+    android:background="@drawable/waterfall2"
 >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:background="#99141414"
-
+        android:layout_weight="1"
         android:weightSum="2">
 
         <RelativeLayout
@@ -24,14 +29,14 @@
             <Button
 
                 android:layout_width="100dp"
-
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/button1"
                 android:drawableTop="@drawable/icongps"
                 android:paddingTop="25dp"
                 android:background="@drawable/circle"
-                android:layout_marginTop="200dp"
+                android:layout_centerVertical="true"
+
 
 
                 />
@@ -69,7 +74,7 @@
                 android:drawableTop="@drawable/iconglass"
                 android:paddingTop="25dp"
                 android:background="@drawable/circle2"
-                android:layout_marginTop="200dp"
+                android:layout_centerVertical="true"
 
 
                 />
@@ -95,4 +100,6 @@
 
 
     <include layout="@layout/buttom_navi"/>
+
+    </LinearLayout>
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.deimos.visitsongkhla;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
@@ -30,7 +33,7 @@ public class Home extends AppCompatActivity {
     private ArrayList<String>mImageUrls3 = new ArrayList<>();
     private ArrayList<String>mDes3 = new ArrayList<>();
     private ArrayList<String>mTopic3= new ArrayList<>();
-
+    TextView next1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,17 @@ public class Home extends AppCompatActivity {
         getImages();
         getImages2();
         getImages3();
+
+        next1 = findViewById(R.id.next1);
+        next1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goMorePlaces = new Intent(Home.this,MorePlaces.class);
+                goMorePlaces.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(goMorePlaces);
+            }
+        });
+
 
 
 

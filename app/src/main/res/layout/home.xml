@@ -47,7 +47,7 @@
         android:layout_marginTop="5dp"
         android:padding="5dp"
         android:id="@+id/recyclerView"
-        android:layout_height="155dp"
+        android:layout_height="160dp"
         android:orientation="horizontal"
         android:layout_below="@+id/Li1">
     </android.support.v7.widget.RecyclerView>
@@ -90,7 +90,7 @@
         android:layout_marginTop="5dp"
         android:padding="5dp"
         android:id="@+id/recyclerView2"
-        android:layout_height="155dp"
+        android:layout_height="160dp"
         android:orientation="horizontal"
 
         android:layout_below="@+id/Li2">
@@ -134,7 +134,7 @@
         android:layout_marginTop="5dp"
         android:padding="5dp"
         android:id="@+id/recyclerView3"
-        android:layout_height="155dp"
+        android:layout_height="160dp"
         android:orientation="horizontal"
 
         android:layout_below="@+id/Li3">

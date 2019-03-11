@@ -8,12 +8,12 @@ import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-public class Checkin extends AppCompatActivity {
+public class Checkin extends AppCompatActivity{
     private static final int ACTIVITY_NUM=2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.checkin);
+        setContentView(R.layout.checkin); 
         setNavi();
     }
     public void setNavi(){
