@@ -18,13 +18,16 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
     private ArrayList<String> mDes = new ArrayList<>();
+    private ArrayList<String> mTel = new ArrayList<>();
     private Context mContext;
 
-    public RecyclerViewAdapter(Context mContext,ArrayList<String> mNames, ArrayList<String> mImageUrls, ArrayList<String> mDes) {
+    public RecyclerViewAdapter(Context mContext,ArrayList<String> mNames, ArrayList<String> mImageUrls, ArrayList<String> mDes,ArrayList<String> mTel) {
         this.mNames = mNames;
         this.mImageUrls = mImageUrls;
         this.mContext = mContext;
         this.mDes = mDes;
+        this.mTel = mTel;
+
     }
     @Override
     public ViewHoler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -47,6 +50,7 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
                 intent.putExtra("image_url",mImageUrls.get(position));
                 intent.putExtra("image_name",mNames.get(position));
                 intent.putExtra("Des",mDes.get(position));
+                intent.putExtra("Tel",mTel.get(position));
                 mContext.startActivity(intent);
             }
         });
