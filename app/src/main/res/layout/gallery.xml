@@ -61,6 +61,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <TextView
+                    android:justificationMode="inter_word"
                     android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -71,16 +72,18 @@
                     android:textSize="15sp"/>
 
                 <TextView
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:padding="10dp"
+                    android:drawablePadding="5dp"
+                    android:drawableStart="@drawable/iconphone"
                     android:focusable="true"
                     android:autoLink="phone"
                     android:clickable="true"
-                    android:text="0973471602"
-                    android:id="@+id/description2"
+                    android:text="-"
+                    android:id="@+id/teltext"
                     android:textSize="15sp"/>
 
             </LinearLayout>

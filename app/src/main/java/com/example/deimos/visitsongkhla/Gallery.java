@@ -46,16 +46,19 @@ public class Gallery extends AppCompatActivity{
 
         String imageUrl= getIntent().getStringExtra("image_url");
         String imageName= getIntent().getStringExtra("image_name");
-        String des = getIntent().getStringExtra("Des");
+        String des = getIntent().getStringExtra("Des").replace("_b","\n");
+        String tel = getIntent().getStringExtra("Tel");
 
 
-        setImage(imageUrl,imageName,des);
+        setImage(imageUrl,imageName,des,tel);
 
 
     }
-    private void setImage(String imageUrl, String imageName, String des){
+    private void setImage(String imageUrl, String imageName, String des,String tel){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(imageName);
+        TextView TelText = findViewById(R.id.teltext);
+        TelText.setText(tel);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // TextView name = findViewById(R.id.toolbar);
@@ -64,7 +67,7 @@ public class Gallery extends AppCompatActivity{
         //TextView location = findViewById(R.id.location_input);
         // tele.setText(tel);
         // location.setText(locate);
-        descri.setText("        "+des);
+        descri.setText("  "+des);
         // name.setText(imageName);
         ImageView image=findViewById(R.id.imagegall);
         Glide.with(this)

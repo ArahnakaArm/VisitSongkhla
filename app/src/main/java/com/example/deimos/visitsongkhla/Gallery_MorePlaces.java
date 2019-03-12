@@ -46,7 +46,7 @@ public class Gallery_MorePlaces extends AppCompatActivity{
 
         String imageUrl= getIntent().getStringExtra("image_url");
         String imageName= getIntent().getStringExtra("image_name");
-        String des = getIntent().getStringExtra("Des");
+        String des = getIntent().getStringExtra("Des").replace("_b","\n");
 
 
         setImage(imageUrl,imageName,des);
