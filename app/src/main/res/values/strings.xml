@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">VisitSongkhla</string>
+    /////MAP/////
+    <string name="MP1">ค้นหาสถานที่</string>
+    <string name="MP2">ปัจจุบัน</string>
+    <string name="MP3">ใกล้เคียง</string>
+    <string name="MP4">เเนะนำ</string>
+    <string name="MP5">ล้างมาร์ค</string>
+    <string name="MP6">เมนู</string>
+    ////MENU-MAP////
+    <string name="MP7">วัด</string>
+    <string name="MP8">ชายหาด</string>
+    <string name="MP9">อุทยาน</string>
+    <string name="MP10">พิพิธภัณฑ์</string>
+    <string name="MP11">ร้านอาหาร</string>
+    <string name="MP12">ร้านค้า</string>
+    <string name="MP13">ปั๊มน้ํามัน</string>
 </resources>
