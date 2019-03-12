@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/TempleM"
+        android:title="@string/MP7"
+        android:icon="@drawable/map_icontemple"/>
+
+    <item android:id="@+id/BeachM"
+        android:title="@string/MP8"
+        android:icon="@drawable/map_iconbeach"/>
+
+    <item android:id="@+id/ForestM"
+        android:title="@string/MP9"
+        android:icon="@drawable/map_iconforest"/>
+
+    <item android:id="@+id/MuseumM"
+        android:title="@string/MP10"
+        android:icon="@drawable/map_iconmuseum"/>
+
+    <item android:id="@+id/FoodM"
+        android:title="@string/MP11"
+        android:icon="@drawable/map_iconfood"/>
+
+    <item android:id="@+id/ShopM"
+        android:title="@string/MP12"
+        android:icon="@drawable/map_iconshop"/>
+
+    <item android:id="@+id/GasM"
+        android:title="@string/MP13"
+        android:icon="@drawable/map_icongas"/>
+</menu>
