@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -52,6 +53,9 @@ public class MorePlaces extends AppCompatActivity {
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mRef;
     private static final int ACTIVITY_NUM = 1;
+    public static int positionIndex = -1;
+    public static int topView = -1;
+    LinearLayoutManager linearLayoutManager ;
 
 
     @Override
@@ -64,7 +68,12 @@ public class MorePlaces extends AppCompatActivity {
         mRef.keepSynced(true);
         mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         mRecyclerView.hasFixedSize();
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        linearLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        /*
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+
+        */
         /*
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Home-Attract").child("TH").child("สวนสัตว์สงขลา").child("title");
@@ -99,6 +108,8 @@ public class MorePlaces extends AppCompatActivity {
                         intent.putExtra("image_name", model.getTitle());
                         intent.putExtra("image_url", model.getUrl());
                         intent.putExtra("Des", model.getDes());
+                        intent.putExtra("Local",model.getLocation());
+                        intent.putExtra("Tel",model.getTel());
                         startActivity(intent);
                     }
                 });
@@ -116,6 +127,7 @@ public class MorePlaces extends AppCompatActivity {
         };
         mRecyclerView.setAdapter(RVAdapter);
 
+        RVAdapter.startListening();
 
 
     }
@@ -147,7 +159,7 @@ public class MorePlaces extends AppCompatActivity {
         MenuItem menuItem=menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
     }
-    @Override
+  /*  @Override
     public void onStart() {
 
         RVAdapter.startListening();
@@ -160,6 +172,24 @@ public class MorePlaces extends AppCompatActivity {
         RVAdapter.stopListening();
         super.onStop();
 
+
+    }*/
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        positionIndex= linearLayoutManager.findFirstVisibleItemPosition();
+        View startView = mRecyclerView.getChildAt(0);
+        topView = (startView == null) ? 0 : (startView.getTop() - mRecyclerView.getPaddingTop());
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (positionIndex!= -1) {
+            linearLayoutManager.scrollToPositionWithOffset(positionIndex, topView);
+        }
 
     }
 }

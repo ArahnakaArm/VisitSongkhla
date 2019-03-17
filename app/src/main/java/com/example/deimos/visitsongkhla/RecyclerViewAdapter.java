@@ -19,14 +19,36 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
     private ArrayList<String> mImageUrls = new ArrayList<>();
     private ArrayList<String> mDes = new ArrayList<>();
     private ArrayList<String> mTel = new ArrayList<>();
+    private ArrayList<String> mLocation = new ArrayList<>();
+    private ArrayList<String> mLat = new ArrayList<>();
+    private ArrayList<String> mLng = new ArrayList<>();
+    private ArrayList<String> mImage1 = new ArrayList<>();
+    private ArrayList<String> mImage2 = new ArrayList<>();
+    private ArrayList<String> mImage3 = new ArrayList<>();
+    private ArrayList<String> mImage4 = new ArrayList<>();
+    private ArrayList<String> mImage5 = new ArrayList<>();
+    private ArrayList<String> mImageMore = new ArrayList<>();
+
     private Context mContext;
 
-    public RecyclerViewAdapter(Context mContext,ArrayList<String> mNames, ArrayList<String> mImageUrls, ArrayList<String> mDes,ArrayList<String> mTel) {
+    public RecyclerViewAdapter(Context mContext,ArrayList<String> mNames, ArrayList<String> mImageUrls, ArrayList<String> mDes,ArrayList<String> mTel,ArrayList<String>mLocation
+    ,ArrayList<String>mLat,ArrayList<String>mLng,ArrayList<String>mImage1,ArrayList<String>mImage2,ArrayList<String>mImage3,ArrayList<String>mImage4,ArrayList<String>mImage5
+    ,ArrayList<String>mImageMore) {
         this.mNames = mNames;
         this.mImageUrls = mImageUrls;
         this.mContext = mContext;
         this.mDes = mDes;
         this.mTel = mTel;
+        this.mLocation = mLocation;
+        this.mLat = mLat;
+        this.mLng = mLng;
+        this.mImage1 = mImage1;
+        this.mImage2 = mImage2;
+        this.mImage3 = mImage3;
+        this.mImage4 = mImage4;
+        this.mImage5 = mImage5;
+        this.mImageMore = mImageMore;
+
 
     }
     @Override
@@ -51,6 +73,16 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
                 intent.putExtra("image_name",mNames.get(position));
                 intent.putExtra("Des",mDes.get(position));
                 intent.putExtra("Tel",mTel.get(position));
+                intent.putExtra("Local",mLocation.get(position));
+                intent.putExtra("Lat",mLat.get(position));
+                intent.putExtra("Lng",mLng.get(position));
+                intent.putExtra("Image1",mImage1.get(position));
+                intent.putExtra("Image2",mImage2.get(position));
+                intent.putExtra("Image3",mImage3.get(position));
+                intent.putExtra("Image4",mImage4.get(position));
+                intent.putExtra("Image5",mImage5.get(position));
+                intent.putExtra("ImageMore",mImageMore);
+
                 mContext.startActivity(intent);
             }
         });

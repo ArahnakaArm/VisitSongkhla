@@ -31,6 +31,7 @@
         <activity android:name=".Gallery" android:theme="@style/AppThemeNoTool" android:parentActivityName=".Home" />
         <activity android:name=".MorePlaces" />
         <activity android:name=".Gallery_MorePlaces" android:theme="@style/AppThemeNoTool" android:parentActivityName=".MorePlaces" />
+        <activity android:name=".ImageGallery" />
 
         <meta-data
             android:name="preloaded_fonts"

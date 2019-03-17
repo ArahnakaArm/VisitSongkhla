@@ -71,6 +71,7 @@
                     android:id="@+id/description"
                     android:textSize="15sp"/>
 
+
                 <TextView
                     android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
@@ -78,13 +79,120 @@
                     android:layout_marginLeft="5dp"
                     android:padding="10dp"
                     android:drawablePadding="5dp"
+                    android:justificationMode="inter_word"
+                    android:drawableStart="@drawable/icongpsgallery"
+                    android:focusable="true"
+                    android:text=""
+                    android:id="@+id/locationtext"
+                    android:textSize="15sp"/>
+
+
+                <TextView
+                    android:layout_marginTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:padding="10dp"
+                    android:drawablePadding="5dp"
                     android:drawableStart="@drawable/iconphone"
                     android:focusable="true"
                     android:autoLink="phone"
                     android:clickable="true"
                     android:text="-"
+                    android:layout_weight="1"
                     android:id="@+id/teltext"
-                    android:textSize="15sp"/>
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:layout_marginTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/googlemapicon"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:text="เส้นทาง"
+                    android:id="@+id/googlemap"
+                    android:textSize="18sp"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:padding="10dp"
+                    android:id="@+id/gallerytext"
+                    android:drawablePadding="10dp"
+                    android:text="แกลลอรี่รูปภาพ"
+                    android:textSize="18dp"
+                    android:drawableLeft="@drawable/icongallery"
+                    android:layout_marginTop="2dp"
+                    />
+              <!-- <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:weightSum="2"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:id="@+id/image1"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/loading"
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:id="@+id/image2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/loading"/>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="3"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginBottom="30dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/image3"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/loading"
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"/>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="fitXY"
+                        android:id="@+id/image4"
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/loading"/>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="fitXY"
+                        android:layout_margin="2dp"
+                        android:id="@+id/image5"
+                        android:layout_weight="1"
+                        android:background="@drawable/loading"/>
+
+
+                </LinearLayout>-->
 
             </LinearLayout>
 
