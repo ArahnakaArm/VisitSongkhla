@@ -38,7 +38,7 @@ public class Gallery_MorePlaces extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.gallery);
+        setContentView(R.layout.gallerymoreplaces);
         getIncomingIntent();
 
     }
@@ -47,17 +47,22 @@ public class Gallery_MorePlaces extends AppCompatActivity{
         String imageUrl= getIntent().getStringExtra("image_url");
         String imageName= getIntent().getStringExtra("image_name");
         String des = getIntent().getStringExtra("Des").replace("_b","\n");
+        String tel = getIntent().getStringExtra("Tel");
+        String location = getIntent().getStringExtra("Local");
 
-
-        setImage(imageUrl,imageName,des);
+        setImage(imageUrl,imageName,des,tel,location);
 
 
     }
-    private void setImage(String imageUrl, String imageName, String des){
+    private void setImage(String imageUrl, String imageName, String des,String tel,String location){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(imageName);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        TextView Location = findViewById(R.id.locationtext);
+        Location.setText(location);
+        TextView Tel = findViewById(R.id.teltext);
+        Tel.setText(tel);
         // TextView name = findViewById(R.id.toolbar);
         TextView descri = findViewById(R.id.description);
         //  TextView tele =findViewById(R.id.tel);
@@ -71,5 +76,10 @@ public class Gallery_MorePlaces extends AppCompatActivity{
                 .asBitmap()
                 .load(imageUrl)
                 .into(image);
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

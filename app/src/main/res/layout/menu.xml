@@ -15,7 +15,7 @@
 
                 <ViewFlipper
                     android:layout_width="match_parent"
-                    android:layout_height="290dp"
+                    android:layout_height="285dp"
 
                     android:id="@+id/viewflipper"
 
@@ -93,7 +93,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="285dp"
         android:orientation="vertical">
 
             <LinearLayout
@@ -124,7 +124,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="16dp"
                         android:padding="1dp"
-                        android:text="Hightlight"
+                        android:text="ไฮไลท์"
                         android:background="@color/GreenColumm1Dark"
                         android:textSize="17sp"
 
@@ -152,7 +152,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="1dp"
-                        android:text="News"
+                        android:text="ข่าวใหม่"
                         android:layout_marginTop="16dp"
                         android:background="@color/GreenColumm2Dark"
                         android:textSize="17sp"
@@ -182,7 +182,7 @@
                         android:layout_height="match_parent"
                         android:padding="1dp"
                         android:layout_marginTop="16dp"
-                        android:text="Travel"
+                        android:text="ธีม"
                         android:background="@color/GreenColumm3Dark"
                         android:textSize="17sp"
 
@@ -222,7 +222,7 @@
                         android:padding="1dp"
                         android:background="@color/GreenColumm3Dark"
                         android:textSize="17sp"
-                        android:text="Package"
+                        android:text="แพ็กเกจ"
 
                         android:textAlignment="center"
                         android:textColor="@color/White"/>
@@ -251,7 +251,7 @@
                         android:layout_marginTop="16dp"
                         android:background="@color/GreenColumm1Dark"
                         android:textSize="17sp"
-                        android:text="Diary"
+                        android:text="ไดอารี่"
                         android:textAlignment="center"
                         android:textColor="@color/White"/>
 
@@ -279,7 +279,7 @@
                         android:layout_marginTop="16dp"
                         android:background="@color/GreenColumm2Dark"
                         android:textSize="17sp"
-                        android:text="Restaurants"
+                        android:text="ร้านอาหาร"
                         android:textAlignment="center"
                         android:textColor="@color/White"/>
 
@@ -315,7 +315,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="16dp"
-                        android:text="Accom"
+                        android:text="โรงแรม"
                         android:padding="1dp"
                         android:background="@color/GreenColumm2Dark"
                         android:textSize="17sp"
@@ -344,7 +344,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="1dp"
-                        android:text="Shop"
+                        android:text="ร้านค้า"
                         android:layout_marginTop="16dp"
                         android:background="@color/GreenColumm3Dark"
                         android:textSize="17sp"
@@ -374,7 +374,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="1dp"
-                        android:text="Help"
+                        android:text="ช่วยเหลือ"
                         android:layout_marginTop="16dp"
                         android:background="@color/GreenColumm1Dark"
                         android:textSize="17sp"

@@ -25,19 +25,19 @@
         android:layout_weight="0.5"
 
         android:fontFamily="@font/viga"
-        android:text="Travel"
+        android:text="สถานที่ท่องเที่ยว"
         android:textColor="@color/darkgrey" />
 
     <TextView
         android:id="@+id/next1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginEnd="15dp"
-        android:layout_weight="0.5"
+        android:layout_marginEnd="100dp"
+        android:layout_weight="0"
         android:fontFamily="@font/viga"
         android:gravity="end"
-        android:text="More+"
+        android:text="เพิ่มเติม+"
         android:textColor="@color/colorPrimary"
         android:textSize="17sp"
         android:textStyle="bold" />
@@ -69,20 +69,20 @@
             android:layout_marginStart="5dp"
             android:fontFamily="@font/viga"
             android:layout_weight="0.5"
-            android:text="Themes"
+            android:text="ธีม"
             android:textColor="@color/darkgrey" />
         <TextView
             android:id="@+id/next2"
             android:textSize="17sp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_weight="0.5"
+            android:layout_weight="0"
             android:fontFamily="@font/viga"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="100dp"
             android:gravity="end"
             android:textStyle="bold"
-            android:text="More+"
+            android:text="เพิ่มเติม+"
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
@@ -113,20 +113,20 @@
             android:layout_marginStart="5dp"
             android:layout_weight="0.5"
             android:fontFamily="@font/viga"
-            android:text="Restaurants"
+            android:text="ร้านอาหาร"
             android:textColor="@color/darkgrey" />
         <TextView
             android:id="@+id/next3"
             android:textSize="17sp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_weight="0.5"
-            android:layout_marginEnd="15dp"
+            android:layout_weight="0"
+            android:layout_marginEnd="100dp"
             android:gravity="end"
             android:fontFamily="@font/viga"
             android:textStyle="bold"
-            android:text="More+"
+            android:text="เพิ่มเติม+"
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
     <android.support.v7.widget.RecyclerView

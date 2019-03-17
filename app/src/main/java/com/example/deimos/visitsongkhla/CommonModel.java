@@ -1,9 +1,9 @@
 package com.example.deimos.visitsongkhla;
 
 public  class CommonModel {
-    String title,url,des,tel,type,location,faceline,time;
+    String title,url,des,tel,type,location,faceline,time,lat,lng;
 
-    public CommonModel(String title, String url, String des, String tel, String type, String location, String faceline, String time) {
+    public CommonModel(String title, String url, String des, String tel, String type, String location, String faceline, String time,String lat,String lng) {
         this.title = title;
         this.url = url;
         this.des = des;
@@ -12,6 +12,32 @@ public  class CommonModel {
         this.location = location;
         this.faceline = faceline;
         this.time = time;
+        this.lat = lat;
+        this.lng = lng;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLng() {
+        return lng;
+    }
+
+    public void setLng(String lng) {
+        this.lng = lng;
     }
 
     public String getTitle() {

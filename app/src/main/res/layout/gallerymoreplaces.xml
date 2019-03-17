@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Gallery_MorePlaces">
+    tools:context=".Gallery">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -71,18 +71,121 @@
                     android:id="@+id/description"
                     android:textSize="15sp"/>
 
+
                 <TextView
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:padding="10dp"
+                    android:drawablePadding="5dp"
+                    android:justificationMode="inter_word"
+                    android:drawableStart="@drawable/icongpsgallery"
                     android:focusable="true"
-                    android:autoLink="phone"
-                    android:clickable="true"
-                    android:text="0973471602"
-                    android:id="@+id/description2"
+                    android:text=""
+                    android:id="@+id/locationtext"
                     android:textSize="15sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+                    <TextView
+                        android:layout_marginTop="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:padding="10dp"
+                        android:drawablePadding="5dp"
+                        android:drawableStart="@drawable/iconphone"
+                        android:focusable="true"
+                        android:autoLink="phone"
+                        android:clickable="true"
+                        android:text="-"
+                        android:layout_weight="1"
+                        android:id="@+id/teltext"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_marginTop="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:padding="10dp"
+                        android:layout_weight="1"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/googlemapicon"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:text="เส้นทาง"
+                        android:id="@+id/googlemap"
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:padding="10dp"
+                    android:drawablePadding="10dp"
+                    android:text="แกลลอรี่"
+                    android:textSize="16dp"
+                    android:drawableLeft="@drawable/icongallery"
+                    android:layout_marginTop="2dp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/s1"
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"/>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/s2"/>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="3"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginBottom="30dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/s3"
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"/>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/s4"/>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/s5"/>
+
+
+                </LinearLayout>
 
             </LinearLayout>
 
