@@ -632,4 +632,21 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
                 "onConnectionFailed: \n" + connectionResult.toString(),
                 Toast.LENGTH_LONG).show();
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_setting, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            Intent goSet = new Intent(Checkin.this,Setting.class);
+            startActivity(goSet);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

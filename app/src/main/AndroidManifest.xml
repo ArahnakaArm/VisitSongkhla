@@ -13,6 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Language"></activity>
+        <activity android:name=".Version" />
+        <activity android:name=".Setting" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -28,9 +31,15 @@
         <activity android:name=".Menu" />
         <activity android:name=".Checkin" />
         <activity android:name=".Map" />
-        <activity android:name=".Gallery" android:theme="@style/AppThemeNoTool" android:parentActivityName=".Home" />
+        <activity
+            android:name=".Gallery"
+            android:parentActivityName=".Home"
+            android:theme="@style/AppThemeNoTool" />
         <activity android:name=".MorePlaces" />
-        <activity android:name=".Gallery_MorePlaces" android:theme="@style/AppThemeNoTool" android:parentActivityName=".MorePlaces" />
+        <activity
+            android:name=".Gallery_MorePlaces"
+            android:parentActivityName=".MorePlaces"
+            android:theme="@style/AppThemeNoTool" />
         <activity android:name=".ImageGallery" />
 
         <meta-data

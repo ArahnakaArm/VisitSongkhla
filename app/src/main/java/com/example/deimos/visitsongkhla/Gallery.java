@@ -35,7 +35,6 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by arahnaka on 6/17/2018.
@@ -131,5 +130,21 @@ public class Gallery extends AppCompatActivity{
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_setting, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            Intent goSet = new Intent(Gallery.this,Setting.class);
+            startActivity(goSet);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

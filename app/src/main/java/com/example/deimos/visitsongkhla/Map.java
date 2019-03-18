@@ -1073,10 +1073,6 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
 
         }
 
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-            return super.onCreateOptionsMenu(menu);
-        }
 
 
         @Override
@@ -1168,5 +1164,22 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
 
             MenuItem menuItem=menu.getItem(ACTIVITY_NUM);
             menuItem.setChecked(true);
+        }
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            getMenuInflater().inflate(R.menu.menu_setting, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            int id = item.getItemId();
+
+            if (id == R.id.action_settings) {
+                Intent goSet = new Intent(Map.this,Setting.class);
+                startActivity(goSet);
+                return true;
+            }
+            return super.onOptionsItemSelected(item);
         }
 }

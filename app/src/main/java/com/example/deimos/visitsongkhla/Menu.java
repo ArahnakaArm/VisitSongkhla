@@ -1,5 +1,6 @@
 package com.example.deimos.visitsongkhla;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -48,5 +49,22 @@ public class Menu extends AppCompatActivity {
         viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
         viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_setting, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            Intent goSet = new Intent(Menu.this,Setting.class);
+            startActivity(goSet);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

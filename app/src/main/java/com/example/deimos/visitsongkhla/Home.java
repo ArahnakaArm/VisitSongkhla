@@ -353,4 +353,23 @@ public class Home extends AppCompatActivity {
             layoutManager.scrollToPositionWithOffset(positionIndex3, topView3);
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_setting, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            Intent goSet = new Intent(Home.this,Setting.class);
+            startActivity(goSet);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
