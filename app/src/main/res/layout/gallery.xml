@@ -25,7 +25,7 @@
 
             <ImageView
                 app:layout_collapseMode="parallax"
-                android:background="@color/white"
+                android:background="@drawable/loading"
                 android:id="@+id/imagegall"
                 android:scaleType="centerCrop"
                 android:layout_width="match_parent"
@@ -101,7 +101,7 @@
                     android:text="-"
                     android:layout_weight="1"
                     android:id="@+id/teltext"
-                    android:textSize="18sp"/>
+                    android:textSize="16sp"/>
 
                 <TextView
                     android:layout_marginTop="2dp"
@@ -116,7 +116,7 @@
                     android:clickable="true"
                     android:text="เส้นทาง"
                     android:id="@+id/googlemap"
-                    android:textSize="18sp"/>
+                    android:textSize="16sp"/>
 
 
                 <TextView
@@ -127,7 +127,7 @@
                     android:id="@+id/gallerytext"
                     android:drawablePadding="10dp"
                     android:text="แกลลอรี่รูปภาพ"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:drawableLeft="@drawable/icongallery"
                     android:layout_marginTop="2dp"
                     />

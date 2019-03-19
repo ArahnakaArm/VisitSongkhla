@@ -15,6 +15,20 @@
 
         </android.support.v7.widget.RecyclerView>
 
+        <FrameLayout
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#33c1c1c1"
+            android:visibility="gone" >
+
+                <ProgressBar
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:theme="@style/AppTheme.PrimaryAccent"
+                    android:layout_gravity="center"
+                    android:indeterminate="true" />
+        </FrameLayout>
 
 
 <include layout="@layout/buttom_navi"></include>

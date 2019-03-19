@@ -53,7 +53,7 @@
             app:snap="false" />
 </RelativeLayout>
     </LinearLayout>
-    <include layout="@layout/buttom_navi"/>
+
 </LinearLayout>
 
 

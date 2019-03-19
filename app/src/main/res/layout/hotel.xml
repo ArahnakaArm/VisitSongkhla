@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="อำเภอเมือง"
+    android:textSize="15sp"
+    android:padding="5dp"
+    android:layout_marginLeft="5dp"
+    android:drawablePadding="3dp"
+    android:drawableLeft="@drawable/icondistrict"
+    />
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerView"
+        android:layout_weight="1">
+
+    </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="อำเภอหาดใหญ่"
+        android:textSize="15sp"
+        android:padding="5dp"
+        android:layout_marginLeft="5dp"
+        android:drawablePadding="3dp"
+        android:drawableLeft="@drawable/icondistrict"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerView2"
+        android:layout_weight="1">
+
+    </android.support.v7.widget.RecyclerView>
+    <FrameLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#33c1c1c1"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:theme="@style/AppTheme.PrimaryAccent"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+
+    <include layout="@layout/buttom_navi"></include>
+
+
+
+
+</LinearLayout>

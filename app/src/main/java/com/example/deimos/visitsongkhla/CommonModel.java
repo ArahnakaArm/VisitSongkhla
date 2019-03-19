@@ -1,9 +1,10 @@
 package com.example.deimos.visitsongkhla;
 
 public  class CommonModel {
-    String title,url,des,tel,type,location,faceline,time,lat,lng;
+    String title,url,des,tel,type,location,faceline,time,lat,lng,MoreUrl1,MoreUrl2,MoreUrl3,MoreUrl4,MoreUrl5;
 
-    public CommonModel(String title, String url, String des, String tel, String type, String location, String faceline, String time,String lat,String lng) {
+    public CommonModel(String title, String url, String des, String tel, String type, String location, String faceline, String time, String lat, String lng
+    , String MoreUrl1, String MoreUrl2, String MoreUrl3, String MoreUrl4, String MoreUrl5) {
         this.title = title;
         this.url = url;
         this.des = des;
@@ -14,6 +15,11 @@ public  class CommonModel {
         this.time = time;
         this.lat = lat;
         this.lng = lng;
+        this.MoreUrl1 = MoreUrl1;
+        this.MoreUrl2 = MoreUrl2;
+        this.MoreUrl3 = MoreUrl3;
+        this.MoreUrl4 = MoreUrl4;
+        this.MoreUrl5 = MoreUrl5;
     }
 
     public void setUrl(String url) {
@@ -110,6 +116,46 @@ public  class CommonModel {
         this.time = time;
     }
 
+
+    public String getMoreUrl1() {
+        return MoreUrl1;
+    }
+
+    public void setMoreUrl1(String moreUrl1) {
+        MoreUrl1 = moreUrl1;
+    }
+
+    public String getMoreUrl2() {
+        return MoreUrl2;
+    }
+
+    public void setMoreUrl2(String moreUrl2) {
+        MoreUrl2 = moreUrl2;
+    }
+
+    public String getMoreUrl3() {
+        return MoreUrl3;
+    }
+
+    public void setMoreUrl3(String moreUrl3) {
+        MoreUrl3 = moreUrl3;
+    }
+
+    public String getMoreUrl4() {
+        return MoreUrl4;
+    }
+
+    public void setMoreUrl4(String moreUrl4) {
+        MoreUrl4 = moreUrl4;
+    }
+
+    public String getMoreUrl5() {
+        return MoreUrl5;
+    }
+
+    public void setMoreUrl5(String moreUrl5) {
+        MoreUrl5 = moreUrl5;
+    }
 
 
     public CommonModel(){
