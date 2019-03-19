@@ -110,7 +110,7 @@ public class Gallery extends AppCompatActivity{
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // TextView name = findViewById(R.id.toolbar);
+        // TextView name = findViewById(R.id.tooalbar);
         TextView descri = findViewById(R.id.description);
         //  TextView tele =findViewById(R.id.tel);
         //TextView location = findViewById(R.id.location_input);

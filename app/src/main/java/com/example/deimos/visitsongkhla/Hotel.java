@@ -49,11 +49,11 @@ import java.util.ArrayList;
 
 
 
-public class MorePlaces extends AppCompatActivity {
+public class Hotel extends AppCompatActivity {
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
     RecyclerView mRecyclerView;
-    private FirebaseRecyclerAdapter<CommonModel, MorePlaces.NewsViewHolder> RVAdapter;
+    private FirebaseRecyclerAdapter<CommonModel, Hotel.NewsViewHolder> RVAdapter;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mRef;
     private static final int ACTIVITY_NUM = 1;
@@ -66,10 +66,10 @@ public class MorePlaces extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.places_list);
+        setContentView(R.layout.hotel);
         setNavi();
-        linearLayoutManager = new LinearLayoutManager(MorePlaces.this);
-        new MorePlaces.MyTasks(MorePlaces.this).execute((Void) null);
+        linearLayoutManager = new LinearLayoutManager(Hotel.this);
+        new Hotel.MyTasks(Hotel.this).execute((Void) null);
 
 
     }
@@ -95,7 +95,7 @@ public class MorePlaces extends AppCompatActivity {
     public void setNavi(){
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enableNavigation(MorePlaces.this,bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableNavigation(Hotel.this,bottomNavigationViewEx);
         Menu menu =bottomNavigationViewEx.getMenu();
 
         MenuItem menuItem=menu.getItem(ACTIVITY_NUM);
@@ -121,10 +121,10 @@ public class MorePlaces extends AppCompatActivity {
     }
     private class MyTasks extends AsyncTask<Void, Void, Void> {
 
-        private MorePlaces mActivity;
+        private Hotel mActivity;
         private FrameLayout mFrameOverlay;
         ListView theList;
-        public MyTasks(MorePlaces activity) {
+        public MyTasks(Hotel activity) {
             mActivity = activity;
         }
 
@@ -141,24 +141,24 @@ public class MorePlaces extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             // do heavy work
             mFirebaseDatabase = FirebaseDatabase.getInstance();
-            mRef = mFirebaseDatabase.getReference("Home-Attract").child("TH");
+            mRef = mFirebaseDatabase.getReference("Travel-Hotel").child("TH");
             mRef.keepSynced(true);
             mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
             mRecyclerView.hasFixedSize();
-            linearLayoutManager = new LinearLayoutManager(MorePlaces.this);
+            linearLayoutManager = new LinearLayoutManager(Hotel.this);
             mRecyclerView.setLayoutManager(linearLayoutManager);
 
             FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(mRef, CommonModel.class).build();
-            RVAdapter = new FirebaseRecyclerAdapter<CommonModel, MorePlaces.NewsViewHolder>(foodOptions) {
+            RVAdapter = new FirebaseRecyclerAdapter<CommonModel, Hotel.NewsViewHolder>(foodOptions) {
                 @Override
-                protected void onBindViewHolder(@NonNull MorePlaces.NewsViewHolder holder, int position, final CommonModel model) {
+                protected void onBindViewHolder(@NonNull Hotel.NewsViewHolder holder, int position, final CommonModel model) {
                     holder.setTitle(model.getTitle());
                     holder.setImage(getApplicationContext(), model.getUrl());
                     holder.mView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             final String url = model.getUrl();
-                            Intent intent = new Intent(MorePlaces.this, Gallery_MorePlaces.class);
+                            Intent intent = new Intent(Hotel.this, Gallery_MorePlaces.class);
                             intent.putExtra("image_name", model.getTitle());
                             intent.putExtra("image_url", model.getUrl());
                             intent.putExtra("Des", model.getDes());
@@ -179,11 +179,11 @@ public class MorePlaces extends AppCompatActivity {
 
                 @NonNull
                 @Override
-                public MorePlaces.NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                public Hotel.NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                     View view = LayoutInflater.from(parent.getContext())
                             .inflate(R.layout.listitem_places, parent, false);
 
-                    return new MorePlaces.NewsViewHolder(view);
+                    return new Hotel.NewsViewHolder(view);
                 }
             };
             mRecyclerView.setAdapter(RVAdapter);
@@ -214,7 +214,7 @@ public class MorePlaces extends AppCompatActivity {
             //remove the overlay
             mFrameOverlay.setVisibility(View.GONE);
             // setup the ListView with the new obtained data
-           // theList.setVisibility(View.VISIBLE);
+            // theList.setVisibility(View.VISIBLE);
         }
 
     }

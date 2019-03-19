@@ -15,4 +15,7 @@
     <string name="MP11">ร้านอาหาร</string>
     <string name="MP12">ร้านค้า</string>
     <string name="MP13">ปั๊มน้ํามัน</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,10 +1,14 @@
 package com.example.deimos.visitsongkhla;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
@@ -12,6 +16,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 public class Menu extends AppCompatActivity {
     ViewFlipper viewFlipper;
     private static final int ACTIVITY_NUM=1;
+    LinearLayout goResAc;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +31,15 @@ public class Menu extends AppCompatActivity {
         for(int image:images){
             flipperimage(image);
         }
+        goResAc= findViewById(R.id.but_food);
+        goResAc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goRes = new Intent(Menu.this,MoreRestaurants.class);
+                startActivity(goRes);
+            }
+        });
+
 
     }
     public void setNavi(){

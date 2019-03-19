@@ -75,6 +75,7 @@ public class Home extends AppCompatActivity {
     public static int positionIndex3 = -1;
     public static int topView3 = -1;
     TextView next1;
+    TextView next2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +97,15 @@ public class Home extends AppCompatActivity {
             }
         });
 
+        next2= findViewById(R.id.next3);
+        next2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goMoreRes = new Intent(Home.this,MoreRestaurants.class);
+                goMoreRes.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(goMoreRes);
+            }
+        });
 
 
 
@@ -265,8 +275,8 @@ public class Home extends AppCompatActivity {
 
         mImageUrls2.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FThemes%2Fa3.jpg?alt=media&token=ba41c2da-04df-45d1-9008-eadb21cbcebe");
         mNames2.add("สถานแสดงพันธุ์สัตว์น้ำสงขลา");
-        mDes2.add("จัดตั้งโดยเทศบาลสงขลา เพื่อให้เยาวชนและประชาชนทั่วไปศึกษา เรียนรู้ ด้านชีววิทยาและพฤติกรรมของสัตว์น้ำ ตลอดจนการอนุรักษ์ทรัพยากรธรรมชาติทางทะเลและสิ่งแวดล้อม รวมทั้งเป็นสถานที่พักผ่อนหย่อนใจของประชาชน ชมความยิ่งใหญ่ของปลาหมอทะเลน้ำหนักกว่า 200 กิโลกรัม ที่ใหญ่และมากที่สุดในประเทศไทย ฉลามเสือดาว และกลุ่มปลาสวยงามตามแนวปะการัง\n" +
-                "ภายในอาคารจัดแสดงพันธุ์สัตว์น้ำและนิทรรศการต่าง ๆ  ประกอบด้วย อุโมงค์ปลา ส่วนแสดงระบบนิเวศน์ ภูเขา ลำธาร สัตว์น้ำจืด ป่าโกงกาง ชายหาดและสัตว์น้ำเค็ม ทะเลอ่าวไทย การใช้ทรัพยากรในทะเล ลานนิทรรศการ นอกจากนี้ยังมีห้องสัมมนา ร้านอาหาร และร้านจำหน่ายของที่ระลึก\n");
+        mDes2.add("จัดตั้งโดยเทศบาลสงขลาเพื่อให้ประชาชนทั่วไปศึกษา,เรียนรู้ด้านชีววิทยาและพฤติกรรมของสัตว์น้ำตลอดจนการอนุรักษ์ทรัพยากรธรรมชาติทางทะเลและสิ่งแวดล้อมรวมทั้งเป็นสถานที่พักผ่อนหย่อนใจของประชาชน ชมความยิ่งใหญ่ของปลาหมอทะเลน้ำหนักกว่า 200 กิโลกรัม ที่ใหญ่และมากที่สุดในประเทศไทย ฉลามเสือดาว และกลุ่มปลาสวยงามตามแนวปะการัง\n" +
+                "ภายในอาคารจัดแสดงพันธุ์สัตว์น้ำและนิทรรศการต่าง ๆ ประกอบด้วย อุโมงค์ปลา ส่วนแสดงระบบนิเวศน์ ภูเขา ลำธาร สัตว์น้ำจืด ป่าโกงกาง ชายหาดและสัตว์น้ำเค็ม ทะเลอ่าวไทย การใช้ทรัพยากรในทะเล ลานนิทรรศการ นอกจากนี้ยังมีห้องสัมมนา ร้านอาหาร และร้านจำหน่ายของที่ระลึก\n");
         mTel2.add("-");
         mLocation2.add("-");
         mLat2.add("7.2253658");
@@ -292,24 +302,69 @@ public class Home extends AppCompatActivity {
     private void getImages3(){
         mImageUrls3.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F2.jpg?alt=media&token=9b52e4ca-4518-4998-a465-76e40885fcee");
         mNames3.add("หนานหยวน");
-        mDes3.add("");
-        mLocation3.add("-");
+        mDes3.add("ก๋วยเตี๋ยว/อาหารจีน");
+        mTel3.add("081-9639553");
+        mLocation3.add("ถ.ตันรัตนากร ต.หาดใหญ่ อ. หาดใหญ่ จ.สงขลา 90110");
+        mLat3.add("7.0037427");
+        mLng3.add("100.4783379");
+        mImage31.add("");
+        mImage32.add("");
+        mImage33.add("");
+        mImage34.add("");
+        mImage35.add("");
+
 
         mImageUrls3.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F5.jpg?alt=media&token=537be66b-ba99-4cf5-a9a6-6f8e75f85dad");
-        mNames3.add("โชคดี แต่เตี้ยม ");
-        mLocation3.add("-");
+        mNames3.add("โชคดี แต่เตี้ยม");
+        mDes3.add("ติ่มซำ/อาหารจีน");
+        mTel3.add("081-3726181");
+        mLocation3.add("58/25 ถ.ละม้าย สงเคราะห์ คลองเตย ต.หาดใหญ่ อ. หาดใหญ่ จ.สงขลา 90110");
+        mLat3.add("7.0054348");
+        mLng3.add("100.4792328");
+        mImage31.add("");
+        mImage32.add("");
+        mImage33.add("");
+        mImage34.add("");
+        mImage35.add("");
 
         mImageUrls3.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F1.jpg?alt=media&token=a1c68749-26c9-4d16-8c17-d4a6b59a3698");
         mNames3.add("ไก่ทอดเดชา ");
-        mLocation3.add("-");
+        mDes3.add("อาหารไทย");
+        mTel3.add("081-0983751");
+        mLocation3.add("4135 ต.ควนลัง อ.หาดใหญ่ จ.สงขลา 90110");
+        mLat3.add("6.9670558");
+        mLng3.add("100.4253555");
+        mImage31.add("");
+        mImage32.add("");
+        mImage33.add("");
+        mImage34.add("");
+        mImage35.add("");
 
         mImageUrls3.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2Fkenta2.jpg?alt=media&token=b0ef2619-366b-4afe-87ab-f1e2defbd674");
         mNames3.add("เคนตะ หาดใหญ่");
-        mLocation3.add("-");
+        mDes3.add("ซูชิ/อาหารญี่ปุ่น");
+        mTel3.add("093-6943502");
+        mLocation3.add("228/42-44 ต.หาดใหญ่ อ. หาดใหญ่ จ.สงขลา 90110");
+        mLat3.add("7.0082122");
+        mLng3.add("100.4744218");
+        mImage31.add("");
+        mImage32.add("");
+        mImage33.add("");
+        mImage34.add("");
+        mImage35.add("");
 
         mImageUrls3.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%80%E0%B8%84%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%94%E0%B8%B4%E0%B8%99.jpg?alt=media&token=da165e8e-28de-4584-862f-ecff00b4e9e7");
         mNames3.add("น้ำเคียงดิน");
-        mLocation3.add("-");
+        mDes3.add("อาหารทะเล/อาหารไทย");
+        mTel3.add("082-1799709");
+        mLocation3.add("59/2 หมู่ที่ 1 ต.เกาะยอ อ.เมืองสงขลา จ.สงขลา 90000");
+        mLat3.add("7.0918989");
+        mLng3.add("100.4587059");
+        mImage31.add("");
+        mImage32.add("");
+        mImage33.add("");
+        mImage34.add("");
+        mImage35.add("");
 
         initRecyclerView3();
     }
