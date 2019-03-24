@@ -16,7 +16,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 public class Menu extends AppCompatActivity {
     ViewFlipper viewFlipper;
     private static final int ACTIVITY_NUM=1;
-    LinearLayout goResAc;
+    LinearLayout goResAc,goHotel,goDiary,goThemes;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +39,30 @@ public class Menu extends AppCompatActivity {
                 startActivity(goRes);
             }
         });
-
-
+        goHotel = findViewById(R.id.but_hotel);
+        goHotel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goHotel = new Intent(Menu.this,Hotel.class);
+                startActivity(goHotel);
+            }
+        });
+        goDiary = findViewById(R.id.but_diary);
+        goDiary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goDiary = new Intent(Menu.this,Diary.class);
+                startActivity(goDiary);
+            }
+        });
+        goThemes = findViewById(R.id.but_theme);
+        goThemes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goThemes = new Intent(Menu.this,Themes.class);
+                startActivity(goThemes);
+            }
+        });
     }
     public void setNavi(){
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);

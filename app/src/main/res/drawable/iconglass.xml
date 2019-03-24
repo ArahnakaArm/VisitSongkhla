@@ -3,8 +3,8 @@
 
     <item
         android:drawable="@drawable/glass"
-        android:width="50sp"
-        android:height="50sp"
+        android:width="45sp"
+        android:height="45sp"
 
         />
 

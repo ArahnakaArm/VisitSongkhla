@@ -76,6 +76,7 @@ public class Home extends AppCompatActivity {
     public static int topView3 = -1;
     TextView next1;
     TextView next2;
+    TextView next3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +105,16 @@ public class Home extends AppCompatActivity {
                 Intent goMoreRes = new Intent(Home.this,MoreRestaurants.class);
                 goMoreRes.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(goMoreRes);
+            }
+        });
+
+        next3= findViewById(R.id.next2);
+        next3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goMoreThemes = new Intent(Home.this,Themes.class);
+                goMoreThemes.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(goMoreThemes);
             }
         });
 
