@@ -296,7 +296,7 @@
                 android:weightSum="3"
                 android:background="@color/White">
                 <LinearLayout
-                    android:id="@+id/but_exchange"
+                    android:id="@+id/but_hotel"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_weight="1"

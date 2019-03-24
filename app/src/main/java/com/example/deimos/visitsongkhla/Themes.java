@@ -11,21 +11,21 @@ import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-public class Hotel extends AppCompatActivity implements HatyaiHotelTab.OnFragmentInteractionListener,SongkhlaHotelTab.OnFragmentInteractionListener,EtcHotelTab.OnFragmentInteractionListener {
+public class Themes extends AppCompatActivity implements ArticalTab.OnFragmentInteractionListener,HistiricalTab.OnFragmentInteractionListener,NeturalTab.OnFragmentInteractionListener {
     private static final int ACTIVITY_NUM=1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hotel);
+        setContentView(R.layout.themes);
         setNavi();
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("อ.หาดใหญ่"));
-        tabLayout.addTab(tabLayout.newTab().setText("อ.เมือง"));
-        tabLayout.addTab(tabLayout.newTab().setText("อ.อื่นๆ"));
+        tabLayout.addTab(tabLayout.newTab().setText("ธรรมชาติ"));
+        tabLayout.addTab(tabLayout.newTab().setText("ประวัติศาสตร์"));
+        tabLayout.addTab(tabLayout.newTab().setText("ศิลปวัฒนธรรม"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
-        final PagerAdapterHotel adapter = new PagerAdapterHotel(getSupportFragmentManager(),tabLayout.getTabCount());
+        final PagerAdapterThemes adapter = new PagerAdapterThemes(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -54,7 +54,7 @@ public class Hotel extends AppCompatActivity implements HatyaiHotelTab.OnFragmen
     public void setNavi(){
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enableNavigation(Hotel.this,bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableNavigation(Themes.this,bottomNavigationViewEx);
         Menu menu =bottomNavigationViewEx.getMenu();
         MenuItem menuItem=menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);

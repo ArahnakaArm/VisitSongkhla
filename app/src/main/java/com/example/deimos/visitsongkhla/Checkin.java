@@ -311,7 +311,7 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
                /* PendingResult<PlaceBuffer> placeResult = Places.GeoDataApi
                         .getPlaceById(mGoogleApiClient, place.getId());
                 placeResult.setResultCallback(mUpdatePlaceDetailsCallback);*/
-                Intent goRate = new Intent(Checkin.this,Home.class);
+                Intent goRate = new Intent(Checkin.this,CheckInNearby.class);
                 goRate.putExtra("placename",place.getName());
                 startActivity(goRate);
                 //Toast.makeText(this,place.getName(),Toast.LENGTH_SHORT).show();
@@ -537,8 +537,8 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
             //if(place.getName().toString().contains(".")){
             Places.GeoDataApi.getPlacePhotos(mGoogleApiClient,place.getId());
             //
-            
-            Intent goRate =new Intent(Checkin.this,Home.class);
+
+            Intent goRate =new Intent(Checkin.this,CheckInNearby.class);
             goRate.putExtra("placename",place.getName());
 
             startActivity(goRate);

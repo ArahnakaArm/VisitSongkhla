@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/waterfall2"
-> <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+>
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="0dp"
     android:layout_marginTop="0dp"
@@ -37,12 +38,12 @@
 
             <Button
 
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/button1"
                 android:drawableTop="@drawable/icongps"
-                android:paddingTop="25dp"
+                android:paddingTop="22.5dp"
                 android:background="@drawable/circle"
                 android:layout_centerVertical="true"
 
@@ -75,13 +76,13 @@
 
             <Button
 
-                android:layout_width="100dp"
+                android:layout_width="90dp"
 
-                android:layout_height="100dp"
+                android:layout_height="90dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/button2"
                 android:drawableTop="@drawable/iconglass"
-                android:paddingTop="25dp"
+                android:paddingTop="22.5dp"
                 android:background="@drawable/circle2"
                 android:layout_centerVertical="true"
 
