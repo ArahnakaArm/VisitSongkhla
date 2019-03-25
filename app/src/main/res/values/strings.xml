@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">VisitSongkhla</string>
+    ////CHOOSEN////
+    <string name="CH1">ยินดีต้อนรับสู่</string>
+    <string name="CH2">VisitSongkhla</string>
+    <string name="CH3">ทุกการท่องเที่ยว...อยู่ในมือคุณ</string>
+    <string name="CH4">ภาษา</string>
+    <string name="CH5">ไทย</string>
+    <string name="CH6">อังกฤษ</string>
+    <string name="CH7">มลายู</string>
+    <string name="CH8">เข้าใช้งาน</string>
     /////MAP/////
     <string name="MP1">ค้นหาสถานที่</string>
     <string name="MP2">ปัจจุบัน</string>
@@ -15,7 +24,17 @@
     <string name="MP11">ร้านอาหาร</string>
     <string name="MP12">ร้านค้า</string>
     <string name="MP13">ปั๊มน้ํามัน</string>
-
+    ////MenuSetting/////
+    <string name="action_settings">Settings</string>
+    ////SETTING////
+    <string name="ST1">ภาษา</string>
+    <string name="ST2">ประวัติ จ.สงขลา</string>
+    <string name="ST3">ข้อกำหนดเเละเงื่อนไขการใช้งาน</string>
+    <string name="ST4">เกียวกับเรา</string>
+    <string name="ST5">ออกจากระบบ</string>
+    ////VERSION////
+    <string name="VS1">เวอร์ชั่น : 1.0.0</string>
+    <string name="VS2">สนับสนุนโดย: ศูนย์บริการวิชาการ มหาวิทยาลัยสงขลานครินทร์</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
