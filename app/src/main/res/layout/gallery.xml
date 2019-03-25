@@ -96,7 +96,7 @@
                     android:drawablePadding="5dp"
                     android:drawableStart="@drawable/iconphone"
                     android:focusable="true"
-                    android:autoLink="phone"
+                    android:textColor="@color/colorPrimary"
                     android:clickable="true"
                     android:text="-"
                     android:layout_weight="1"

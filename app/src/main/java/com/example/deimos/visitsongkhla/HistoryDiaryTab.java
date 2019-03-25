@@ -1,108 +1,284 @@
 package com.example.deimos.visitsongkhla;
 
+
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+
+import static com.google.android.gms.internal.zzahn.runOnUiThread;
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link HistoryDiaryTab.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link HistoryDiaryTab#newInstance} factory method to
- * create an instance of this fragment.
+ * Created by arahnaka on 6/20/2018.
  */
-public class HistoryDiaryTab extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
-
-    public HistoryDiaryTab() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HistoryDiaryTab.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HistoryDiaryTab newInstance(String param1, String param2) {
-        HistoryDiaryTab fragment = new HistoryDiaryTab();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+public class  HistoryDiaryTab extends Fragment {
+    private ArrayList<String> mNames = new ArrayList<>();
+    private ArrayList<String> mImageUrls = new ArrayList<>();
+    RecyclerView mRecyclerView;
+    String android_id;
+    private static final int ACTIVITY_NUM = 1;
+    FirebaseDatabase mFirebaseDatabase;
+    Query Q;
+    private FirebaseRecyclerAdapter<CommonModel, HistoryDiaryTab.NewsViewHolder> RVAdapter;
+    DatabaseReference mRef;
+    public static int positionIndex = -1;
+    public static int topView = -1;
+    LinearLayoutManager linearLayoutManager ;
+    private HistoryDiaryTab mActivity;
+    private FrameLayout mFrameOverlay;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+
+    }
+
+    @Nullable
+    @Override
+
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_common_tab, container, false);
+        linearLayoutManager = new LinearLayoutManager(getContext());
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        android_id = Settings.Secure.getString(getContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+        mRef = mFirebaseDatabase.getReference("User-Places").child(android_id).child("CheckIn");
+        Q = mRef.orderByChild("type").equalTo("ประวัติศาสตร์");
+        mRef.keepSynced(true);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        mRecyclerView.hasFixedSize();
+        linearLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mFrameOverlay = (FrameLayout)rootView.findViewById(R.id.overlay);
+        new HistoryDiaryTab.MyTasks(HistoryDiaryTab.this).execute((Void) null);
+
+/*
+
+
+        FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(Q,CommonModel.class).build();
+        RVAdapter = new FirebaseRecyclerAdapter<CommonModel, CommonTab.NewsViewHolder>(foodOptions) {
+            @Override
+            protected void onBindViewHolder(@NonNull CommonTab.NewsViewHolder holder, int position, final CommonModel model) {
+                holder.setTitle(model.getTitle());
+                // holder.setDes(model.getDescription());
+                holder.setImage(getContext(), model.getUrl());
+                holder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final String url = model.getUrl();
+                        Intent intent = new Intent(getContext(), Gallery_MorePlaces.class);
+                        intent.putExtra("image_name", model.getTitle());
+                        intent.putExtra("image_url", model.getUrl());
+                        intent.putExtra("Des", model.getDes());
+                        intent.putExtra("Local",model.getLocation());
+                        intent.putExtra("Tel",model.getTel());
+                        intent.putExtra("Lat",model.getLat());
+                        intent.putExtra("Lng",model.getLng());
+                        startActivity(intent);
+                    }
+                });
+
+            }
+
+            @NonNull
+            @Override
+            public CommonTab.NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.listitem_places, parent, false);
+
+                return new CommonTab.NewsViewHolder(view);
+            }
+        };
+        mRecyclerView.setAdapter(RVAdapter);
+        RVAdapter.startListening();*/
+        return rootView;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history_diary_tab, container, false);
-    }
+    public void onPause() {
+        super.onPause();
+        positionIndex= linearLayoutManager.findFirstVisibleItemPosition();
+        View startView = mRecyclerView.getChildAt(0);
+        topView = (startView == null) ? 0 : (startView.getTop() - mRecyclerView.getPaddingTop());
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+    public void onResume() {
+        super.onResume();
+        if (positionIndex!= -1) {
+            linearLayoutManager.scrollToPositionWithOffset(positionIndex, topView);
         }
+
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
+    public static class NewsViewHolder extends RecyclerView.ViewHolder {
+        View mView;
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
+        public NewsViewHolder(View itemView) {
+            super(itemView);
+            mView = itemView;
+        }
+
+        public void setTitle(String title) {
+            TextView post_title = (TextView) mView.findViewById(R.id.history_text_name);
+            post_title.setText(title);
+        }
+
+        /* public void setDes(String desc){
+             TextView post_desc = (TextView)mView.findViewById(R.id.post_desc);
+             post_desc.setText(desc);
+         }*/
+        public void setDate(String date) {
+            TextView setdate = (TextView) mView.findViewById(R.id.history_text_date);
+            setdate.setText(date);
+        }
+
+    }
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    class MyTasks extends AsyncTask<Void, Void, Void> {
+        ListView theList;
+        public MyTasks(HistoryDiaryTab activity) {
+            mActivity = activity;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // the AsyncTask it's about to start so show the overlay
+
+            // set a touch listener and consume the event so the ListView
+            // doesn't get clicked
+            mFrameOverlay.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            // do heavy work
+
+         /*   FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(Q,CommonModel.class).build();
+            RVAdapter = new FirebaseRecyclerAdapter<CommonModel, HistiricalTab.NewsViewHolder>(foodOptions) {
+                @Override
+                protected void onBindViewHolder(@NonNull HistiricalTab.NewsViewHolder holder, int position, final CommonModel model) {
+                    holder.setTitle(model.getTitle());
+                    // holder.setDes(model.getDescription());
+                    holder.setImage(getContext(), model.getUrl());
+                    holder.mView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            final String url = model.getUrl();
+                            Intent intent = new Intent(getContext(), Gallery_MorePlaces.class);
+                            intent.putExtra("image_name", model.getTitle());
+                            intent.putExtra("image_url", model.getUrl());
+                            intent.putExtra("Des", model.getDes());
+                            intent.putExtra("Local",model.getLocation());
+                            intent.putExtra("Tel",model.getTel());
+                            intent.putExtra("Lat",model.getLat());
+                            intent.putExtra("Lng",model.getLng());
+                            startActivity(intent);
+                        }
+                    });
+
+                }
+
+                @NonNull
+                @Override
+                public HistiricalTab.NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                    View view = LayoutInflater.from(parent.getContext())
+                            .inflate(R.layout.listitem_places, parent, false);
+
+                    return new HistiricalTab.NewsViewHolder(view);
+                }
+            };
+            mRecyclerView.setAdapter(RVAdapter);
+            RVAdapter.startListening();
+*/
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            mFrameOverlay.setVisibility(View.VISIBLE);
+                            final  Handler handler1 = new Handler();
+                            handler1.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mFrameOverlay.setVisibility(View.GONE);
+                                }
+                            },2200);
+                            FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(mRef,CommonModel.class).build();
+                            RVAdapter = new FirebaseRecyclerAdapter<CommonModel, HistoryDiaryTab.NewsViewHolder>(foodOptions) {
+                                @Override
+                                protected void onBindViewHolder(@NonNull HistoryDiaryTab.NewsViewHolder holder, int position, final CommonModel model) {
+                                    holder.setTitle(model.getTitle());
+                                    holder.setDate(model.getDate());
+
+
+                                }
+
+                                @NonNull
+                                @Override
+                                public HistoryDiaryTab.NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                                    View view = LayoutInflater.from(parent.getContext())
+                                            .inflate(R.layout.history_item, parent, false);
+
+                                    return new HistoryDiaryTab.NewsViewHolder(view);
+                                }
+                            };
+                            mRecyclerView.setAdapter(RVAdapter);
+                            RVAdapter.startListening();
+
+                        }
+
+                    }, 0);
+
+                }
+            });
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            mFrameOverlay.setVisibility(View.GONE);
+
+        }
+
     }
 }
