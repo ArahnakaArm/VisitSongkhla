@@ -40,7 +40,7 @@
         <activity android:name=".Hotel" />
         <activity android:name=".Product" />
         <activity android:name=".CheckInNearby" />
-        <activity android:name=".Diary" />
+        <activity android:name=".Diary" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".Themes" />
         <meta-data
             android:name="preloaded_fonts"

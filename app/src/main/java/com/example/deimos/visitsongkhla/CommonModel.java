@@ -1,10 +1,18 @@
 package com.example.deimos.visitsongkhla;
 
 public  class CommonModel {
-    String title,url,des,tel,type,location,faceline,time,lat,lng,MoreUrl1,MoreUrl2,MoreUrl3,MoreUrl4,MoreUrl5;
+    String title,url,des,tel,type,date,location,faceline,time,lat,lng,MoreUrl1,MoreUrl2,MoreUrl3,MoreUrl4,MoreUrl5;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public CommonModel(String title, String url, String des, String tel, String type, String location, String faceline, String time, String lat, String lng
-    , String MoreUrl1, String MoreUrl2, String MoreUrl3, String MoreUrl4, String MoreUrl5) {
+    , String MoreUrl1, String MoreUrl2, String MoreUrl3, String MoreUrl4, String MoreUrl5, String date) {
         this.title = title;
         this.url = url;
         this.des = des;
@@ -15,6 +23,8 @@ public  class CommonModel {
         this.time = time;
         this.lat = lat;
         this.lng = lng;
+        this.date =date;
+
         this.MoreUrl1 = MoreUrl1;
         this.MoreUrl2 = MoreUrl2;
         this.MoreUrl3 = MoreUrl3;

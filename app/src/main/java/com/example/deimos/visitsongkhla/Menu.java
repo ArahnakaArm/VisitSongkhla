@@ -16,7 +16,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 public class Menu extends AppCompatActivity {
     ViewFlipper viewFlipper;
     private static final int ACTIVITY_NUM=1;
-    LinearLayout goResAc,goHotel,goDiary,goThemes;
+    LinearLayout goResAc,goHotel,goDiary,goThemes,goProduct;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +61,14 @@ public class Menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goThemes = new Intent(Menu.this,Themes.class);
                 startActivity(goThemes);
+            }
+        });
+        goProduct = findViewById(R.id.but_product);
+        goProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goProduct = new Intent(Menu.this,Product.class);
+                startActivity(goProduct);
             }
         });
     }
