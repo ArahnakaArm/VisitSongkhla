@@ -18,7 +18,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD4B1StKeCRf9rta5dttAeKPshaSVyx8VQ" />
 
-        <activity android:name=".Themes">
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,10 +35,10 @@
         <activity android:name=".MoreRestaurants" />
         <activity android:name=".MorePlaces" />
         <activity android:name=".Hotel" />
-        <activity android:name=".Home" />
+        <activity android:name=".Product" />
         <activity android:name=".CheckInNearby" />
         <activity android:name=".Diary" />
-
+        <activity android:name=".Themes" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
