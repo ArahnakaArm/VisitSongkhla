@@ -160,7 +160,7 @@ public class  HistoryDiaryTab extends Fragment {
          }*/
         public void setDate(String date) {
             TextView setdate = (TextView) mView.findViewById(R.id.history_text_date);
-            setdate.setText(date);
+            setdate.setText("  "+date);
         }
 
     }
