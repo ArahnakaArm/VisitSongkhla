@@ -13,9 +13,13 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -61,6 +65,7 @@ public class FormDiaryTab extends Fragment {
     private FrameLayout mFrameOverlay;
     DatabaseReference ref;
     Query Q;
+    Boolean checkCorrect = false;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -120,6 +125,11 @@ public class FormDiaryTab extends Fragment {
         edit3 = rootView.findViewById(R.id.input_email);
         edit4 = rootView.findViewById(R.id.input_age);
         textcheck = rootView.findViewById(R.id.textCheck);
+
+        edit1.addTextChangedListener(new MyTextWatcher(edit1));
+        edit2.addTextChangedListener(new MyTextWatcher(edit2));
+        edit3.addTextChangedListener(new MyTextWatcher(edit3));
+        edit4.addTextChangedListener(new MyTextWatcher(edit4));
 
         ref = FirebaseDatabase.getInstance().getReference("User").child(android_id);
         Q = ref.orderByChild("name");
@@ -216,7 +226,7 @@ public class FormDiaryTab extends Fragment {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.child("name").exists()) {
-                        Toast.makeText(getContext(),"data exists",Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getContext(),"data exists",Toast.LENGTH_SHORT).show();
                         layout1.setVisibility(View.INVISIBLE);
                         layout2.setVisibility(View.INVISIBLE);
                         layout3.setVisibility(View.INVISIBLE);
@@ -228,68 +238,77 @@ public class FormDiaryTab extends Fragment {
                         summit.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                checkForm();
+                                if(checkCorrect==true){
+                                    //Toast.makeText(getContext(),"Yes!!",Toast.LENGTH_SHORT).show();
+                                    runOnUiThread(new Runnable() {
 
-                                runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
 
-                                    @Override
-                                    public void run() {
+                                            final Handler handler = new Handler();
+                                            handler.postDelayed(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    dialogpush = new ProgressDialog(getContext());
+                                                    dialogpush.setTitle("กำลังดำเนินการ");
+                                                    dialogpush.setMessage("กรุณารอสักครู่...");
+                                                    dialogpush.show();
 
-                                        final Handler handler = new Handler();
-                                        handler.postDelayed(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                dialogpush = new ProgressDialog(getContext());
-                                                dialogpush.setTitle("กำลังดำเนินการ");
-                                                dialogpush.setMessage("กรุณารอสักครู่...");
-                                                dialogpush.show();
+                                                    final  Handler handler1 = new Handler();
+                                                    handler1.postDelayed(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            dialogpush.dismiss();
+                                                            if(formStateCheck == true) {
+                                                                layout1.setVisibility(View.VISIBLE);
+                                                                layout2.setVisibility(View.VISIBLE);
+                                                                layout3.setVisibility(View.VISIBLE);
+                                                                layout4.setVisibility(View.VISIBLE);
+                                                                textcheck.setVisibility(View.INVISIBLE);
+                                                                summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconsave, 0, 0, 0);
+                                                                summit.setText("บันทึก");
+                                                                formStateCheck=false;
+                                                            }
+                                                            else {
 
-                                                final  Handler handler1 = new Handler();
-                                                handler1.postDelayed(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        dialogpush.dismiss();
-                                                        if(formStateCheck == true) {
-                                                            layout1.setVisibility(View.VISIBLE);
-                                                            layout2.setVisibility(View.VISIBLE);
-                                                            layout3.setVisibility(View.VISIBLE);
-                                                            layout4.setVisibility(View.VISIBLE);
-                                                            textcheck.setVisibility(View.INVISIBLE);
-                                                            summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconsave, 0, 0, 0);
-                                                            summit.setText("บันทึก");
-                                                            formStateCheck=false;
+                                                                HashMap<String, Object> postValues = new HashMap<>();
+                                                                postValues.put("name", edit1.getText().toString());
+                                                                postValues.put("surname", edit2.getText().toString());
+                                                                postValues.put("email", edit3.getText().toString());
+                                                                postValues.put("age", edit4.getText().toString());
+                                                                Map<String, Object> childUpdates = new HashMap<>();
+                                                                childUpdates.put(android_id, postValues);
+
+                                                                // childUpdates.put("/user-messages/Jirawatee/" + key, postValues);
+
+                                                                Userdiary.updateChildren(childUpdates);
+                                                                textcheck.setVisibility(View.VISIBLE);
+                                                                layout1.setVisibility(View.INVISIBLE);
+                                                                layout2.setVisibility(View.INVISIBLE);
+                                                                layout3.setVisibility(View.INVISIBLE);
+                                                                layout4.setVisibility(View.INVISIBLE);
+                                                                summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconedit, 0, 0, 0);
+                                                                summit.setText("แก้ไข");
+                                                                formStateCheck=true;
+                                                            }
+
                                                         }
-                                                        else {
+                                                    },2200);
 
-                                                            HashMap<String, Object> postValues = new HashMap<>();
-                                                            postValues.put("name", edit1.getText().toString());
-                                                            postValues.put("surname", edit2.getText().toString());
-                                                            postValues.put("email", edit3.getText().toString());
-                                                            postValues.put("age", edit4.getText().toString());
-                                                            Map<String, Object> childUpdates = new HashMap<>();
-                                                            childUpdates.put(android_id, postValues);
+                                                }
 
-                                                            // childUpdates.put("/user-messages/Jirawatee/" + key, postValues);
+                                            }, 0);
 
-                                                            Userdiary.updateChildren(childUpdates);
-                                                            textcheck.setVisibility(View.VISIBLE);
-                                                            layout1.setVisibility(View.INVISIBLE);
-                                                            layout2.setVisibility(View.INVISIBLE);
-                                                            layout3.setVisibility(View.INVISIBLE);
-                                                            layout4.setVisibility(View.INVISIBLE);
-                                                            summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconedit, 0, 0, 0);
-                                                            summit.setText("แก้ไข");
-                                                            formStateCheck=true;
-                                                        }
+                                        }
+                                    });
 
-                                                    }
-                                                },2200);
 
-                                            }
 
-                                        }, 0);
-
-                                    }
-                                });
+                                }
+                                else {
+                                  //  Toast.makeText(getContext(),"No!!",Toast.LENGTH_SHORT).show();
+                                }
 
 
 
@@ -380,68 +399,72 @@ public class FormDiaryTab extends Fragment {
                         summit.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                checkForm();
+                                if(checkCorrect == true){
+                                    runOnUiThread(new Runnable() {
 
+                                        @Override
+                                        public void run() {
 
-                                runOnUiThread(new Runnable() {
+                                            final Handler handler = new Handler();
+                                            handler.postDelayed(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    dialogpush = new ProgressDialog(getContext());
+                                                    dialogpush.setTitle("กำลังดำเนินการ");
+                                                    dialogpush.setMessage("กรุณารอสักครู่...");
+                                                    dialogpush.show();
 
-                                    @Override
-                                    public void run() {
+                                                    final  Handler handler1 = new Handler();
+                                                    handler1.postDelayed(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            dialogpush.dismiss();
+                                                            if(formStateCheck == true) {
+                                                                layout1.setVisibility(View.VISIBLE);
+                                                                layout2.setVisibility(View.VISIBLE);
+                                                                layout3.setVisibility(View.VISIBLE);
+                                                                layout4.setVisibility(View.VISIBLE);
+                                                                textcheck.setVisibility(View.INVISIBLE);
+                                                                summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconsave, 0, 0, 0);
+                                                                summit.setText("บันทึก");
+                                                                formStateCheck=false;
+                                                            }
+                                                            else {
 
-                                        final Handler handler = new Handler();
-                                        handler.postDelayed(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                dialogpush = new ProgressDialog(getContext());
-                                                dialogpush.setTitle("กำลังดำเนินการ");
-                                                dialogpush.setMessage("กรุณารอสักครู่...");
-                                                dialogpush.show();
+                                                                HashMap<String, Object> postValues = new HashMap<>();
+                                                                postValues.put("name", edit1.getText().toString());
+                                                                postValues.put("surname", edit2.getText().toString());
+                                                                postValues.put("email", edit3.getText().toString());
+                                                                postValues.put("age", edit4.getText().toString());
+                                                                Map<String, Object> childUpdates = new HashMap<>();
+                                                                childUpdates.put(android_id, postValues);
+                                                                Userdiary.updateChildren(childUpdates);
 
-                                                final  Handler handler1 = new Handler();
-                                                handler1.postDelayed(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        dialogpush.dismiss();
-                                                        if(formStateCheck == true) {
-                                                            layout1.setVisibility(View.VISIBLE);
-                                                            layout2.setVisibility(View.VISIBLE);
-                                                            layout3.setVisibility(View.VISIBLE);
-                                                            layout4.setVisibility(View.VISIBLE);
-                                                            textcheck.setVisibility(View.INVISIBLE);
-                                                            summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconsave, 0, 0, 0);
-                                                            summit.setText("บันทึก");
-                                                            formStateCheck=false;
+                                                                textcheck.setVisibility(View.VISIBLE);
+                                                                layout1.setVisibility(View.INVISIBLE);
+                                                                layout2.setVisibility(View.INVISIBLE);
+                                                                layout3.setVisibility(View.INVISIBLE);
+                                                                layout4.setVisibility(View.INVISIBLE);
+                                                                summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconedit, 0, 0, 0);
+                                                                summit.setText("แก้ไข");
+                                                                formStateCheck=true;
+                                                            }
+
                                                         }
-                                                        else {
+                                                    },2200);
 
-                                                            HashMap<String, Object> postValues = new HashMap<>();
-                                                            postValues.put("name", edit1.getText().toString());
-                                                            postValues.put("surname", edit2.getText().toString());
-                                                            postValues.put("email", edit3.getText().toString());
-                                                            postValues.put("age", edit4.getText().toString());
-                                                            Map<String, Object> childUpdates = new HashMap<>();
-                                                            childUpdates.put(android_id, postValues);
-                                                            Userdiary.updateChildren(childUpdates);
+                                                }
 
-                                                            textcheck.setVisibility(View.VISIBLE);
-                                                            layout1.setVisibility(View.INVISIBLE);
-                                                            layout2.setVisibility(View.INVISIBLE);
-                                                            layout3.setVisibility(View.INVISIBLE);
-                                                            layout4.setVisibility(View.INVISIBLE);
-                                                            summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconedit, 0, 0, 0);
-                                                            summit.setText("แก้ไข");
-                                                            formStateCheck=true;
-                                                        }
+                                            }, 0);
 
-                                                    }
-                                                },2200);
+                                        }
+                                    });
+                                }
 
-                                            }
+                                else{
 
-                                        }, 0);
-
-                                    }
-                                });
-
+                                }
 
 
 
@@ -525,23 +548,113 @@ public class FormDiaryTab extends Fragment {
 
                 }
             });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             mFrameOverlay.setVisibility(View.GONE);
-
         }
 
+
+    }
+    private void checkForm(){
+        if(!validateName()){
+            checkCorrect = false;
+            return;
+        }
+        if(!validateSurname()){
+            checkCorrect = false;
+            return;
+        }
+        if(!validateEmail()){
+            checkCorrect = false;
+            return;
+        }
+        if(!validateAge()){
+            checkCorrect = false;
+            return;
+        }
+        checkCorrect = true;
+    }
+    private boolean validateName(){
+        if(edit1.getText().toString().trim().isEmpty()){
+            layout1.setError("กรุณากรอกชื่อ");
+            requestFocus(edit1);
+            return false;
+        }
+        else{
+            layout1.setErrorEnabled(false);
+        }
+        return true;
+    }
+    private boolean validateSurname(){
+        if(edit2.getText().toString().trim().isEmpty()){
+            layout2.setError("กรุณากรอกนามสกุล");
+            requestFocus(edit2);
+            return false;
+        }
+        else{
+            layout2.setErrorEnabled(false);
+        }
+        return true;
+    }
+    private boolean validateEmail() {
+        String email = edit3.getText().toString().trim();
+
+        if (email.isEmpty() || !isValidEmail(email)) {
+            layout3.setError("กรุณากรอกอีเมลให้ครบถ้วน");
+            requestFocus(edit3);
+            return false;
+        } else {
+            layout3.setErrorEnabled(false);
+        }
+
+        return true;
+    }
+    private boolean validateAge(){
+        if(edit4.getText().toString().trim().isEmpty()){
+            layout4.setError("กรุณากรอกอายุ");
+            requestFocus(edit4);
+            return false;
+        }
+        else{
+            layout4.setErrorEnabled(false);
+        }
+        return true;
+    }
+    private  boolean isValidEmail(String email) {
+        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+    private void requestFocus(View view) {
+        if (view.requestFocus()) {
+            getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+    }
+    private class MyTextWatcher implements TextWatcher {
+
+        private View view;
+
+        private MyTextWatcher(View view) {
+            this.view = view;
+        }
+
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        public void afterTextChanged(Editable editable) {
+            switch (view.getId()) {
+                case R.id.input_name:
+                    validateName();
+                    break;
+                case R.id.input_surname:
+                    validateSurname();
+                    break;
+                case R.id.input_email:
+                    validateEmail();
+                    break;
+                case R.id.input_age:
+                    validateAge();
+                    break;
+            }
+        }
     }
 }
