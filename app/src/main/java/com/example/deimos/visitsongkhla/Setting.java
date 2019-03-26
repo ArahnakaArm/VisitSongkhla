@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 public class Setting extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView textTitle1, textTitle2, textTitle3, textTitle4 ,textTitle5;
-    private CardView Card1, Card2, Card3, Card4, Card5;
+    private TextView textTitle1, textTitle2, textTitle3, textTitle4 ;
+    private CardView Card1, Card2, Card3, Card4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +36,6 @@ public class Setting extends AppCompatActivity implements View.OnClickListener {
         Card4 = (CardView)findViewById(R.id.Card4);
         Card4.setOnClickListener(this);
 
-        /*textTitle5 = (TextView)findViewById(R.id.textTitle5);
-        textTitle5.setOnClickListener(this);
-        Card5 = (CardView)findViewById(R.id.Card5);
-        Card5.setOnClickListener(this);
-        if(StatusCheck.getStatus()==false){
-            Card5.setVisibility(View.INVISIBLE);
-            textTitle5.setVisibility(View.INVISIBLE);
-        }*/
     }
 
     public void onClick(View view) {
@@ -75,13 +67,6 @@ public class Setting extends AppCompatActivity implements View.OnClickListener {
             startActivity(new Intent(this, Version.class));
         }
 
-        if (view == textTitle5) {
-            //StatusCheck.nologin();
-            //startActivity(new Intent(this, LoginActivity.class));
-        }
-        if (view == Card5) {
-            //StatusCheck.nologin();
-            //startActivity(new Intent(this, LoginActivity.class));
-        }
+
     }
 }

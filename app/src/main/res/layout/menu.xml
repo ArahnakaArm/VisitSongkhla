@@ -325,7 +325,9 @@
 
                 </LinearLayout>
                 <LinearLayout
+
                     android:id="@+id/but_product"
+
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_weight="1"
@@ -355,7 +357,7 @@
 
                 </LinearLayout>
                 <LinearLayout
-                    android:id="@+id/but_about"
+                    android:id="@+id/but_service"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_weight="1"
