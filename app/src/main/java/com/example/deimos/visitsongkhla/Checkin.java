@@ -534,7 +534,7 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
             }
 
 
-            //if(place.getName().toString().contains(".")){
+          //กดเกดเดกเกดเ
             Places.GeoDataApi.getPlacePhotos(mGoogleApiClient,place.getId());
             //
 
