@@ -181,7 +181,7 @@ public class CheckInNearby extends AppCompatActivity {
             public void onClick(View view) {
                 //Comment = mFeedback.getText().toString();
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference DeviceidRef = database.getReference("User").child(deviceId).child("CheckIn");
+                DatabaseReference DeviceidRef = database.getReference("User-Places").child(deviceId).child("CheckIn");
                 DatabaseReference placeRef = database.getReference("Places").child(Placesname);
                 DatabaseReference Userdiary = database.getReference("UserAccount")/*.child(UserKey)*/;
                 String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
@@ -191,6 +191,7 @@ public class CheckInNearby extends AppCompatActivity {
                 HashMap<String, Object> postValues = new HashMap<>();
                 postValues.put("Rate", rate);
                 postValues.put("date", date);
+                postValues.put("title", Placesname);
                 Map<String, Object> childUpdates = new HashMap<>();
                 childUpdates.put(ts, postValues);
                 DeviceidRef.updateChildren(childUpdates);
@@ -240,7 +241,9 @@ public class CheckInNearby extends AppCompatActivity {
                     myRef.push().setValue(rate);
                     myComRef.push().setValue(Comment);
                 }*/
-                Intent goMap =new Intent(CheckInNearby.this,Checkin.class);
+
+
+                Intent goMap =new Intent(CheckInNearby.this,Diary.class);
                 startActivity(goMap);
 
             }

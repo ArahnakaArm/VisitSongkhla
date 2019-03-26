@@ -96,6 +96,14 @@ public class Gallery_MorePlaces extends AppCompatActivity{
         TextView TelText = findViewById(R.id.teltext);
         TelText.setText(" "+tel);
         TextView googleMap =findViewById(R.id.googlemap);
+        TelText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tel =getIntent().getStringExtra("Tel");
+                Intent i=new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+tel));
+                startActivity(i);
+            }
+        });
 
         googleMap.setPaintFlags(googleMap.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         googleMap.setOnClickListener(new View.OnClickListener() {

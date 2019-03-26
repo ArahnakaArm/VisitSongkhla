@@ -54,7 +54,7 @@ public class Gallery extends AppCompatActivity{
         String imageUrl= getIntent().getStringExtra("image_url");
         String imageName= getIntent().getStringExtra("image_name");
         String des = getIntent().getStringExtra("Des").replace("_b","\n");
-        String tel = getIntent().getStringExtra("Tel");
+        final String tel = getIntent().getStringExtra("Tel");
         String location = getIntent().getStringExtra("Local");
         String lat = getIntent().getStringExtra("Lat");
         String lng = getIntent().getStringExtra("Lng");
@@ -93,8 +93,18 @@ public class Gallery extends AppCompatActivity{
         });
         TextView Location = findViewById(R.id.locationtext);
         Location.setText(" "+location);
-        TextView TelText = findViewById(R.id.teltext);
+        final TextView TelText = findViewById(R.id.teltext);
+
         TelText.setText(" "+tel);
+        TelText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tel =getIntent().getStringExtra("Tel");
+                Intent i=new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+tel));
+                startActivity(i);
+            }
+        });
+
         TextView googleMap =findViewById(R.id.googlemap);
 
         googleMap.setPaintFlags(googleMap.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);

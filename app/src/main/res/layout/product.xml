@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/test"
     android:orientation="vertical"
     >
 
@@ -30,6 +29,9 @@
             android:layout_gravity="center"
             android:indeterminate="true" />
     </FrameLayout>
+
+
+    <include layout="@layout/buttom_navi"></include>
 
 
 

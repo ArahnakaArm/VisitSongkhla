@@ -325,7 +325,9 @@
 
                 </LinearLayout>
                 <LinearLayout
-                    android:id="@+id/but_shop"
+
+                    android:id="@+id/but_product"
+
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_weight="1"
@@ -344,7 +346,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="1dp"
-                        android:text="ร้านค้า"
+                        android:text="สินค้า"
                         android:layout_marginTop="16dp"
                         android:background="@color/GreenColumm3Dark"
                         android:textSize="17sp"
