@@ -17,7 +17,7 @@ public class Menu extends AppCompatActivity {
     ViewFlipper viewFlipper;
     private static final int ACTIVITY_NUM=1;
 
-    LinearLayout goResAc,goHotel,goDiary,goThemes,goProduct,goHighlight,goNew;
+    LinearLayout goResAc,goHotel,goDiary,goThemes,goProduct,goHighlight,goNew,goService;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
