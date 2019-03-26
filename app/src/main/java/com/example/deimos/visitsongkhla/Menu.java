@@ -16,7 +16,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 public class Menu extends AppCompatActivity {
     ViewFlipper viewFlipper;
     private static final int ACTIVITY_NUM=1;
-    LinearLayout goResAc,goHotel,goDiary,goThemes;
+    LinearLayout goResAc,goHotel,goDiary,goThemes,goService,goHighlight,goNew;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +31,30 @@ public class Menu extends AppCompatActivity {
         for(int image:images){
             flipperimage(image);
         }
+        goHighlight= findViewById(R.id.but_high);
+        goHighlight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goRes = new Intent(Menu.this,Highlights.class);
+                startActivity(goRes);
+            }
+        });
+        goNew= findViewById(R.id.but_news);
+        goNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goRes = new Intent(Menu.this,News.class);
+                startActivity(goRes);
+            }
+        });
+        goResAc= findViewById(R.id.but_food);
+        goResAc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goRes = new Intent(Menu.this,MoreRestaurants.class);
+                startActivity(goRes);
+            }
+        });
         goResAc= findViewById(R.id.but_food);
         goResAc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +87,15 @@ public class Menu extends AppCompatActivity {
                 startActivity(goThemes);
             }
         });
+        goService = findViewById(R.id.but_service);
+        goService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goThemes = new Intent(Menu.this,Helps.class);
+                startActivity(goThemes);
+            }
+        });
+
     }
     public void setNavi(){
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
