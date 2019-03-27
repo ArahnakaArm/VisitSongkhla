@@ -259,7 +259,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
                 .build();
-        mSearchText = (AutoCompleteTextView) findViewById(R.id.input_search2);
+        //mSearchText = (AutoCompleteTextView) findViewById(R.id.input_search2);
         mGps = (ImageView) findViewById(R.id.ic_gps2);
         mPlacePicker = (ImageView) findViewById(R.id.place_picker);
         mStar = (ImageView) findViewById(R.id.star);
@@ -285,7 +285,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
                     .enableAutoManage(this, this)
                     .build();
 
-            mSearchText.setOnItemClickListener(mAutocompleteClickListener);
+            /*mSearchText.setOnItemClickListener(mAutocompleteClickListener);
             mPlaceAutocompleteAdapter = new PlaceAutocompleteAdapter(this, mGoogleApiClient,
                     LAT_LNG_BOUNDS, null);
 
@@ -303,7 +303,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
 
                     return false;
                 }
-            });
+            });*/
 
             mGps.setOnClickListener(new View.OnClickListener() {
                 @Override
