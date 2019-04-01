@@ -28,9 +28,9 @@ public class Themes extends AppCompatActivity implements ArticalTab.OnFragmentIn
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setNavi();
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("ธรรมชาติ"));
-        tabLayout.addTab(tabLayout.newTab().setText("ประวัติศาสตร์"));
-        tabLayout.addTab(tabLayout.newTab().setText("ศิลปวัฒนธรรม"));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.TH1)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.TH2)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.TH3)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);

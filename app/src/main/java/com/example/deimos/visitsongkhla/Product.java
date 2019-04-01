@@ -142,7 +142,7 @@ public class Product extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             // do heavy work
             mFirebaseDatabase = FirebaseDatabase.getInstance();
-            mRef = mFirebaseDatabase.getReference("Travel-Product").child("TH");
+            mRef = mFirebaseDatabase.getReference("Travel-Product").child(getString(R.string.Language));
             mRef.keepSynced(true);
             mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
             mRecyclerView.hasFixedSize();

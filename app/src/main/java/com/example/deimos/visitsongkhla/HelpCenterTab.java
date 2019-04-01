@@ -62,7 +62,7 @@ public class HelpCenterTab extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_common_tab, container, false);
         linearLayoutManager = new LinearLayoutManager(getContext());
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mRef = mFirebaseDatabase.getReference("Travel-HelpCenter").child("TH");
+        mRef = mFirebaseDatabase.getReference("Travel-HelpCenter").child(getString(R.string.Language));
         Q = mRef;
         mRef.keepSynced(true);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);

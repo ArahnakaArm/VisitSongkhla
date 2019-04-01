@@ -13,14 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TraditionTab"></activity>
-        <activity android:name=".EventTab" />
-        <activity android:name=".HighlightGTab" />
-        <activity android:name=".HighlightTab" />
         <activity android:name=".News" />
         <activity android:name=".Highlights" />
-        <activity android:name=".HelpCenterTab" />
-        <activity android:name=".PoliceTab" />
         <activity android:name=".Helps" />
         <activity android:name=".Language" />
         <activity android:name=".Version" />
