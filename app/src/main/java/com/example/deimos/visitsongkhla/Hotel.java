@@ -19,9 +19,9 @@ public class Hotel extends AppCompatActivity implements HatyaiHotelTab.OnFragmen
         setContentView(R.layout.hotel);
         setNavi();
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("อ.หาดใหญ่"));
-        tabLayout.addTab(tabLayout.newTab().setText("อ.เมือง"));
-        tabLayout.addTab(tabLayout.newTab().setText("อ.อื่นๆ"));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.HT1)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.HT2)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.HT3)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);

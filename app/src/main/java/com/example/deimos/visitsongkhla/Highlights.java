@@ -20,8 +20,8 @@ public class Highlights extends AppCompatActivity implements ArticalTab.OnFragme
         setContentView(R.layout.highlights);
         setNavi();
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("สถานที่ยอดนิยม"));
-        tabLayout.addTab(tabLayout.newTab().setText("เเนะนำโดย Google"));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.HL1)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.HL2)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);

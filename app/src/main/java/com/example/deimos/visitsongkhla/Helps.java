@@ -20,9 +20,9 @@ public class Helps extends AppCompatActivity implements ArticalTab.OnFragmentInt
         setContentView(R.layout.helps);
         setNavi();
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("โรงพยาบาล"));
-        tabLayout.addTab(tabLayout.newTab().setText("สถานีตํารวจ"));
-        tabLayout.addTab(tabLayout.newTab().setText("ศูนย์นักท่องเที่ยว"));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.HE1)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.HE2)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.HE3)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);

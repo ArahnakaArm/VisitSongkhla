@@ -62,7 +62,7 @@ public class HighlightTab extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_common_tab, container, false);
         linearLayoutManager = new LinearLayoutManager(getContext());
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mRef = mFirebaseDatabase.getReference("Travel-Highlight").child("TH");
+        mRef = mFirebaseDatabase.getReference("Travel-Highlight").child(getString(R.string.Language));
         Q = mRef.orderByChild("type").equalTo("visitsongkhla");
         mRef.keepSynced(true);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);

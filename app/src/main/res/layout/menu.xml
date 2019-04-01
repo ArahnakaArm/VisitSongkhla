@@ -124,7 +124,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="16dp"
                         android:padding="1dp"
-                        android:text="ไฮไลท์"
+                        android:text="@string/MN1"
                         android:background="@color/GreenColumm1Dark"
                         android:textSize="17sp"
 
@@ -152,7 +152,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="1dp"
-                        android:text="ข่าวใหม่"
+                        android:text="@string/MN2"
                         android:layout_marginTop="16dp"
                         android:background="@color/GreenColumm2Dark"
                         android:textSize="17sp"
@@ -182,7 +182,7 @@
                         android:layout_height="match_parent"
                         android:padding="1dp"
                         android:layout_marginTop="16dp"
-                        android:text="ธีม"
+                        android:text="@string/MN3"
                         android:background="@color/GreenColumm3Dark"
                         android:textSize="17sp"
 
@@ -222,7 +222,7 @@
                         android:padding="1dp"
                         android:background="@color/GreenColumm3Dark"
                         android:textSize="17sp"
-                        android:text="แพ็กเกจ"
+                        android:text="@string/MN4"
 
                         android:textAlignment="center"
                         android:textColor="@color/White"/>
@@ -251,7 +251,7 @@
                         android:layout_marginTop="16dp"
                         android:background="@color/GreenColumm1Dark"
                         android:textSize="17sp"
-                        android:text="ไดอารี่"
+                        android:text="@string/MN5"
                         android:textAlignment="center"
                         android:textColor="@color/White"/>
 
@@ -279,7 +279,7 @@
                         android:layout_marginTop="16dp"
                         android:background="@color/GreenColumm2Dark"
                         android:textSize="17sp"
-                        android:text="ร้านอาหาร"
+                        android:text="@string/MN6"
                         android:textAlignment="center"
                         android:textColor="@color/White"/>
 
@@ -315,7 +315,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="16dp"
-                        android:text="โรงแรม"
+                        android:text="@string/MN7"
                         android:padding="1dp"
                         android:background="@color/GreenColumm2Dark"
                         android:textSize="17sp"
@@ -346,7 +346,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="1dp"
-                        android:text="สินค้า"
+                        android:text="@string/MN8"
                         android:layout_marginTop="16dp"
                         android:background="@color/GreenColumm3Dark"
                         android:textSize="17sp"
@@ -376,7 +376,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="1dp"
-                        android:text="ช่วยเหลือ"
+                        android:text="@string/MN9"
                         android:layout_marginTop="16dp"
                         android:background="@color/GreenColumm1Dark"
                         android:textSize="17sp"

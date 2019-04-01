@@ -59,7 +59,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/viga"
-                android:text="ใกล้เคียง"
+                android:text="@string/CI1"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
@@ -97,7 +97,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/viga"
-                android:text=" ค้นหา"
+                android:text="@string/CI2"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
