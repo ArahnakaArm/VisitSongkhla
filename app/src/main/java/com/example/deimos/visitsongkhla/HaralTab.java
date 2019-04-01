@@ -65,7 +65,7 @@ public class  HaralTab extends Fragment {
         linearLayoutManager = new LinearLayoutManager(getContext());
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mRef = mFirebaseDatabase.getReference("Home-Restaurants").child("TH");
-        Q = mRef.orderByChild("type").equalTo("ฮาลาล");
+        Q = mRef.orderByChild("type").equalTo("ฮาลาล"+"_"+StringChooseThemes.getTheme());
         mRef.keepSynced(true);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         mRecyclerView.hasFixedSize();

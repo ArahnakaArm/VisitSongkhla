@@ -68,7 +68,7 @@ public class  ArticalTab extends Fragment {
         linearLayoutManager = new LinearLayoutManager(getContext());
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mRef = mFirebaseDatabase.getReference("Home-Theme").child("TH");
-        Q = mRef.orderByChild("type").equalTo("ศิลปวัฒนธรรม");
+        Q = mRef.orderByChild("type").equalTo("ศิลปวัฒนธรรม"+"_"+StringChooseThemes.getTheme());
         mRef.keepSynced(true);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         mRecyclerView.hasFixedSize();
