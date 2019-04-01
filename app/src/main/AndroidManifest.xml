@@ -20,7 +20,7 @@
         <activity android:name=".Version" />
         <activity android:name=".Setting" />
         <activity
-            android:name=".ChooseFood"
+            android:name=".Home"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,7 +57,7 @@
         <activity android:name=".Diary" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".Themes" android:theme="@style/AppThemeNoTool" android:parentActivityName=".ChooseThemes"/>
         <activity android:name=".ChooseThemes" />
-        <activity android:name=".Home" />
+        <activity android:name=".ChooseFood" />
         />
         />
 
