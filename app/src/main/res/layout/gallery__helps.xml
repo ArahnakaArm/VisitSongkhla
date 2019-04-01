@@ -103,7 +103,7 @@
                     android:drawableStart="@drawable/googlemapicon"
                     android:focusable="true"
                     android:clickable="true"
-                    android:text="เส้นทาง"
+                    android:text="@string/GL1"
                     android:id="@+id/googlemap"
                     android:textSize="16sp"/>
 
@@ -115,7 +115,7 @@
                     android:padding="10dp"
                     android:id="@+id/Link"
                     android:drawablePadding="10dp"
-                    android:text="เว็บไซต์"
+                    android:text="@string/GL3"
                     android:textSize="16dp"
                     android:drawableLeft="@drawable/icon_web"
                     android:layout_marginTop="2dp"

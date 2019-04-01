@@ -114,7 +114,7 @@
                     android:drawableStart="@drawable/googlemapicon"
                     android:focusable="true"
                     android:clickable="true"
-                    android:text="เส้นทาง"
+                    android:text="@string/GL1"
                     android:id="@+id/googlemap"
                     android:textSize="16sp"/>
 
@@ -126,7 +126,7 @@
                     android:padding="10dp"
                     android:id="@+id/gallerytext"
                     android:drawablePadding="10dp"
-                    android:text="รูปภาพเพิ่มเติม"
+                    android:text="@string/GL2"
                     android:textSize="16dp"
                     android:layout_marginBottom="20dp"
                     android:drawableLeft="@drawable/icongallery"

@@ -20,8 +20,8 @@ public class News extends AppCompatActivity implements ArticalTab.OnFragmentInte
         setContentView(R.layout.news);
         setNavi();
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("กิจกรรม"));
-        tabLayout.addTab(tabLayout.newTab().setText("เทศกาลประจําปี"));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.NE1)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.NE2)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);

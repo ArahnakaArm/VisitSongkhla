@@ -25,7 +25,7 @@
         android:layout_weight="0.5"
 
         android:fontFamily="@font/viga"
-        android:text="สถานที่ท่องเที่ยว"
+        android:text="@string/HO1"
         android:textColor="@color/darkgrey" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_weight="0"
         android:fontFamily="@font/viga"
         android:gravity="end"
-        android:text="เพิ่มเติม+"
+        android:text="@string/HO2"
         android:textColor="@color/colorPrimary"
         android:textSize="17sp"
         android:textStyle="bold" />
@@ -69,7 +69,7 @@
             android:layout_marginStart="5dp"
             android:fontFamily="@font/viga"
             android:layout_weight="0.5"
-            android:text="ธีม"
+            android:text="@string/HO3"
             android:textColor="@color/darkgrey" />
         <TextView
             android:id="@+id/next2"
@@ -82,7 +82,7 @@
             android:layout_marginEnd="100dp"
             android:gravity="end"
             android:textStyle="bold"
-            android:text="เพิ่มเติม+"
+            android:text="@string/HO4"
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
@@ -113,7 +113,7 @@
             android:layout_marginStart="5dp"
             android:layout_weight="0.5"
             android:fontFamily="@font/viga"
-            android:text="ร้านอาหาร"
+            android:text="@string/HO5"
             android:textColor="@color/darkgrey" />
         <TextView
             android:id="@+id/next3"
@@ -126,7 +126,7 @@
             android:gravity="end"
             android:fontFamily="@font/viga"
             android:textStyle="bold"
-            android:text="เพิ่มเติม+"
+            android:text="@string/HO6"
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
     <android.support.v7.widget.RecyclerView

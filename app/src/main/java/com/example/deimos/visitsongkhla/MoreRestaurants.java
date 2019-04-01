@@ -19,8 +19,8 @@ public class MoreRestaurants extends AppCompatActivity implements CommonTab.OnFr
         setContentView(R.layout.morerestaurants);
         setNavi();
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("ทั่วไป"));
-        tabLayout.addTab(tabLayout.newTab().setText("ฮาลาล"));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.RE1)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.RE2)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);

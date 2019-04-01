@@ -4,22 +4,22 @@
     <item
         android:id="@+id/action_home"
         android:icon="@drawable/icons_navi_home"
-        android:title="หลัก"
+        android:title="@string/BN1"
         />
     <item
         android:id="@+id/travelinfo"
         android:icon="@drawable/icons_navi_menu"
-        android:title="ท่องเที่ยว"
+        android:title="@string/BN2"
         />
     <item
         android:id="@+id/checkinnavi"
         android:icon="@drawable/icons_navi_placemarker"
-        android:title="เช็คอิน"
+        android:title="@string/BN3"
         />
     <item
         android:id="@+id/map"
         android:icon="@drawable/icons_navi_map"
-        android:title="แผนที่"
+        android:title="@string/BN4"
         />
 
 </menu>
