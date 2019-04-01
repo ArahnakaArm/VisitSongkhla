@@ -39,6 +39,7 @@ import static com.google.android.gms.internal.zzahn.runOnUiThread;
  */
 
 public class  NeturalTab extends Fragment {
+
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
     RecyclerView mRecyclerView;
@@ -62,13 +63,14 @@ public class  NeturalTab extends Fragment {
 
     @Nullable
     @Override
-
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_common_tab, container, false);
         linearLayoutManager = new LinearLayoutManager(getContext());
         mFirebaseDatabase = FirebaseDatabase.getInstance();
+
         mRef = mFirebaseDatabase.getReference("Home-Theme").child(getString(R.string.Language));
-        Q = mRef.orderByChild("type").equalTo("ธรรมชาติ");
+        Q = mRef.orderByChild("type").equalTo("ธรรมชาติ"+"_"+StringChooseThemes.getTheme());
+
         mRef.keepSynced(true);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         mRecyclerView.hasFixedSize();

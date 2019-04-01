@@ -1,11 +1,13 @@
 package com.example.deimos.visitsongkhla;
 
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -22,6 +24,12 @@ public class MoreRestaurants extends AppCompatActivity implements CommonTab.OnFr
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.RE1)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.RE2)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("อำเภอ"+StringChooseThemes.getTheme());
+        toolbar.setTitleTextColor(Color.WHITE);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setNavi();
 
         final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
         final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
@@ -57,5 +65,16 @@ public class MoreRestaurants extends AppCompatActivity implements CommonTab.OnFr
         Menu menu =bottomNavigationViewEx.getMenu();
         MenuItem menuItem=menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
+    }
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+        return true;
     }
 }

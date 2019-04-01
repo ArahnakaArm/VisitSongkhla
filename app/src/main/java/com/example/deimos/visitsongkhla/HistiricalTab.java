@@ -67,8 +67,11 @@ public class  HistiricalTab extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_common_tab, container, false);
         linearLayoutManager = new LinearLayoutManager(getContext());
         mFirebaseDatabase = FirebaseDatabase.getInstance();
+
         mRef = mFirebaseDatabase.getReference("Home-Theme").child(getString(R.string.Language));
-        Q = mRef.orderByChild("type").equalTo("ประวัติศาสตร์");
+        Q = mRef.orderByChild("type").equalTo("ประวัติศาสตร์"+"_"+StringChooseThemes.getTheme());
+
+
         mRef.keepSynced(true);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         mRecyclerView.hasFixedSize();

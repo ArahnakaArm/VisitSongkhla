@@ -102,7 +102,7 @@ public class Home extends AppCompatActivity {
         next2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goMoreRes = new Intent(Home.this,MoreRestaurants.class);
+                Intent goMoreRes = new Intent(Home.this,ChooseFood.class);
                 goMoreRes.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(goMoreRes);
             }
@@ -112,7 +112,7 @@ public class Home extends AppCompatActivity {
         next3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goMoreThemes = new Intent(Home.this,Themes.class);
+                Intent goMoreThemes = new Intent(Home.this,ChooseThemes.class);
                 goMoreThemes.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(goMoreThemes);
             }

@@ -53,18 +53,11 @@ public class Menu extends AppCompatActivity {
         goResAc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goRes = new Intent(Menu.this,MoreRestaurants.class);
+                Intent goRes = new Intent(Menu.this,ChooseFood.class);
                 startActivity(goRes);
             }
         });
-        goResAc= findViewById(R.id.but_food);
-        goResAc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goRes = new Intent(Menu.this,MoreRestaurants.class);
-                startActivity(goRes);
-            }
-        });
+
         goHotel = findViewById(R.id.but_hotel);
         goHotel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +78,7 @@ public class Menu extends AppCompatActivity {
         goThemes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goThemes = new Intent(Menu.this,Themes.class);
+                Intent goThemes = new Intent(Menu.this,ChooseThemes.class);
                 startActivity(goThemes);
             }
         });
