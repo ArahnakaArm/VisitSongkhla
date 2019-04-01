@@ -29,7 +29,7 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="อำเภอเมือง "
+            android:text="@string/CL1"
             android:textSize="22dp" />
 
         <ImageView
@@ -57,7 +57,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center_vertical"
-            android:text="อำเภอหาดใหญ่ "
+            android:text="@string/CL2"
             android:textSize="22dp"
             />
         <ImageView
@@ -87,7 +87,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center_vertical"
-            android:text="อำเภออื่นๆ "
+            android:text="@string/CL3"
             android:textSize="22dp"
           />
         <ImageView
