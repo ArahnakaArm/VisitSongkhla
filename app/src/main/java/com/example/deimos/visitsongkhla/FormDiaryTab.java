@@ -200,10 +200,10 @@ public class FormDiaryTab extends Fragment {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if(dataSnapshot.child("name").exists()){
                         summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconedit, 0, 0, 0);
-                        summit.setText("แก้ไข");
+                        summit.setText(getString(R.string.FD8));
                     }else {
                         summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconsave, 0, 0, 0);
-                        summit.setText("บันทึก");
+                        summit.setText(getString(R.string.FD7));
                     }
                 }
 
@@ -255,8 +255,8 @@ public class FormDiaryTab extends Fragment {
                                                 public void run() {
                                                     dialogpush = new ProgressDialog(getContext());
                                                     dialogpush.setCancelable(false);
-                                                    dialogpush.setTitle("กำลังดำเนินการ");
-                                                    dialogpush.setMessage("กรุณารอสักครู่...");
+                                                    dialogpush.setTitle(getString(R.string.FD5));
+                                                    dialogpush.setMessage(getString(R.string.FD6));
                                                     dialogpush.show();
 
                                                     final  Handler handler1 = new Handler();
@@ -271,7 +271,7 @@ public class FormDiaryTab extends Fragment {
                                                                 layout4.setVisibility(View.VISIBLE);
                                                                 textcheck.setVisibility(View.INVISIBLE);
                                                                 summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconsave, 0, 0, 0);
-                                                                summit.setText("บันทึก");
+                                                                summit.setText(getString(R.string.FD7));
                                                                 formStateCheck=false;
                                                             }
                                                             else {
@@ -293,7 +293,7 @@ public class FormDiaryTab extends Fragment {
                                                                 layout3.setVisibility(View.INVISIBLE);
                                                                 layout4.setVisibility(View.INVISIBLE);
                                                                 summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconedit, 0, 0, 0);
-                                                                summit.setText("แก้ไข");
+                                                                summit.setText(getString(R.string.FD8));
                                                                 formStateCheck=true;
                                                             }
                                                             InputMethodManager imm = (InputMethodManager)getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -401,7 +401,7 @@ public class FormDiaryTab extends Fragment {
                         formStateCheck=false;
 
                         summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconsave, 0, 0, 0);
-                        summit.setText("บันทึก");
+                        summit.setText(getString(R.string.FD7));
                         summit.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -434,7 +434,7 @@ public class FormDiaryTab extends Fragment {
                                                                 layout4.setVisibility(View.VISIBLE);
                                                                 textcheck.setVisibility(View.INVISIBLE);
                                                                 summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconsave, 0, 0, 0);
-                                                                summit.setText("บันทึก");
+                                                                summit.setText(getString(R.string.FD7));
                                                                 formStateCheck=false;
                                                             }
                                                             else {
@@ -454,7 +454,7 @@ public class FormDiaryTab extends Fragment {
                                                                 layout3.setVisibility(View.INVISIBLE);
                                                                 layout4.setVisibility(View.INVISIBLE);
                                                                 summit.setCompoundDrawablesWithIntrinsicBounds(R.drawable.iconedit, 0, 0, 0);
-                                                                summit.setText("แก้ไข");
+                                                                summit.setText(getString(R.string.FD8));
                                                                 formStateCheck=true;
                                                             }
                                                             InputMethodManager imm = (InputMethodManager)getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -582,7 +582,7 @@ public class FormDiaryTab extends Fragment {
     }
     private boolean validateName(){
         if(edit1.getText().toString().trim().isEmpty()){
-            layout1.setError("กรุณากรอกชื่อ");
+            layout1.setError(getString(R.string.FD9));
             requestFocus(edit1);
             return false;
         }
@@ -593,7 +593,7 @@ public class FormDiaryTab extends Fragment {
     }
     private boolean validateSurname(){
         if(edit2.getText().toString().trim().isEmpty()){
-            layout2.setError("กรุณากรอกนามสกุล");
+            layout2.setError(getString(R.string.FD10));
             requestFocus(edit2);
             return false;
         }
@@ -606,7 +606,7 @@ public class FormDiaryTab extends Fragment {
         String email = edit3.getText().toString().trim();
 
         if (email.isEmpty() || !isValidEmail(email)) {
-            layout3.setError("กรุณากรอกอีเมลให้ครบถ้วน");
+            layout3.setError(getString(R.string.FD11));
             requestFocus(edit3);
             return false;
         } else {
@@ -617,7 +617,7 @@ public class FormDiaryTab extends Fragment {
     }
     private boolean validateAge(){
         if(edit4.getText().toString().trim().isEmpty()){
-            layout4.setError("กรุณากรอกอายุ");
+            layout4.setError(getString(R.string.FD12));
             requestFocus(edit4);
             return false;
         }

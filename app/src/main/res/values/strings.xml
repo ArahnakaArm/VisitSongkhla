@@ -111,6 +111,10 @@
     //// Restaurant ////
     <string name = "RE1">ทั่วไป</string>
     <string name = "RE2">ฮาลาล</string>
+    ////CHOOSEN-Location////
+    <string name="CL1">อำเภอเมือง</string>
+    <string name="CL2">อำเภอหาดใหญ่</string>
+    <string name="CL3">อำเภออื่น ๆ</string>
     //// Diary ////
     <string name = "DR1">แบบสอบถาม</string>
     <string name = "DR2">ประวัติการเช็คอิน</string>

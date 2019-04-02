@@ -91,6 +91,10 @@
     //// Restaurant ////
     <string name = "RE1">General Food</string>
     <string name = "RE2">Halal Food</string>
+    ////CHOOSEN-Location////
+    <string name="CL1">Capital District</string>
+    <string name="CL2">Hat Yai District</string>
+    <string name="CL3">Other Districts</string>
     //// Diary ////
     <string name = "DR1">Questionnaire</string>
     <string name = "DR2">Check-in History</string>
@@ -99,16 +103,16 @@
     <string name = "FD2">Surname</string>
     <string name = "FD3">Email</string>
     <string name = "FD4">Age</string>
-    <string name = "FD5">กำลังดำเนินการ</string>
-    <string name = "FD6">กรุณารอสักครู่...</string>
+    <string name = "FD5">Manage</string>
+    <string name = "FD6">Please Wait...</string>
     <string name = "FD7">Record</string>
-    <string name = "FD8">แก้ไข</string>
-    <string name = "FD9">กรุณากรอกชื่อ</string>
-    <string name = "FD10">กรุณากรอกนามสกุล</string>
-    <string name = "FD11">กรุณากรอกอีเมลให้ครบถ้วน</string>
-    <string name = "FD12">กรุณากรอกอายุ</string>
+    <string name = "FD8">Edit</string>
+    <string name = "FD9">Please Enter Name</string>
+    <string name = "FD10">Please Enter Surname</string>
+    <string name = "FD11">Please Enter Email</string>
+    <string name = "FD12">Please Enter Age</string>
     //// HELP ////
-    <string name = "HE1">Hospital</string>
+    <string name = "HE1">Hospitals</string>
     <string name = "HE2">Police Station</string>
     <string name = "HE3">Tourist Center</string>
     //// HOTEL ////
