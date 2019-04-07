@@ -119,6 +119,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
         private static final LatLng FOREST5 = new LatLng(7.162984, 100.545003);
         private static final LatLng FOREST6 = new LatLng(7.226604, 100.577453);
         private static final LatLng FOREST7 = new LatLng(7.016946, 100.519999);
+        private static final LatLng FOREST8 = new LatLng(7.1484416, 100.5585634);
         ///////////////////// MUSEUM //////////////////////////
         private static final LatLng MUSEUM1 = new LatLng(7.148305, 100.560823);
         private static final LatLng MUSEUM2 = new LatLng(7.198590, 100.588926);
@@ -138,6 +139,17 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
         private static final LatLng FOOD3 = new LatLng(7.003968, 100.473757);
         private static final LatLng FOOD4 = new LatLng(7.007533, 100.475726);
         private static final LatLng FOOD5 = new LatLng(7.177489, 100.544271);
+        private static final LatLng FOOD6 = new LatLng(6.985921, 100.466633);
+        private static final LatLng FOOD7 = new LatLng(7.1389047, 100.5256879);
+        private static final LatLng FOOD8 = new LatLng(7.0140848, 100.4899853);
+        private static final LatLng FOOD9 = new LatLng(7.0092824, 100.4683067);
+        private static final LatLng FOOD10 = new LatLng(6.955586, 100.4023423);
+        private static final LatLng FOOD11 = new LatLng(6.994188, 100.4712655);
+        private static final LatLng FOOD12 = new LatLng(7.0065473, 100.4689731);
+        private static final LatLng FOOD13 = new LatLng(7.1958635, 100.5885067);
+        private static final LatLng FOOD14 = new LatLng(7.0054348, 100.4898569);
+        private static final LatLng FOOD15 = new LatLng(7.0037704, 100.4771873);
+
         /////////////////////  SHOP   /////////////////////////
         private static final LatLng SHOP1 = new LatLng(7.914164, 100.308775);
         private static final LatLng SHOP2 = new LatLng(6.997046, 100.487036);
@@ -159,11 +171,11 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
         ///BEACH/////
         private Marker BE1, BE2, BE3, BE4, BE5, BE6;
         ///FOREST////
-        private Marker FOR1, FOR2, FOR3, FOR4, FOR5, FOR6, FOR7;
+        private Marker FOR1, FOR2, FOR3, FOR4, FOR5, FOR6, FOR7, FOR8;
         ///MUSEUM////
         private Marker MU1, MU2, MU3, MU4, MU5, MU6, MU7, MU8, MU9, MU10, MU11, MU12;
         ///FOOD////
-        private Marker FO1, FO2, FO3, FO4, FO5;
+        private Marker FO1, FO2, FO3, FO4, FO5, FO6, FO7, FO8, FO9, FO10, FO11, FO12, FO13, FO14, FO15;
         ///SHOP////
         private Marker  SH1, SH2, SH3, SH4, SH5, SH6, SH7;
         ///SHOP////
@@ -427,6 +439,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
                         FOR5.remove();
                         FOR6.remove();
                         FOR7.remove();
+                        FOR8.remove();
 
                     }
                 }
@@ -469,6 +482,16 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
                         FO3.remove();
                         FO4.remove();
                         FO5.remove();
+                        FO6.remove();
+                        FO7.remove();
+                        FO8.remove();
+                        FO9.remove();
+                        FO10.remove();
+                        FO11.remove();
+                        FO12.remove();
+                        FO13.remove();
+                        FO14.remove();
+                        FO15.remove();
 
                     }
                 }
@@ -593,6 +616,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
                         FOR5.remove();
                         FOR6.remove();
                         FOR7.remove();
+                        FOR8.remove();
                     }
                     return true;
                 case R.id.MuseumM:
@@ -628,6 +652,16 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
                         FO3.remove();
                         FO4.remove();
                         FO5.remove();
+                        FO6.remove();
+                        FO7.remove();
+                        FO8.remove();
+                        FO9.remove();
+                        FO10.remove();
+                        FO11.remove();
+                        FO12.remove();
+                        FO13.remove();
+                        FO14.remove();
+                        FO15.remove();
 
                     }
                     return true;
@@ -668,152 +702,173 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback,
         }
 
         public  void ShowMarkLike(GoogleMap mMap){
-            msongkhla = mMap.addMarker(new MarkerOptions().position(songkhla).title("จังหวัดสงขลา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));;
+            msongkhla = mMap.addMarker(new MarkerOptions().position(songkhla).title(getString(R.string.MPS1)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));;
             msongkhla.setTag(0);
-            TOP1 = mMap.addMarker(new MarkerOptions().position(TOP1BEST).title("แหลมสนอ่อน").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
+            TOP1 = mMap.addMarker(new MarkerOptions().position(TOP1BEST).title(getString(R.string.MPS2)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
             TOP1.setTag(0);
-            TOP2 = mMap.addMarker(new MarkerOptions().position(TOP2BEST).title("แหลมสมิหลา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
+            TOP2 = mMap.addMarker(new MarkerOptions().position(TOP2BEST).title(getString(R.string.MPS3)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
             TOP2.setTag(0);
-            TOP3 = mMap.addMarker(new MarkerOptions().position(TOP3BEST).title("หาดชลาทัศน์").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
+            TOP3 = mMap.addMarker(new MarkerOptions().position(TOP3BEST).title(getString(R.string.MPS4)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
             TOP3.setTag(0);
-            TOP4 = mMap.addMarker(new MarkerOptions().position(TOP4BEST).title("เขาตังกวน").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
+            TOP4 = mMap.addMarker(new MarkerOptions().position(TOP4BEST).title(getString(R.string.MPS5)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
             TOP4.setTag(0);
-            TOP5 = mMap.addMarker(new MarkerOptions().position(TOP5BEST).title("เกาะยอ").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
+            TOP5 = mMap.addMarker(new MarkerOptions().position(TOP5BEST).title(getString(R.string.MPS6)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
             TOP5.setTag(0);
-            TOP6 = mMap.addMarker(new MarkerOptions().position(TOP6BEST).title("สถาบันทักษิณคดีศึกษา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
+            TOP6 = mMap.addMarker(new MarkerOptions().position(TOP6BEST).title(getString(R.string.MPS7)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
             TOP6.setTag(0);
-            TOP7 = mMap.addMarker(new MarkerOptions().position(TOP7BEST).title("หาดมหาราช").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
+            TOP7 = mMap.addMarker(new MarkerOptions().position(TOP7BEST).title(getString(R.string.MPS8)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
             TOP7.setTag(0);
-            TOP8 = mMap.addMarker(new MarkerOptions().position(TOP8BEST).title("สวนสัตว์สงขลา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
+            TOP8 = mMap.addMarker(new MarkerOptions().position(TOP8BEST).title(getString(R.string.MPS9)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconstar)));
             TOP8.setTag(0);
 
         }
         public void ShowMarkTemple(GoogleMap mMap){
             //////////////TEMPLE///////////////////////
-            TP1 = mMap.addMarker(new MarkerOptions().position(TEMPLE1).title("มัสยิดกลางสงขลา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
+            TP1 = mMap.addMarker(new MarkerOptions().position(TEMPLE1).title(getString(R.string.MPT1)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
             TP1.setTag(0);
-            TP2 = mMap.addMarker(new MarkerOptions().position(TEMPLE2).title("มัสยิตกลางดิย์นุสอิสลาม").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
+            TP2 = mMap.addMarker(new MarkerOptions().position(TEMPLE2).title(getString(R.string.MPT2)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
             TP2.setTag(0);
-            TP3 = mMap.addMarker(new MarkerOptions().position(TEMPLE3).title("วัดท้ายยอ").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
+            TP3 = mMap.addMarker(new MarkerOptions().position(TEMPLE3).title(getString(R.string.MPT3)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
             TP3.setTag(0);
-            TP4 = mMap.addMarker(new MarkerOptions().position(TEMPLE4).title("พระมหาธาตุเจดีย์ไตรภพไตรมงคล").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
+            TP4 = mMap.addMarker(new MarkerOptions().position(TEMPLE4).title(getString(R.string.MPT4)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
             TP4.setTag(0);
-            TP5 = mMap.addMarker(new MarkerOptions().position(TEMPLE5).title("วัดหาดใหญ่ใน").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
+            TP5 = mMap.addMarker(new MarkerOptions().position(TEMPLE5).title(getString(R.string.MPT5)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
             TP5.setTag(0);
-            TP6 = mMap.addMarker(new MarkerOptions().position(TEMPLE6).title("วัดแม่พระประจักษ์เมืองลูร์ด").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
+            TP6 = mMap.addMarker(new MarkerOptions().position(TEMPLE6).title(getString(R.string.MPT6)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
             TP6.setTag(0);
-            TP7 = mMap.addMarker(new MarkerOptions().position(TEMPLE7).title("ศาลเจ้าพ่อหลักเมืองสงขลา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
+            TP7 = mMap.addMarker(new MarkerOptions().position(TEMPLE7).title(getString(R.string.MPT7)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
             TP7.setTag(0);
-            TP8 = mMap.addMarker(new MarkerOptions().position(TEMPLE8).title("วัดแหลมพ้อ").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
+            TP8 = mMap.addMarker(new MarkerOptions().position(TEMPLE8).title(getString(R.string.MPT8)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
             TP8.setTag(0);
-            TP9 = mMap.addMarker(new MarkerOptions().position(TEMPLE9).title("วัดเขาเก้าเส้ง").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
+            TP9 = mMap.addMarker(new MarkerOptions().position(TEMPLE9).title(getString(R.string.MPT9)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicontemple)));
             TP9.setTag(0);
 
         }
         public void ShowMarkBeach(GoogleMap mMap){
             //////////////BEACH////////////////////////
-            BE1 = mMap.addMarker(new MarkerOptions().position(BEACH1).title("แหลมสมิหลา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconbeach)));
+            BE1 = mMap.addMarker(new MarkerOptions().position(BEACH1).title(getString(R.string.MPB1)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconbeach)));
             BE1.setTag(0);
-            BE2 = mMap.addMarker(new MarkerOptions().position(BEACH2).title("หาดมหาราช").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconbeach)));
+            BE2 = mMap.addMarker(new MarkerOptions().position(BEACH2).title(getString(R.string.MPB2)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconbeach)));
             BE2.setTag(0);
-            BE3 = mMap.addMarker(new MarkerOptions().position(BEACH3).title("แหลมสนอ่อน").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconbeach)));
+            BE3 = mMap.addMarker(new MarkerOptions().position(BEACH3).title(getString(R.string.MPB3)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconbeach)));
             BE3.setTag(0);
-            BE4 = mMap.addMarker(new MarkerOptions().position(BEACH4).title("หาดชลาทัศน์").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconbeach)));
+            BE4 = mMap.addMarker(new MarkerOptions().position(BEACH4).title(getString(R.string.MPB4)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconbeach)));
             BE4.setTag(0);
-            BE5 = mMap.addMarker(new MarkerOptions().position(BEACH5).title("เกาะยอ").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconbeach)));
+            BE5 = mMap.addMarker(new MarkerOptions().position(BEACH5).title(getString(R.string.MPB5)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconbeach)));
             BE5.setTag(0);
-            BE6 = mMap.addMarker(new MarkerOptions().position(BEACH6).title("อุทยานนกน้ำคูขุด").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconbeach)));
+            BE6 = mMap.addMarker(new MarkerOptions().position(BEACH6).title(getString(R.string.MPB6)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconbeach)));
             BE6.setTag(0);
 
         }
         public void ShowMarkForest(GoogleMap mMap){
             //////////////FOREST///////////////////////
-            FOR1 = mMap.addMarker(new MarkerOptions().position(FOREST1).title("สวนสาธารณะนครหาดใหญ่").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
+            FOR1 = mMap.addMarker(new MarkerOptions().position(FOREST1).title(getString(R.string.MPF1)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
             FOR1.setTag(0);
-            FOR2 = mMap.addMarker(new MarkerOptions().position(FOREST2).title("สวนสัตว์สงขลา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
+            FOR2 = mMap.addMarker(new MarkerOptions().position(FOREST2).title(getString(R.string.MPF2)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
             FOR2.setTag(0);
-            FOR3 = mMap.addMarker(new MarkerOptions().position(FOREST3).title("เขาตังกวน").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
+            FOR3 = mMap.addMarker(new MarkerOptions().position(FOREST3).title(getString(R.string.MPF3)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
             FOR3.setTag(0);
-            FOR4 = mMap.addMarker(new MarkerOptions().position(FOREST4).title("น้ำตกโตนงาช้าง").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
+            FOR4 = mMap.addMarker(new MarkerOptions().position(FOREST4).title(getString(R.string.MPF4)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
             FOR4.setTag(0);
-            FOR5 = mMap.addMarker(new MarkerOptions().position(FOREST5).title("สวนลุงวี").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
+            FOR5 = mMap.addMarker(new MarkerOptions().position(FOREST5).title(getString(R.string.MPF5)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
             FOR5.setTag(0);
-            FOR6 = mMap.addMarker(new MarkerOptions().position(FOREST6).title("สวนสองทะเล").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
+            FOR6 = mMap.addMarker(new MarkerOptions().position(FOREST6).title(getString(R.string.MPF6)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
             FOR6.setTag(0);
-            FOR7 = mMap.addMarker(new MarkerOptions().position(FOREST7).title("เขาคอหงส์").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
+            FOR7 = mMap.addMarker(new MarkerOptions().position(FOREST7).title(getString(R.string.MPF7)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
             FOR7.setTag(0);
-
+            FOR8 = mMap.addMarker(new MarkerOptions().position(FOREST8).title(getString(R.string.MPF8)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconforest)));
+            FOR8.setTag(0);
         }
         public void ShowMarkMuseum(GoogleMap mMap){
             //////////////MUSEUM///////////////////////
-            MU1 = mMap.addMarker(new MarkerOptions().position(MUSEUM1).title("สวนประวัติศาสตร์").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
+            MU1 = mMap.addMarker(new MarkerOptions().position(MUSEUM1).title(getString(R.string.MPM1)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
             MU1.setTag(0);
-            MU2 = mMap.addMarker(new MarkerOptions().position(MUSEUM2).title("ย่านเมืองเก่าสงขลา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
+            MU2 = mMap.addMarker(new MarkerOptions().position(MUSEUM2).title(getString(R.string.MPM2)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
             MU2.setTag(0);
-            MU3 = mMap.addMarker(new MarkerOptions().position(MUSEUM3).title("กำแพงเมืองเก่าสงขลา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
+            MU3 = mMap.addMarker(new MarkerOptions().position(MUSEUM3).title(getString(R.string.MPM3)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
             MU3.setTag(0);
-            MU4 = mMap.addMarker(new MarkerOptions().position(MUSEUM4).title("สถานแสดงพันธุ์สัตว์น้ำสงขลา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
+            MU4 = mMap.addMarker(new MarkerOptions().position(MUSEUM4).title(getString(R.string.MPM4)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
             MU4.setTag(0);
-            MU5 = mMap.addMarker(new MarkerOptions().position(MUSEUM5).title("สถาบันทักษิณคดีศึกษา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
+            MU5 = mMap.addMarker(new MarkerOptions().position(MUSEUM5).title(getString(R.string.MPM5)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
             MU5.setTag(0);
-            MU6 = mMap.addMarker(new MarkerOptions().position(MUSEUM6).title("บ้านรำแดง").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
+            MU6 = mMap.addMarker(new MarkerOptions().position(MUSEUM6).title(getString(R.string.MPM6)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
             MU6.setTag(0);
-            MU7 = mMap.addMarker(new MarkerOptions().position(MUSEUM7).title("พิพิธภัณฑสถานธรรมชาติวิทยา ๕๐ พรรษา สยามบรมราชกุมารี").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
+            MU7 = mMap.addMarker(new MarkerOptions().position(MUSEUM7).title(getString(R.string.MPM7)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
             MU7.setTag(0);
-            MU8 = mMap.addMarker(new MarkerOptions().position(MUSEUM8).title("หอศิลป์สยาม").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
+            MU8 = mMap.addMarker(new MarkerOptions().position(MUSEUM8).title(getString(R.string.MPM8)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
             MU8.setTag(0);
-            MU9 = mMap.addMarker(new MarkerOptions().position(MUSEUM9).title("พิพิธภัณฑ์คติชนวิทยา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
+            MU9 = mMap.addMarker(new MarkerOptions().position(MUSEUM9).title(getString(R.string.MPM9)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
             MU9.setTag(0);
-            MU10 = mMap.addMarker(new MarkerOptions().position(MUSEUM10).title("พิพิธภัณฑ์ธนารักษ์").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
+            MU10 = mMap.addMarker(new MarkerOptions().position(MUSEUM10).title(getString(R.string.MPM10)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
             MU10.setTag(0);
-            MU11 = mMap.addMarker(new MarkerOptions().position(MUSEUM11).title("อุโมงประวัติศาสตร์เขาน้ำค้าง").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
+            MU11 = mMap.addMarker(new MarkerOptions().position(MUSEUM11).title(getString(R.string.MPM11)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
             MU11.setTag(0);
-            MU12 = mMap.addMarker(new MarkerOptions().position(MUSEUM12).title("พิพิธภัณฑสถานแห่งชาติสงขลา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
+            MU12 = mMap.addMarker(new MarkerOptions().position(MUSEUM12).title(getString(R.string.MPM12)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconmuseum)));
             MU12.setTag(0);
 
         }
         public void ShowMarkFood(GoogleMap mMap){
             //////////////FOOD/////////////////////////
-            FO1 = mMap.addMarker(new MarkerOptions().position(FOOD1).title("หนานหยวน").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO1 = mMap.addMarker(new MarkerOptions().position(FOOD1).title(getString(R.string.MPFF1)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
             FO1.setTag(0);
-            FO2 = mMap.addMarker(new MarkerOptions().position(FOOD2).title("โชคดี แต่เตี้ยม").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO2 = mMap.addMarker(new MarkerOptions().position(FOOD2).title(getString(R.string.MPFF2)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
             FO2.setTag(0);
-            FO3 = mMap.addMarker(new MarkerOptions().position(FOOD3).title("ไก่ทอดเดชา").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO3 = mMap.addMarker(new MarkerOptions().position(FOOD3).title(getString(R.string.MPFF3)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
             FO3.setTag(0);
-            FO4 = mMap.addMarker(new MarkerOptions().position(FOOD4).title("เคนตะ หาดใหญ่").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO4 = mMap.addMarker(new MarkerOptions().position(FOOD4).title(getString(R.string.MPFF4)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
             FO4.setTag(0);
-            FO5 = mMap.addMarker(new MarkerOptions().position(FOOD5).title("น้ำเคียงดิน").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO5 = mMap.addMarker(new MarkerOptions().position(FOOD5).title(getString(R.string.MPFF5)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
             FO5.setTag(0);
+            FO6 = mMap.addMarker(new MarkerOptions().position(FOOD6).title(getString(R.string.MPFF6)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO6.setTag(0);
+            FO7 = mMap.addMarker(new MarkerOptions().position(FOOD7).title(getString(R.string.MPFF7)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO7.setTag(0);
+            FO8 = mMap.addMarker(new MarkerOptions().position(FOOD8).title(getString(R.string.MPFF8)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO8.setTag(0);
+            FO9 = mMap.addMarker(new MarkerOptions().position(FOOD9).title(getString(R.string.MPFF9)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO9.setTag(0);
+            FO10 = mMap.addMarker(new MarkerOptions().position(FOOD10).title(getString(R.string.MPFF10)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO10.setTag(0);
+            FO11 = mMap.addMarker(new MarkerOptions().position(FOOD11).title(getString(R.string.MPFF11)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO11.setTag(0);
+            FO12 = mMap.addMarker(new MarkerOptions().position(FOOD12).title(getString(R.string.MPFF12)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO12.setTag(0);
+            FO13 = mMap.addMarker(new MarkerOptions().position(FOOD13).title(getString(R.string.MPFF13)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO13.setTag(0);
+            FO14 = mMap.addMarker(new MarkerOptions().position(FOOD14).title(getString(R.string.MPFF14)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO14.setTag(0);
+            FO15 = mMap.addMarker(new MarkerOptions().position(FOOD15).title(getString(R.string.MPFF15)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconfood)));
+            FO15.setTag(0);
 
         }
         public void ShowMarkShop(GoogleMap mMap){
             //////////////SHOP/////////////////////////
-            SH1 = mMap.addMarker(new MarkerOptions().position(SHOP1).title("ตลาดน้ำคลองแดน").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
+            SH1 = mMap.addMarker(new MarkerOptions().position(SHOP1).title(getString(R.string.MPSS1)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
             SH1.setTag(0);
-            SH2 = mMap.addMarker(new MarkerOptions().position(SHOP2).title("ตลาดกรีนเวย์").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
+            SH2 = mMap.addMarker(new MarkerOptions().position(SHOP2).title(getString(R.string.MPSS2)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
             SH2.setTag(0);
-            SH3 = mMap.addMarker(new MarkerOptions().position(SHOP3).title("ตลาดเปิดท้ายอาเซี่ยนเทรด").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
+            SH3 = mMap.addMarker(new MarkerOptions().position(SHOP3).title(getString(R.string.MPSS3)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
             SH3.setTag(0);
-            SH4 = mMap.addMarker(new MarkerOptions().position(SHOP4).title("ตลาดกิมหยง").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
+            SH4 = mMap.addMarker(new MarkerOptions().position(SHOP4).title(getString(R.string.MPSS4)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
             SH4.setTag(0);
-            SH5 = mMap.addMarker(new MarkerOptions().position(SHOP5).title("เซนทรัล เฟสติวัล หาดใหญ่").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
+            SH5 = mMap.addMarker(new MarkerOptions().position(SHOP5).title(getString(R.string.MPSS5)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
             SH5.setTag(0);
-            SH6 = mMap.addMarker(new MarkerOptions().position(SHOP6).title("ลีการ์เดน พลาซ่า").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
+            SH6 = mMap.addMarker(new MarkerOptions().position(SHOP6).title(getString(R.string.MPSS6)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
             SH6.setTag(0);
-            SH7 = mMap.addMarker(new MarkerOptions().position(SHOP7).title("ศูนย์การค้าไดอาน่าคอมเพล็กซ์").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
+            SH7 = mMap.addMarker(new MarkerOptions().position(SHOP7).title(getString(R.string.MPSS7)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapiconshop)));
             SH7.setTag(0);
 
         }
         public void ShowMarkGas(GoogleMap mMap){
-            GA1 = mMap.addMarker(new MarkerOptions().position(GAS1).title("ปั๊มน้ำมันบางจาก ม.อ.").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicongas)));
+            GA1 = mMap.addMarker(new MarkerOptions().position(GAS1).title(getString(R.string.MPG1)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicongas)));
             GA1.setTag(0);
-            GA2 = mMap.addMarker(new MarkerOptions().position(GAS2).title("ปั้มน้ำมัน เอสโซ่").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicongas)));
+            GA2 = mMap.addMarker(new MarkerOptions().position(GAS2).title(getString(R.string.MPG2)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicongas)));
             GA2.setTag(0);
-            GA3 = mMap.addMarker(new MarkerOptions().position(GAS3).title("ปั๊มน้ำมันพีที").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicongas)));
+            GA3 = mMap.addMarker(new MarkerOptions().position(GAS3).title(getString(R.string.MPG3)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicongas)));
             GA3.setTag(0);
-            GA4 = mMap.addMarker(new MarkerOptions().position(GAS4).title("ปั๊มน้ำมันปตท.").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicongas)));
+            GA4 = mMap.addMarker(new MarkerOptions().position(GAS4).title(getString(R.string.MPG4)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicongas)));
             GA4.setTag(0);
-            GA5 = mMap.addMarker(new MarkerOptions().position(GAS5).title("ปั๊มน้ำมันบางจาก - หาดใหญ่ใน").icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicongas)));
+            GA5 = mMap.addMarker(new MarkerOptions().position(GAS5).title(getString(R.string.MPG5)).icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicongas)));
             GA5.setTag(0);
         }
 

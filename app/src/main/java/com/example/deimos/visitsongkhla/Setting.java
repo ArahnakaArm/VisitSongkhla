@@ -47,17 +47,17 @@ public class Setting extends AppCompatActivity implements View.OnClickListener {
         }
 
         if (view == textTitle2) {
-            //startActivity(new Intent(this, PattaniActivity.class));
+            startActivity(new Intent(this, Songkhla.class));
         }
         if (view == Card2) {
-            //startActivity(new Intent(this, PattaniActivity.class));
+            startActivity(new Intent(this, Songkhla.class));
         }
 
         if (view == textTitle3) {
-            //startActivity(new Intent(this, Agree2Activity.class));
+            startActivity(new Intent(this, Agree.class));
         }
         if (view == Card3) {
-            //startActivity(new Intent(this, Agree2Activity.class));
+            startActivity(new Intent(this, Agree.class));
         }
 
         if (view == textTitle4) {

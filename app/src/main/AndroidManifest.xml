@@ -13,6 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Agree"></activity>
+        <activity android:name=".Songkhla" />
         <activity android:name=".News" />
         <activity android:name=".Highlights" />
         <activity android:name=".Helps" />
@@ -28,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD4B1StKeCRf9rta5dttAeKPshaSVyx8VQ" />
@@ -49,17 +52,23 @@
             android:parentActivityName=".MorePlaces"
             android:theme="@style/AppThemeNoTool" />
         <activity android:name=".ImageGallery" />
-        <activity android:name=".MoreRestaurants" android:theme="@style/AppThemeNoTool" android:parentActivityName=".ChooseFood"/>
+        <activity
+            android:name=".MoreRestaurants"
+            android:parentActivityName=".ChooseFood"
+            android:theme="@style/AppThemeNoTool" />
         <activity android:name=".MorePlaces" />
         <activity android:name=".Hotel" />
         <activity android:name=".Product" />
         <activity android:name=".CheckInNearby" />
-        <activity android:name=".Diary" android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".Themes" android:theme="@style/AppThemeNoTool" android:parentActivityName=".ChooseThemes"/>
+        <activity
+            android:name=".Diary"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".Themes"
+            android:parentActivityName=".ChooseThemes"
+            android:theme="@style/AppThemeNoTool" />
         <activity android:name=".ChooseThemes" />
         <activity android:name=".ChooseFood" />
-        />
-        />
 
         <meta-data
             android:name="preloaded_fonts"

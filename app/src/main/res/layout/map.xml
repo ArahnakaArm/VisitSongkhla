@@ -24,89 +24,87 @@
 
         <LinearLayout
             android:id="@+id/relLayoutmenu"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="90dp"
-            android:layout_below="@+id/relLayout12"
-            android:layout_marginRight="20dp"
             android:background="@drawable/mapbgicon"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/ic_gps2"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/map_iconbgcurrent"
                     android:scaleType="centerCrop"
                     android:src="@drawable/map_iconcurrent" />
 
                 <TextView
                     android:id="@+id/tx1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginTop="5dp"
                     android:fontFamily=""
                     android:scaleType="centerCrop"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/MP2"
-                    android:textSize="13dp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/place_picker"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toEndOf="@+id/ic_gps2"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/map_iconbgnearby"
                     android:scaleType="centerCrop"
                     android:src="@drawable/map_iconnearby" />
 
                 <TextView
                     android:id="@+id/tx2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
                     android:fontFamily=""
                     android:scaleType="centerCrop"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/MP3"
-                    android:textSize="13dp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/star"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toEndOf="@+id/place_picker"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/map_iconbgstar"
                     android:clickable="true"
                     android:scaleType="centerCrop"
@@ -114,65 +112,63 @@
 
                 <TextView
                     android:id="@+id/tx3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="5dp"
                     android:fontFamily=""
                     android:scaleType="centerCrop"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/MP4"
-                    android:textSize="13dp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
 
             <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/ic_delect"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toEndOf="@+id/star"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/map_iconbgdelect"
                     android:scaleType="centerCrop"
                     android:src="@drawable/map_icondelect" />
 
                 <TextView
                     android:id="@+id/tx4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
                     android:fontFamily=""
                     android:scaleType="centerCrop"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/MP5"
-                    android:textSize="13dp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/ic_menu"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toEndOf="@+id/delect"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/map_iconbgmenu"
                     android:onClick="ShowPopupMenu"
                     android:scaleType="centerCrop"
@@ -180,240 +176,224 @@
 
                 <TextView
                     android:id="@+id/tx5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
                     android:fontFamily=""
                     android:scaleType="centerCrop"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/MP6"
-                    android:textSize="13dp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/TempleM"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toEndOf="@+id/ic_menu"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/map_icontemple"
                     android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/tx6"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="22dp"
-                    android:layout_marginTop="5dp"
                     android:fontFamily=""
                     android:scaleType="centerCrop"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/MP7"
-                    android:textSize="13dp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/BeachM"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toEndOf="@+id/TempleM"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/map_iconbeach"
                     android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/tx7"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="5dp"
                     android:fontFamily=""
                     android:scaleType="centerCrop"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/MP8"
-                    android:textSize="13dp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/ForestM"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toEndOf="@+id/BeachM"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/map_iconforest"
                     android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/tx8"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="5dp"
                     android:fontFamily=""
                     android:scaleType="centerCrop"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/MP9"
-                    android:textSize="13dp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/MuseumM"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toEndOf="@+id/ForestM"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/map_iconmuseum"
                     android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/tx9"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginTop="5dp"
                     android:fontFamily=""
                     android:scaleType="centerCrop"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/MP10"
-                    android:textSize="13dp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/FoodM"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toEndOf="@+id/MuseumM"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/map_iconfood"
                     android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/tx10"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="5dp"
                     android:fontFamily=""
                     android:scaleType="centerCrop"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/MP11"
-                    android:textSize="13dp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/ShopM"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toEndOf="@+id/FoodM"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/map_iconshop"
                     android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/tx11"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="13dp"
-                    android:layout_marginTop="5dp"
                     android:fontFamily=""
                     android:scaleType="centerCrop"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/MP12"
-                    android:textSize="13dp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="70dp"
-                android:layout_height="85dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="80dp"
+                android:layout_height="90dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/GasM"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toEndOf="@+id/ShopM"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/map_icongas"
                     android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/tx12"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginTop="5dp"
                     android:fontFamily=""
                     android:scaleType="centerCrop"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/MP13"
-                    android:textSize="13dp"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
@@ -425,7 +405,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/scrollView"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_alignParentRight="true">
 
         <ImageView
