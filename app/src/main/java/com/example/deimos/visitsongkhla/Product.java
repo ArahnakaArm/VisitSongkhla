@@ -172,6 +172,8 @@ public class Product extends AppCompatActivity {
                             intent.putExtra("MoreImage3",model.getMoreUrl3());
                             intent.putExtra("MoreImage4",model.getMoreUrl4());
                             intent.putExtra("MoreImage5",model.getMoreUrl5());
+                            intent.putExtra("Id",model.getId());
+                            intent.putExtra("Category","Travel-Product");
                             startActivity(intent);
                         }
                     });

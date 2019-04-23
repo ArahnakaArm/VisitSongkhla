@@ -25,7 +25,7 @@ public class MoreRestaurants extends AppCompatActivity implements CommonTab.OnFr
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.RE2)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("อำเภอ"+StringChooseThemes.getTheme());
+        toolbar.setTitle(StringChooseThemes.getTheme());
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

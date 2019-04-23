@@ -22,7 +22,7 @@ public class Themes extends AppCompatActivity implements ArticalTab.OnFragmentIn
         super.onCreate(savedInstanceState);
         setContentView(R.layout.themes);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("อำเภอ"+StringChooseThemes.getTheme());
+        toolbar.setTitle(StringChooseThemes.getTheme());
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

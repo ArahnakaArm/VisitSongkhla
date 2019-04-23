@@ -30,14 +30,18 @@ public class Language extends AppCompatActivity implements View.OnClickListener{
     }
     public void onClick(View view) {
         if (view == Lan1) {
-            setLocate("th");
-            recreate();
+
             startActivity(new Intent(this, Home.class));
+            recreate();
+            setLocate("th");
+
         }
         if (view == Lan2) {
-            setLocate("en");
-            recreate();
+
             startActivity(new Intent(this, Home.class));
+            recreate();
+            setLocate("en");
+
         }
     }
     private void setLocate(String lang){

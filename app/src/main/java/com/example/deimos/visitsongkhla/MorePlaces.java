@@ -31,6 +31,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -55,7 +56,8 @@ public class MorePlaces extends AppCompatActivity {
     RecyclerView mRecyclerView;
     private FirebaseRecyclerAdapter<CommonModel, MorePlaces.NewsViewHolder> RVAdapter;
     FirebaseDatabase mFirebaseDatabase;
-    DatabaseReference mRef;
+    DatabaseReference mRef,ImageRef;
+    String Image1,Image2,Image3,Image4,Image5,title;
     private static final int ACTIVITY_NUM = 1;
     public static int positionIndex = -1;
     public static int topView = -1;
@@ -142,16 +144,25 @@ public class MorePlaces extends AppCompatActivity {
             // do heavy work
             mFirebaseDatabase = FirebaseDatabase.getInstance();
             mRef = mFirebaseDatabase.getReference("Home-Attract").child(getString(R.string.Language));
+
             mRef.keepSynced(true);
             mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
             mRecyclerView.hasFixedSize();
             linearLayoutManager = new LinearLayoutManager(MorePlaces.this);
             mRecyclerView.setLayoutManager(linearLayoutManager);
 
+
+
+
+
+
+
+
             FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(mRef, CommonModel.class).build();
             RVAdapter = new FirebaseRecyclerAdapter<CommonModel, MorePlaces.NewsViewHolder>(foodOptions) {
                 @Override
                 protected void onBindViewHolder(@NonNull MorePlaces.NewsViewHolder holder, int position, final CommonModel model) {
+                    title = model.getTitle();
                     holder.setTitle(model.getTitle());
                     holder.setImage(getApplicationContext(), model.getUrl());
                     holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -166,16 +177,16 @@ public class MorePlaces extends AppCompatActivity {
                             intent.putExtra("Tel",model.getTel());
                             intent.putExtra("Lat",model.getLat());
                             intent.putExtra("Lng",model.getLng());
-                            intent.putExtra("MoreImage1",model.getMoreUrl1());
-                            intent.putExtra("MoreImage2",model.getMoreUrl2());
-                            intent.putExtra("MoreImage3",model.getMoreUrl3());
-                            intent.putExtra("MoreImage4",model.getMoreUrl4());
-                            intent.putExtra("MoreImage5",model.getMoreUrl5());
+                            intent.putExtra("Id",model.getId());
+                            intent.putExtra("Category","Home-Attract");
+
+
                             startActivity(intent);
                         }
                     });
 
                 }
+
 
                 @NonNull
                 @Override
@@ -189,9 +200,24 @@ public class MorePlaces extends AppCompatActivity {
             mRecyclerView.setAdapter(RVAdapter);
 
             RVAdapter.startListening();
+/*
+            ImageRef = mFirebaseDatabase.getReference("Home-Attract").child("ImageMore").child(title);
+            ImageRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Image1 =dataSnapshot.child("Image1").getValue(String.class);
+                    Image2 =dataSnapshot.child("Image2").getValue(String.class);
+                    Image3 =dataSnapshot.child("Image3").getValue(String.class);
+                    Image4 =dataSnapshot.child("Image4").getValue(String.class);
+                    Image5 =dataSnapshot.child("Image5").getValue(String.class);
+                }
 
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-
+                }
+            });
+*/
 
 
            /* String[] obtainedData = { "D1", "D2", "D3" };

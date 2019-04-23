@@ -13,6 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,8 +29,11 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.text.DateFormat;
@@ -42,42 +46,72 @@ import java.util.Map;
  */
 
 public class Gallery_MorePlaces extends AppCompatActivity{
+
+    int id;
+    String IdString;
+    static String image1="",image2="",image3="",image4="",image5="",CategoryTab;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gallery);
+      CategoryTab = getIntent().getStringExtra("Category");
+
         getIncomingIntent();
+
+
 
     }
     private void getIncomingIntent(){
 
         String imageUrl= getIntent().getStringExtra("image_url");
+
         String imageName= getIntent().getStringExtra("image_name");
         String des = getIntent().getStringExtra("Des").replace("_b","\n");
         String tel = getIntent().getStringExtra("Tel");
         String location = getIntent().getStringExtra("Local");
         String lat = getIntent().getStringExtra("Lat");
         String lng = getIntent().getStringExtra("Lng");
-        final String image1 = getIntent().getStringExtra("MoreImage1");
-        final String image2 = getIntent().getStringExtra("MoreImage2");
-        final String image3 = getIntent().getStringExtra("MoreImage3");
-        final String image4 = getIntent().getStringExtra("MoreImage4");
-        final String image5 = getIntent().getStringExtra("MoreImage5");
+        id = getIntent().getIntExtra("Id",0);
+        IdString = Integer.toString(id);
+         /*    image1 = getIntent().getStringExtra("MoreImage1");
+             image2 = getIntent().getStringExtra("MoreImage2");
+             image3 = getIntent().getStringExtra("MoreImage3");
+             image4 = getIntent().getStringExtra("MoreImage4");
+             image5 = getIntent().getStringExtra("MoreImage5");*/
         ArrayList<String> image = getIntent().getStringArrayListExtra("ImageMore");
         final Bundle bundle = new Bundle();
 
 
-
-        setImage(imageUrl,imageName,des,tel,location,lat,lng,image1,image2,image3,image4,image5,image);
-
+        setImage(imageUrl,imageName,des,tel,location,lat,lng,image);
 
     }
     private void setImage(String imageUrl, final String imageName, String des, String tel, String location, final String lat, final String lng
-            ,final String image1,final String image2,final String image3,final String image4,final String image5,ArrayList<String>imagemore){
+            ,ArrayList<String>imagemore){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(imageName);
         TextView GelleryText = findViewById(R.id.gallerytext);
         GelleryText.setPaintFlags(GelleryText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        FirebaseDatabase mFirebaseDatabase;
+        DatabaseReference ImageRef;
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = mFirebaseDatabase.getReference(CategoryTab).child("ImageMore").child(IdString);
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                image1 = dataSnapshot.child("Image1").getValue(String.class);
+                image2 = dataSnapshot.child("Image2").getValue(String.class);
+                image3 = dataSnapshot.child("Image3").getValue(String.class);
+                image4 = dataSnapshot.child("Image4").getValue(String.class);
+                image5 = dataSnapshot.child("Image5").getValue(String.class);
+
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
         GelleryText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

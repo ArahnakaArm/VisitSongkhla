@@ -7,6 +7,11 @@
     <string name="BN2">Travel</string>
     <string name="BN3">Check-in</string>
     <string name="BN4">Maps</string>
+    ////CHOOSETHEME////
+    <string name="CT1">Capital</string>
+    <string name="CT2">Hatyai</string>
+    <string name="CT3">Other</string>
+
     ////CHOOSEN////
     <string name = "CH1">Welcome</string>
     <string name = "CH2">VisitSongkhla</string>
@@ -48,7 +53,8 @@
     <string name="HOD2_3_mDes">Charm of Gim Yong MarketGim Yong Market is one of the attractions that shows the characteristics of Hatyai. It is the center of goods in all range of prices; the goods are cheap and there are many choices to choose from. The market is filled with food, toys, clothes and fruits. Area of the market is big and divided into 2 floors; downstairs contains of food, snack, perfume, watches, electric appliances and etc. and upstairs is the zone for electric appliances such as VCD, car stereo. The prices are various to choose for what suits the buyers. The market opens in the morning until evening. It s considered as the biggest place for souvenirs in Hatyai.“Gim Yong Market is considered as an important area of local economy because the majority of tourists; Thai, Malaysian or Singaporeans, would visit here when they come to Hatyai. Hatyai is also renowned for the import goods from Malaysia. Other than Gim Yong market, there is another market nearby names Santisuk Market. It is said that if people do not come here when they visit Hatyai, they do not arrive at Hatyai.lt is the center for legendary food of Hatyai which are Hatyai Fried Chicken and local food like tea or originalChinese beverages. Why does it name “Gim Yong”?The Chinese man, Shi Gim Yong is the oldest son of Shi Yi San (who was honored as Lord Supasal), has a sharp mind, kind heart and a far vision unlike others.</string>
     <string name="HOD2_3_mLocation">Hat Yai downtown</string>
     <string name="HOD2_4_mNames">SONGKHLA ZOO</string>
-    <string name="HOD2_4_mDes">Located on the Songkhla-Chana Road in Tambon Khao Rup Chang, Songkhla Zoo is an open-range zoo established by the aim to preserve and return the wild animals to nature. The hilly area of the zoo is paved as an asphalt ring road where tourist can drive along the way to see various animals grouped separately such as camels, birds, bantengs, tigers and crocodiles. The not-to-be-missed highlight perches atop of the zoo is the viewpoint to catch the city view with food stalls are also available. Opening hours: Daily from 8:30am-5pm.</string>
+    <string name="HOD2_4_mDes">Located on the Songkhla-Chana Road in Tambon Khao Rup Chang, Songkhla Zoo is an open-range zoo est
+        ablished by the aim to preserve and return the wild animals to nature. The hilly area of the zoo is paved as an asphalt ring road where tourist can drive along the way to see various animals grouped separately such as camels, birds, bantengs, tigers and crocodiles. The not-to-be-missed highlight perches atop of the zoo is the viewpoint to catch the city view with food stalls are also available. Opening hours: Daily from 8:30am-5pm.</string>
     <string name="HOD2_4_mLocation">Khao Rup Chang, Mueang Songkhla, Songkhla 90000, Thailand</string>
     <string name="HOD2_5_mNames">SONGKHLA AQUARIUM</string>
     <string name="HOD2_5_mDes">Songkhla Aquarium is located on the tip of Son On Cape, Bor Yang sub-District, Muang District. It was established by Songkhla Municipality to be a marine life’s biology and behavior learning center for youth and general people, aquatic resources and environment preservation, and relaxation place of people. There are Thailand’s largest and the most abundant catfish which are over 200 kilograms heavy. There are also leopard sharks and beautiful fish living in coral area. There are various exhibitions in the aquarium including fish tunnel, ecology exhibition, mountains, rivers, freshwater animals, swamp forest, beaches, marine animals, Ao Thai Sea, marine resource usage, exhibition space, seminar rooms, restaurants, and souvenir shops. Songkhla Aquarium exhibits fish feeding show by divers every day. Visitors will learn the correct and exciting fish feeding. The divers will feed giant catfish which are over 200 kilograms heavy, leopard sharks which are lovely and friendly with the divers, marbled whiprays which are over 3 meters wide, and other middle-sized fish.Songkhla Aquarium is the learning center of marine lives. You will learn the history and lifestyle of each fish which is the valuable knowledge.</string>
@@ -88,9 +94,12 @@
     <string name = "TH1">Nature</string>
     <string name = "TH2">History</string>
     <string name = "TH3">Art and Culture</string>
+
     //// Restaurant ////
-    <string name = "RE1">General Food</string>
+    <string name = "RE1">Recommended Food</string>
     <string name = "RE2">Halal Food</string>
+    <string name="RE3">Common</string>
+    <string name="RE4">Haral</string>
     ////CHOOSEN-Location////
     <string name="CL1">Capital District</string>
     <string name="CL2">Hat Yai District</string>

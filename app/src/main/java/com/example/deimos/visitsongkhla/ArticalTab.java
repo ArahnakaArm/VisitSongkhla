@@ -69,9 +69,7 @@ public class  ArticalTab extends Fragment {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
 
         mRef = mFirebaseDatabase.getReference("Home-Theme").child(getString(R.string.Language));
-        Q = mRef.orderByChild("type").equalTo("ศิลปวัฒนธรรม"+"_"+StringChooseThemes.getTheme());
-
-      
+        Q = mRef.orderByChild("type").equalTo(getString(R.string.TH3)+"_"+StringChooseThemes.getTheme());
         mRef.keepSynced(true);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         mRecyclerView.hasFixedSize();
@@ -260,6 +258,8 @@ public class  ArticalTab extends Fragment {
                                             intent.putExtra("Tel",model.getTel());
                                             intent.putExtra("Lat",model.getLat());
                                             intent.putExtra("Lng",model.getLng());
+                                            intent.putExtra("Id",model.getId());
+                                            intent.putExtra("Category","Home-Theme");
                                             startActivity(intent);
                                         }
                                     });

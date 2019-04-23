@@ -169,7 +169,7 @@ public class Home extends AppCompatActivity {
         mImage14.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FPlaces%2F%E0%B9%81%E0%B8%AB%E0%B8%A5%E0%B8%A1%E0%B8%AA%E0%B8%A1%E0%B8%B4%E0%B8%AB%E0%B8%A5%E0%B8%B2%2Fs5.jpg?alt=media&token=9988648c-3138-4cd5-9169-8a81a1889adf");
         mImage15.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FPlaces%2F%E0%B9%81%E0%B8%AB%E0%B8%A5%E0%B8%A1%E0%B8%AA%E0%B8%A1%E0%B8%B4%E0%B8%AB%E0%B8%A5%E0%B8%B2%2Fs6.JPG?alt=media&token=16e8f6c9-1f86-420b-9058-e9e4294db5ad");
 
-        mImageUrls.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FPlaces%2Fu1.jpg?alt=media&token=8eefaf85-9231-434e-844f-b57785edfbe0");
+        mImageUrls.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FPlaces%2F%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%81%E0%B9%88%E0%B9%88%E0%B8%B2%E0%B8%AA%E0%B8%87%E0%B8%82%E0%B8%A5%E0%B8%B2%2Fu1.jpg?alt=media&token=5c87213d-e770-443b-b8d1-4347e1de8f58");
         mNames.add(getString(R.string.HOD1_4_mNames));
         mDes.add(getString(R.string.HOD1_4_mDes));
         mTel.add("-");
@@ -244,8 +244,7 @@ public class Home extends AppCompatActivity {
         mImage22.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FThemes%2F%E0%B8%95%E0%B8%A5%E0%B8%B2%E0%B8%94%E0%B8%81%E0%B8%B4%E0%B8%A1%E0%B8%AB%E0%B8%A2%E0%B8%87%2Fi2.jpg?alt=media&token=c6b163d0-4311-438b-bb4e-5ad498b2aeeb");
         mImage23.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FThemes%2F%E0%B8%95%E0%B8%A5%E0%B8%B2%E0%B8%94%E0%B8%81%E0%B8%B4%E0%B8%A1%E0%B8%AB%E0%B8%A2%E0%B8%87%2Fi3.jpg?alt=media&token=4cf57be5-2cc4-4a7f-887e-c1cecce94d7c");
         mImage24.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FThemes%2F%E0%B8%95%E0%B8%A5%E0%B8%B2%E0%B8%94%E0%B8%81%E0%B8%B4%E0%B8%A1%E0%B8%AB%E0%B8%A2%E0%B8%87%2Fi4.png?alt=media&token=83586e57-d98d-45ee-8566-79e938791a6c");
-        mImage25.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FThemes%2F%E0%B8%95%E0%B8%A5%E0%B8%B2%E0%B8%94%E0%B8%81%E0%B8%B4%E0%B8%A1%E0%B8%AB%E0%B8%A2%E0%B8%87%2Fi4.png?alt=media&token=83586e57-d98d-45ee-8566-79e938791a6c");
-
+        mImage25.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FThemes%2F%E0%B8%95%E0%B8%A5%E0%B8%B2%E0%B8%94%E0%B8%81%E0%B8%B4%E0%B8%A1%E0%B8%AB%E0%B8%A2%E0%B8%87%2Fi6.jpg?alt=media&token=0286d8e8-ac11-4e04-b92b-1c091c315056");
 
         mImageUrls2.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FThemes%2Fz1.jpg?alt=media&token=8d5aea43-9d25-4893-abdc-6e24cde48f7b");
         mNames2.add(getString(R.string.HOD2_4_mNames));
