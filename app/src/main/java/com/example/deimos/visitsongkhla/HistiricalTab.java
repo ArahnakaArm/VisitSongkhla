@@ -69,7 +69,7 @@ public class  HistiricalTab extends Fragment {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
 
         mRef = mFirebaseDatabase.getReference("Home-Theme").child(getString(R.string.Language));
-        Q = mRef.orderByChild("type").equalTo("ประวัติศาสตร์"+"_"+StringChooseThemes.getTheme());
+        Q = mRef.orderByChild("type").equalTo(getString(R.string.TH2)+"_"+StringChooseThemes.getTheme());
 
 
         mRef.keepSynced(true);
@@ -260,6 +260,8 @@ public class  HistiricalTab extends Fragment {
                                             intent.putExtra("Tel",model.getTel());
                                             intent.putExtra("Lat",model.getLat());
                                             intent.putExtra("Lng",model.getLng());
+                                            intent.putExtra("Id",model.getId());
+                                            intent.putExtra("Category","Home-Theme");
                                             startActivity(intent);
                                         }
                                     });

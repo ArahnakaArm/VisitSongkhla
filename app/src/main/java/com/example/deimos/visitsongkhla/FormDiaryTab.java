@@ -392,7 +392,7 @@ public class FormDiaryTab extends Fragment {
 
                     }
                     else{
-                        Toast.makeText(getContext(),"No data exists",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getContext(),"No data exists",Toast.LENGTH_SHORT).show();
                         layout1.setVisibility(View.VISIBLE);
                         layout2.setVisibility(View.VISIBLE);
                         layout3.setVisibility(View.VISIBLE);

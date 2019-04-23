@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -30,6 +31,8 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import static com.google.android.gms.internal.zzahn.runOnUiThread;
 
 /**
  * Created by arahnaka on 6/20/2018.
@@ -66,7 +69,7 @@ public class  HaralTab extends Fragment {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
 
         mRef = mFirebaseDatabase.getReference("Home-Restaurants").child(getString(R.string.Language));
-        Q = mRef.orderByChild("type").equalTo("ฮาลาล"+"_"+StringChooseThemes.getTheme());
+        Q = mRef.orderByChild("type").equalTo(getString(R.string.RE4)+"_"+StringChooseThemes.getTheme());
 
         mRef.keepSynced(true);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
@@ -182,49 +185,70 @@ public class  HaralTab extends Fragment {
         protected Void doInBackground(Void... params) {
             // do heavy work
 
-            FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(Q,CommonModel.class).build();
-            RVAdapter = new FirebaseRecyclerAdapter<CommonModel, HaralTab.NewsViewHolder>(foodOptions) {
+            runOnUiThread(new Runnable() {
+
                 @Override
-                protected void onBindViewHolder(@NonNull HaralTab.NewsViewHolder holder, int position, final CommonModel model) {
-                    holder.setTitle(model.getTitle());
-                    // holder.setDes(model.getDescription());
-                    holder.setImage(getContext(), model.getUrl());
-                    holder.mView.setOnClickListener(new View.OnClickListener() {
+                public void run() {
+
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
                         @Override
-                        public void onClick(View v) {
-                            final String url = model.getUrl();
-                            Intent intent = new Intent(getContext(), Gallery_MorePlaces.class);
-                            intent.putExtra("image_name", model.getTitle());
-                            intent.putExtra("image_url", model.getUrl());
-                            intent.putExtra("Des", model.getDes());
-                            intent.putExtra("Local",model.getLocation());
-                            intent.putExtra("Tel",model.getTel());
-                            intent.putExtra("Lat",model.getLat());
-                            intent.putExtra("Lng",model.getLng());
-                            startActivity(intent);
+                        public void run() {
+
+                            mFrameOverlay.setVisibility(View.VISIBLE);
+                            final  Handler handler1 = new Handler();
+                            handler1.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mFrameOverlay.setVisibility(View.GONE);
+                                }
+                            },2200);
+                            FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(Q,CommonModel.class).build();
+                            RVAdapter = new FirebaseRecyclerAdapter<CommonModel, HaralTab.NewsViewHolder>(foodOptions) {
+                                @Override
+                                protected void onBindViewHolder(@NonNull HaralTab.NewsViewHolder holder, int position, final CommonModel model) {
+                                    holder.setTitle(model.getTitle());
+                                    // holder.setDes(model.getDescription());
+                                    holder.setImage(getContext(), model.getUrl());
+                                    holder.mView.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            final String url = model.getUrl();
+                                            Intent intent = new Intent(getContext(), Gallery_MorePlaces.class);
+                                            intent.putExtra("image_name", model.getTitle());
+                                            intent.putExtra("image_url", model.getUrl());
+                                            intent.putExtra("Des", model.getDes());
+                                            intent.putExtra("Local",model.getLocation());
+                                            intent.putExtra("Tel",model.getTel());
+                                            intent.putExtra("Lat",model.getLat());
+                                            intent.putExtra("Lng",model.getLng());
+                                            intent.putExtra("Id",model.getId());
+                                            intent.putExtra("Category","Home-Restaurants");
+                                            startActivity(intent);
+                                        }
+                                    });
+
+                                }
+
+                                @NonNull
+                                @Override
+                                public HaralTab.NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                                    View view = LayoutInflater.from(parent.getContext())
+                                            .inflate(R.layout.listitem_places, parent, false);
+
+                                    return new HaralTab.NewsViewHolder(view);
+                                }
+                            };
+                            mRecyclerView.setAdapter(RVAdapter);
+                            RVAdapter.startListening();
+
+
                         }
-                    });
+
+                    }, 0);
 
                 }
-
-                @NonNull
-                @Override
-                public HaralTab.NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                    View view = LayoutInflater.from(parent.getContext())
-                            .inflate(R.layout.listitem_places, parent, false);
-
-                    return new HaralTab.NewsViewHolder(view);
-                }
-            };
-            mRecyclerView.setAdapter(RVAdapter);
-            RVAdapter.startListening();
-
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+            });
             return null;
         }
 

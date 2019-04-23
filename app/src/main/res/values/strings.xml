@@ -6,6 +6,12 @@
     <string name="BN2">ท่องเที่ยว</string>
     <string name="BN3">เช็คอิน</string>
     <string name="BN4">แผนที่</string>
+
+    ////CHOOSETHEME////
+    <string name="CT1">เมือง</string>
+    <string name="CT2">หาดใหญ่</string>
+    <string name="CT3">อื่นๆ</string>
+
     ////CHOOSEN////
     <string name="CH1">ยินดีต้อนรับสู่</string>
     <string name="CH2">VisitSongkhla</string>
@@ -108,9 +114,13 @@
     <string name="TH1">ธรรมชาติ</string>
     <string name="TH2">ประวัติศาสตร์</string>
     <string name="TH3">ศิลปวัฒนธรรม</string>
+
+
     //// Restaurant ////
-    <string name="RE1">ทั่วไป</string>
+    <string name="RE1">แนะนำ</string>
     <string name="RE2">ฮาลาล</string>
+    <string name="RE3">แนะนำ</string>
+    <string name="RE4">ฮาลาล</string>
     ////CHOOSEN-Location////
     <string name="CL1">อำเภอเมือง</string>
     <string name="CL2">อำเภอหาดใหญ่</string>

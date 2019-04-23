@@ -31,7 +31,7 @@ public class ChooseThemes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent goIntent = new Intent(ChooseThemes.this,Themes.class);
-                StringChooseThemes.setFisrtTheme("เมือง");
+                StringChooseThemes.setFisrtTheme(getString(R.string.CT1));
                 startActivity(goIntent);
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
@@ -41,7 +41,7 @@ public class ChooseThemes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent goIntent = new Intent(ChooseThemes.this,Themes.class);
-                StringChooseThemes.setFisrtTheme("หาดใหญ่");
+                StringChooseThemes.setFisrtTheme(getString(R.string.CT2));
                 chooseString = "หาดใหญ่";
                 startActivity(goIntent);
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
@@ -52,7 +52,7 @@ public class ChooseThemes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent goIntent = new Intent(ChooseThemes.this,Themes.class);
-                StringChooseThemes.setFisrtTheme("อื่นๆ");
+                StringChooseThemes.setFisrtTheme(getString(R.string.CT3));
                 chooseString = "อื่น";
                 startActivity(goIntent);
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);

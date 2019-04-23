@@ -257,6 +257,8 @@ public class  SongkhlaHotelTab extends Fragment {
                                             intent.putExtra("Tel",model.getTel());
                                             intent.putExtra("Lat",model.getLat());
                                             intent.putExtra("Lng",model.getLng());
+                                            intent.putExtra("Id",model.getId());
+                                            intent.putExtra("Category","Travel-Hotel");
                                             startActivity(intent);
                                         }
                                     });

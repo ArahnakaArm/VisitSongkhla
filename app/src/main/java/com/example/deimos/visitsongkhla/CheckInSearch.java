@@ -72,7 +72,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+import com.example.deimos.visitsongkhla.Model.PlaceInfo;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
@@ -81,7 +81,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
  * Created by User on 10/2/2017.
  */
 
-public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
+public class CheckInSearch extends AppCompatActivity implements OnMapReadyCallback,
         GoogleApiClient.OnConnectionFailedListener , com.google.android.gms.location.LocationListener, GoogleApiClient.ConnectionCallbacks {
 
     GoogleApiClient mGoogleApiClient2;
@@ -92,7 +92,7 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
     public void onMapReady(GoogleMap googleMap) {
         //<----------------POP---------------------->
         //toolbar
-       /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+      /*  Toolbar toolbar = (Toolbar) findViewById(android.R.id.toolbar);
         toolbar.setTitle("VisitPattani");
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setSubtitle("");
@@ -146,9 +146,9 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
 
     //widgets
     private AutoCompleteTextView mSearchText;
-    private ImageView mGps, mInfo,mRating;
-    private Button mPlacePicker;
-    private Button goSearch;
+    private ImageView mGps, mInfo,mPlacePicker,mRating;
+
+
     //vars
     private Boolean mLocationPermissionsGranted = false;
     private GoogleMap mMap;
@@ -163,7 +163,7 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.checkin);
+        setContentView(R.layout.checkinsearch);
 
         mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(10000);
@@ -175,20 +175,11 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
                 .addApi(LocationServices.API)
                 .build();
 
-       // mSearchText = (AutoCompleteTextView) findViewById(R.id.input_search);
+        mSearchText = (AutoCompleteTextView) findViewById(R.id.input_search);
         //mGps = (ImageView) findViewById(R.id.ic_gps);
         // mInfo = (ImageView) findViewById(R.id.place_info);
-        mPlacePicker=(Button) findViewById(R.id.button1);
-        goSearch =(Button)findViewById(R.id.button2);
-
-        goSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goSearch = new Intent(Checkin.this,CheckInSearch.class);
-                startActivity(goSearch);
-            }
-        });
-        //mRating=(ImageView)findViewById(R.id.rating_button);
+        mPlacePicker=(ImageView)findViewById(R.id.place_picker);
+        mRating=(ImageView)findViewById(R.id.rating_button);
         getLocationPermission();
         setNavi();
     }
@@ -196,7 +187,7 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
 
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enableNavigation(Checkin.this,bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableNavigation(CheckInSearch.this,bottomNavigationViewEx);
         Menu menu =bottomNavigationViewEx.getMenu();
         MenuItem menuItem=menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
@@ -212,14 +203,14 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
                 .enableAutoManage(this, this)
                 .build();
 
-//       mSearchText.setOnItemClickListener(mAutocompleteClickListener);
+        mSearchText.setOnItemClickListener(mAutocompleteClickListener);
 
         mPlaceAutocompleteAdapter = new PlaceAutocompleteAdapter(this, mGoogleApiClient,
                 LAT_LNG_BOUNDS, null);
 
-//       mSearchText.setAdapter(mPlaceAutocompleteAdapter);
+        mSearchText.setAdapter(mPlaceAutocompleteAdapter);
 
-/*        mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
                 if(actionId == EditorInfo.IME_ACTION_SEARCH
@@ -277,30 +268,22 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
             }
         });
         */
-
-       final Animation animAlpha = AnimationUtils.loadAnimation(this,R.anim.anim_alpha);
-        mPlacePicker.setOnClickListener(new View.OnClickListener() {
+     /*   mPlacePicker.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                view.startAnimation(animAlpha);
-                float alpha = 0.45f;
-                float alpha2 = 1.00f;
-                AlphaAnimation alphaUp = new AlphaAnimation(alpha, alpha2);
-                alphaUp.setDuration(1000);
-                alphaUp.setFillAfter(true);
-                view.startAnimation(alphaUp);
+
                 PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
 
                 try {
-                    startActivityForResult(builder.build(Checkin.this), PLACE_PICKER_REQUEST);
+                    startActivityForResult(builder.build(CheckInSearch.this), PLACE_PICKER_REQUEST);
                 } catch (GooglePlayServicesRepairableException e) {
                     Log.e(TAG, "onClick : GooglePlayServiceRepairableException: "+e.getMessage());
                 } catch (GooglePlayServicesNotAvailableException e) {
                     Log.e(TAG, "onClick : GooglePlayServicesNotAvailableException: "+e.getMessage());
                 }
             }
-        });
+        });*/
         hideSoftKeyboard();
     }
     public void onZoom(View view){
@@ -320,7 +303,7 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
                /* PendingResult<PlaceBuffer> placeResult = Places.GeoDataApi
                         .getPlaceById(mGoogleApiClient, place.getId());
                 placeResult.setResultCallback(mUpdatePlaceDetailsCallback);*/
-                Intent goRate = new Intent(Checkin.this,CheckInNearby.class);
+                Intent goRate = new Intent(CheckInSearch.this,CheckInNearby.class);
                 goRate.putExtra("placename",place.getName());
                 startActivity(goRate);
                 //Toast.makeText(this,place.getName(),Toast.LENGTH_SHORT).show();
@@ -332,7 +315,7 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
 
         String searchString = mSearchText.getText().toString();
 
-        Geocoder geocoder = new Geocoder(Checkin.this);
+        Geocoder geocoder = new Geocoder(CheckInSearch.this);
         List<Address> list = new ArrayList<>();
         try{
             list = geocoder.getFromLocationName(searchString, 1);
@@ -389,7 +372,7 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
 
         mMap.clear();
 
-        mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(Checkin.this));
+        mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(CheckInSearch.this));
 
         if(placeInfo != null){
             try{
@@ -433,7 +416,7 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
         Log.d(TAG, "initMap: initializing map");
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapp);
 
-        mapFragment.getMapAsync(Checkin.this);
+        mapFragment.getMapAsync(CheckInSearch.this);
     }
 
     private void getLocationPermission(){
@@ -543,12 +526,11 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
             }
 
 
+            //if(place.getName().toString().contains(".")){
             Places.GeoDataApi.getPlacePhotos(mGoogleApiClient,place.getId());
             //
-
-            Intent goRate =new Intent(Checkin.this,CheckInNearby.class);
+            Intent goRate =new Intent(CheckInSearch.this,CheckInNearby.class);
             goRate.putExtra("placename",place.getName());
-
             startActivity(goRate);
             /*
             moveCamera(new LatLng(place.getViewport().getCenter().latitude,
@@ -558,6 +540,24 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
 */
         }
     };
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_setting, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            Intent goSet = new Intent(CheckInSearch.this,Setting.class);
+            startActivity(goSet);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
 
@@ -618,7 +618,7 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-            ActivityCompat.requestPermissions(Checkin.this,
+            ActivityCompat.requestPermissions(CheckInSearch.this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
 
@@ -636,25 +636,8 @@ public class Checkin extends AppCompatActivity implements OnMapReadyCallback,
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        Toast.makeText(Checkin.this,
+        Toast.makeText(CheckInSearch.this,
                 "onConnectionFailed: \n" + connectionResult.toString(),
                 Toast.LENGTH_LONG).show();
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_setting, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            Intent goSet = new Intent(Checkin.this,Setting.class);
-            startActivity(goSet);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
