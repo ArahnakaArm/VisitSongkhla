@@ -21,6 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -40,6 +41,8 @@ import static com.google.android.gms.internal.zzahn.runOnUiThread;
 
 public class  HatyaiHotelTab extends Fragment {
     private ArrayList<String> mNames = new ArrayList<>();
+    int count;
+    String cString;
     private ArrayList<String> mImageUrls = new ArrayList<>();
     RecyclerView mRecyclerView;
     private static final int ACTIVITY_NUM = 1;
@@ -243,6 +246,9 @@ public class  HatyaiHotelTab extends Fragment {
                                 @Override
                                 protected void onBindViewHolder(@NonNull HatyaiHotelTab.NewsViewHolder holder, int position, final CommonModel model) {
                                     holder.setTitle(model.getTitle());
+                                    count = RVAdapter.getItemCount();
+                                    cString = Integer.toString(count);
+                                   // Toast.makeText(getContext(),cString,Toast.LENGTH_SHORT).show();
                                     // holder.setDes(model.getDescription());
                                     holder.setImage(getContext(), model.getUrl());
                                     holder.mView.setOnClickListener(new View.OnClickListener() {

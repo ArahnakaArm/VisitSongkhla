@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".Home">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginBottom="50dp"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical">
 <LinearLayout
     android:layout_marginTop="15dp"
     android:id="@+id/Li1"
@@ -139,5 +148,7 @@
 
         android:layout_below="@+id/Li3">
     </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
     <include layout="@layout/buttom_navi"/>
 </RelativeLayout>

@@ -17,7 +17,7 @@ public class Menu extends AppCompatActivity {
     ViewFlipper viewFlipper;
     private static final int ACTIVITY_NUM=1;
 
-    LinearLayout goResAc,goHotel,goDiary,goThemes,goProduct,goHighlight,goNew,goService;
+    LinearLayout goResAc,goHotel,goDiary,goThemes,goProduct,goHighlight,goNew,goService,goPackage;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -91,7 +91,14 @@ public class Menu extends AppCompatActivity {
                 startActivity(goThemes);
             }
         });
-
+        goPackage = findViewById(R.id.but_pack);
+        goPackage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goPackage = new Intent(Menu.this,Package.class);
+                startActivity(goPackage);
+            }
+        });
 
         goProduct = findViewById(R.id.but_product);
         goProduct.setOnClickListener(new View.OnClickListener() {

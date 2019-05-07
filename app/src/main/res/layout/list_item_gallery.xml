@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="1dp"
+
+    app:cardCornerRadius="5dp"
+    app:contentPadding="5dp"
+    app:cardUseCompatPadding="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="85dp"
+            android:id="@+id/image"
+            android:scaleType="fitXY"
+            android:layout_height="85dp"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/loading" />
+        <ImageView
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/image"
+            android:layout_width="85dp"
+            android:scaleType="fitXY"
+            android:id="@+id/image2"
+            android:layout_height="85dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/loading"/>
+        <ImageView
+            android:layout_below="@+id/image2"
+            android:layout_width="85dp"
+            android:scaleType="fitXY"
+            android:id="@+id/image3"
+            android:layout_height="85dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/loading"/>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:text="Name"
+                android:id="@+id/name_item"
+
+                />
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/image"
+            android:layout_width="wrap_content"
+            android:textSize="15dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_below="@+id/name_item"
+            android:text="Des"
+            android:id="@+id/des_item"
+
+            />
+
+
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -248,6 +248,7 @@ public class  CommonTab extends Fragment {
 
                 }
             });
+
             return null;
         }
 

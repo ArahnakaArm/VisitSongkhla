@@ -21,6 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -41,6 +42,8 @@ import static com.google.android.gms.internal.zzahn.runOnUiThread;
 public class  ArticalTab extends Fragment {
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
+    int count;
+    String cString;
     RecyclerView mRecyclerView;
     private static final int ACTIVITY_NUM = 1;
     FirebaseDatabase mFirebaseDatabase;
@@ -241,11 +244,15 @@ public class  ArticalTab extends Fragment {
                             },2200);
                             FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(Q,CommonModel.class).build();
                             RVAdapter = new FirebaseRecyclerAdapter<CommonModel, ArticalTab.NewsViewHolder>(foodOptions) {
+
                                 @Override
                                 protected void onBindViewHolder(@NonNull ArticalTab.NewsViewHolder holder, int position, final CommonModel model) {
                                     holder.setTitle(model.getTitle());
                                     // holder.setDes(model.getDescription());
                                     holder.setImage(getContext(), model.getUrl());
+                                    count = RVAdapter.getItemCount();
+                                    cString = Integer.toString(count);
+                                    Toast.makeText(getContext(),cString,Toast.LENGTH_SHORT).show();
                                     holder.mView.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {

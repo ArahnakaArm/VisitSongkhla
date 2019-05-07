@@ -1,7 +1,11 @@
 package com.example.deimos.visitsongkhla;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,13 +15,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Home extends AppCompatActivity {
     private static final int ACTIVITY_NUM=0;
+    private boolean doubleBackToExitPressedOnce;
     private static final String TAG = "Home";
     RecyclerView recyclerView;
     private ArrayList<String>mNames = new ArrayList<>();
@@ -82,6 +89,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+
 
         setNavi();
         getImages();
@@ -292,11 +300,11 @@ public class Home extends AppCompatActivity {
         mLocation3.add(getString(R.string.HOD3_1_mLocation));
         mLat3.add("7.0037427");
         mLng3.add("100.4783379");
-        mImage31.add("");
-        mImage32.add("");
-        mImage33.add("");
-        mImage34.add("");
-        mImage35.add("");
+        mImage31.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%A7%E0%B8%99%2F1.jpg?alt=media&token=01092b91-34db-4a2c-a742-7d3966535081");
+        mImage32.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%A7%E0%B8%99%2F2.jpg?alt=media&token=6dbd5d3e-95f6-4f43-aa1a-25bb9cf724eb");
+        mImage33.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%A7%E0%B8%99%2F3.jpg?alt=media&token=fe2241e4-bfff-4210-ade5-55185227d8a2");
+        mImage34.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%A7%E0%B8%99%2F4.jpg?alt=media&token=e6d02b9d-6ad4-44fd-b686-53361861f21c");
+        mImage35.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%A7%E0%B8%99%2F5.jpg?alt=media&token=50bfe7ae-9e0e-4176-8b41-87cf4c85dc27");
 
 
         mImageUrls3.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F5.jpg?alt=media&token=537be66b-ba99-4cf5-a9a6-6f8e75f85dad");
@@ -306,11 +314,11 @@ public class Home extends AppCompatActivity {
         mLocation3.add(getString(R.string.HOD3_2_mLocation));
         mLat3.add("7.0054348");
         mLng3.add("100.4792328");
-        mImage31.add("");
-        mImage32.add("");
-        mImage33.add("");
-        mImage34.add("");
-        mImage35.add("");
+        mImage31.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B9%82%E0%B8%8A%E0%B8%84%E0%B8%94%E0%B8%B5%20%E0%B9%81%E0%B8%95%E0%B9%88%E0%B9%80%E0%B8%95%E0%B8%B5%E0%B9%89%E0%B8%A2%E0%B8%A1%2F1.jpg?alt=media&token=7bd3783d-4dc8-4cdc-99d0-3cc8f02562cd");
+        mImage32.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B9%82%E0%B8%8A%E0%B8%84%E0%B8%94%E0%B8%B5%20%E0%B9%81%E0%B8%95%E0%B9%88%E0%B9%80%E0%B8%95%E0%B8%B5%E0%B9%89%E0%B8%A2%E0%B8%A1%2F2.jpg?alt=media&token=945c921b-61a2-47e5-b945-669ca379bb0c");
+        mImage33.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B9%82%E0%B8%8A%E0%B8%84%E0%B8%94%E0%B8%B5%20%E0%B9%81%E0%B8%95%E0%B9%88%E0%B9%80%E0%B8%95%E0%B8%B5%E0%B9%89%E0%B8%A2%E0%B8%A1%2F3.jpg?alt=media&token=f14ebda6-581e-4a77-9eb4-8d130ad5f771");
+        mImage34.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B9%82%E0%B8%8A%E0%B8%84%E0%B8%94%E0%B8%B5%20%E0%B9%81%E0%B8%95%E0%B9%88%E0%B9%80%E0%B8%95%E0%B8%B5%E0%B9%89%E0%B8%A2%E0%B8%A1%2F4.jpg?alt=media&token=9d828301-12b1-4a64-b43a-818d76d649a6");
+        mImage35.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B9%82%E0%B8%8A%E0%B8%84%E0%B8%94%E0%B8%B5%20%E0%B9%81%E0%B8%95%E0%B9%88%E0%B9%80%E0%B8%95%E0%B8%B5%E0%B9%89%E0%B8%A2%E0%B8%A1%2F5.jpg?alt=media&token=540a229d-e564-4537-8bf8-f223727ebe6f");
 
         mImageUrls3.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F1.jpg?alt=media&token=a1c68749-26c9-4d16-8c17-d4a6b59a3698");
         mNames3.add(getString(R.string.HOD3_3_mNames));
@@ -319,11 +327,11 @@ public class Home extends AppCompatActivity {
         mLocation3.add(getString(R.string.HOD3_3_mLocation));
         mLat3.add("6.9670558");
         mLng3.add("100.4253555");
-        mImage31.add("");
-        mImage32.add("");
-        mImage33.add("");
-        mImage34.add("");
-        mImage35.add("");
+        mImage31.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B9%84%E0%B8%81%E0%B9%88%E0%B8%97%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%94%E0%B8%8A%E0%B8%B2%2F1.jpg?alt=media&token=b360bd94-16c5-4020-b1da-f4f1ab9790de");
+        mImage32.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B9%84%E0%B8%81%E0%B9%88%E0%B8%97%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%94%E0%B8%8A%E0%B8%B2%2F2.jpg?alt=media&token=669e37ea-6e90-4103-a610-cef22b4e548b");
+        mImage33.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B9%84%E0%B8%81%E0%B9%88%E0%B8%97%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%94%E0%B8%8A%E0%B8%B2%2F3.jpg?alt=media&token=05bf9b63-8ba2-42ce-a788-0d3d1935b4ac");
+        mImage34.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B9%84%E0%B8%81%E0%B9%88%E0%B8%97%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%94%E0%B8%8A%E0%B8%B2%2F4.jpg?alt=media&token=e40693b2-c79c-4a66-89b0-be4923bec30a");
+        mImage35.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B9%84%E0%B8%81%E0%B9%88%E0%B8%97%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%94%E0%B8%8A%E0%B8%B2%2F5.jpg?alt=media&token=240a8144-3a38-45d8-97db-5bcd22cecb0e");
 
         mImageUrls3.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2Fkenta2.jpg?alt=media&token=b0ef2619-366b-4afe-87ab-f1e2defbd674");
         mNames3.add(getString(R.string.HOD3_4_mNames));
@@ -332,11 +340,11 @@ public class Home extends AppCompatActivity {
         mLocation3.add(getString(R.string.HOD3_4_mLocation));
         mLat3.add("7.0082122");
         mLng3.add("100.4744218");
-        mImage31.add("");
-        mImage32.add("");
-        mImage33.add("");
-        mImage34.add("");
-        mImage35.add("");
+        mImage31.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2FKenta%20Hatyai%2F3.jpg?alt=media&token=ef4316b5-6f39-4913-9ba3-48ec18fa93fe");
+        mImage32.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2FKenta%20Hatyai%2F4.jpg?alt=media&token=ca62c7f1-3b06-4eb1-9466-c185b8fb80c8");
+        mImage33.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2FKenta%20Hatyai%2F5.jpg?alt=media&token=07fbae53-1d64-4039-ba30-d48e7745e48a");
+        mImage34.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2FKenta%20Hatyai%2F6.webp?alt=media&token=3974499d-6d6d-4b3c-8015-0e148745b63e");
+        mImage35.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2FKenta%20Hatyai%2Fkenta2.jpg?alt=media&token=39208f16-f450-4d02-9dac-c505c24ac361");
 
         mImageUrls3.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%80%E0%B8%84%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%94%E0%B8%B4%E0%B8%99.jpg?alt=media&token=da165e8e-28de-4584-862f-ecff00b4e9e7");
         mNames3.add(getString(R.string.HOD3_5_mNames));
@@ -345,11 +353,11 @@ public class Home extends AppCompatActivity {
         mLocation3.add(getString(R.string.HOD3_5_mLocation));
         mLat3.add("7.0918989");
         mLng3.add("100.4587059");
-        mImage31.add("");
-        mImage32.add("");
-        mImage33.add("");
-        mImage34.add("");
-        mImage35.add("");
+        mImage31.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%80%E0%B8%84%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%94%E0%B8%B4%E0%B8%99%2F2.jpg?alt=media&token=5760bb0f-8c96-45f0-86fe-e7d16349e95e");
+        mImage32.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%80%E0%B8%84%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%94%E0%B8%B4%E0%B8%99%2F3.jpg?alt=media&token=c2db02d5-44b3-4b4d-92e5-6977b330be52");
+        mImage33.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%80%E0%B8%84%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%94%E0%B8%B4%E0%B8%99%2F4.jpg?alt=media&token=18740f5f-6d33-4223-b6d6-b9d796646aca");
+        mImage34.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%80%E0%B8%84%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%94%E0%B8%B4%E0%B8%99%2F5.jpg?alt=media&token=af3be48f-651d-4a7e-9d3e-b41d96f716d3");
+        mImage35.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%80%E0%B8%84%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%94%E0%B8%B4%E0%B8%99%2F%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%80%E0%B8%84%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%94%E0%B8%B4%E0%B8%99.jpg?alt=media&token=06443c87-b01a-4007-8ea6-28cec71ffd1a");
 
         initRecyclerView3();
     }
@@ -410,4 +418,23 @@ public class Home extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            moveTaskToBack(true);
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, getString(R.string.BK), Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
+    }
+
 }

@@ -67,6 +67,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:padding="10dp"
+                    android:lineSpacingMultiplier="1.2"
                     android:text="describe"
                     android:id="@+id/description"
                     android:textSize="15sp"/>
@@ -77,6 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
+                    android:lineSpacingMultiplier="1.2"
                     android:padding="10dp"
                     android:drawablePadding="5dp"
                     android:justificationMode="inter_word"

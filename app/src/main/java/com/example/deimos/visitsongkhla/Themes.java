@@ -22,7 +22,15 @@ public class Themes extends AppCompatActivity implements ArticalTab.OnFragmentIn
         super.onCreate(savedInstanceState);
         setContentView(R.layout.themes);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(StringChooseThemes.getTheme());
+        if(StringChooseThemes.getTheme() == getString(R.string.CT1)){
+            toolbar.setTitle(getString(R.string.MCT1));
+        }
+        else if(StringChooseThemes.getTheme() == getString(R.string.CT2)){
+            toolbar.setTitle(getString(R.string.MCT2));
+        }
+        else {
+            toolbar.setTitle(getString(R.string.MCT3));
+        }
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
