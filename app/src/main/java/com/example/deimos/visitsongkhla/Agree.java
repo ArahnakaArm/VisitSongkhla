@@ -19,8 +19,12 @@ public class Agree extends AppCompatActivity {
         buttonAgreeBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Agree.this, Setting.class));
+                onBackPressed();
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

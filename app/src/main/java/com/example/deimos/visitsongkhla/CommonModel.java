@@ -4,6 +4,25 @@ public  class CommonModel {
 
     String title;
     String url;
+    String url2;
+
+    public String getUrl2() {
+        return url2;
+    }
+
+    public void setUrl2(String url2) {
+        this.url2 = url2;
+    }
+
+    public String getUrl3() {
+        return url3;
+    }
+
+    public void setUrl3(String url3) {
+        this.url3 = url3;
+    }
+
+    String url3;
     String des;
     String tel;
     String type;
@@ -32,9 +51,11 @@ public  class CommonModel {
         this.date = date;
     }
 
-    public CommonModel(String title, String url, String des, String tel, String type, String location, String faceline, String time, String lat, String lng
+    public CommonModel(String title, String url,String url2,String url3, String des, String tel, String type, String location, String faceline, String time, String lat, String lng
     , String MoreUrl1, String MoreUrl2, String MoreUrl3, String MoreUrl4, String MoreUrl5, String date,String link,int id) {
         this.id = id;
+        this.url2 = url2;
+        this.url3 = url3;
         this.title = title;
         this.url = url;
         this.des = des;

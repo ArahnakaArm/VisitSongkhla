@@ -59,6 +59,7 @@ public class CheckInNearby extends AppCompatActivity {
     static int cDay;
     static int cMonth;
     static int cSum;
+    int checkLevel;
     static int cYear;
     static int cMonthh;
     Long tsLong = System.currentTimeMillis()/1000;
@@ -163,58 +164,67 @@ public class CheckInNearby extends AppCompatActivity {
                         break;
                 }
             }
+
+
         });
         smileRating.setOnRatingSelectedListener(new SmileRating.OnRatingSelectedListener() {
             @Override
             public void onRatingSelected(int level, boolean reselected) {
                 rate=level;
+                checkLevel = level;
+
             }
         });
-        smileRating.setNameForSmile(BaseRating.TERRIBLE,"แย่มาก");
-        smileRating.setNameForSmile(BaseRating.BAD,"ปรับปรุง");
-        smileRating.setNameForSmile(BaseRating.OKAY,"พอใช้");
-        smileRating.setNameForSmile(BaseRating.GOOD,"ดี");
-        smileRating.setNameForSmile(BaseRating.GREAT,"ดีมาก");
+
+        smileRating.setNameForSmile(BaseRating.TERRIBLE,getString(R.string.R1));
+        smileRating.setNameForSmile(BaseRating.BAD,getString(R.string.R2));
+        smileRating.setNameForSmile(BaseRating.OKAY,getString(R.string.R3));
+        smileRating.setNameForSmile(BaseRating.GOOD,getString(R.string.R4));
+        smileRating.setNameForSmile(BaseRating.GREAT,getString(R.string.R5));
+
         mSendFeedback.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                //Comment = mFeedback.getText().toString();
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference DeviceidRef = database.getReference("User-Places").child(deviceId).child("CheckIn");
-                DatabaseReference placeRef = database.getReference("Places").child(Placesname);
-                DatabaseReference Userdiary = database.getReference("UserAccount")/*.child(UserKey)*/;
-                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
-                Toast.makeText(getApplicationContext(),Placesname,Toast.LENGTH_SHORT);
-                String key = DeviceidRef.push().getKey();
-                HashMap<String, Object> postValues = new HashMap<>();
-                postValues.put("Rate", rate);
-                postValues.put("date", date);
-                postValues.put("title", Placesname);
-                Map<String, Object> childUpdates = new HashMap<>();
-                childUpdates.put(ts, postValues);
-                DeviceidRef.updateChildren(childUpdates);
+                if(checkLevel == 0 ){
+                    Toast.makeText(getApplicationContext(),getString(R.string.CRH),Toast.LENGTH_SHORT).show();
+                }else {
+                    //Comment = mFeedback.getText().toString();
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference DeviceidRef = database.getReference("User-Places").child(deviceId).child("CheckIn");
+                    DatabaseReference placeRef = database.getReference("Places").child(Placesname);
+                    DatabaseReference Userdiary = database.getReference("UserAccount")/*.child(UserKey)*/;
+                    String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
-
-                //  myRef.push().setValue(Placesname);
-
-                String key1 = placeRef.push().getKey();
-                HashMap<String, Object> postValues1 = new HashMap<>();
-                postValues1.put("Rate", rate);
-                Map<String, Object> childUpdates1 = new HashMap<>();
-                childUpdates1.put( key1,postValues1);
-                // childUpdates.put("/user-messages/Jirawatee/" + key, postValues);
-
-                placeRef.updateChildren(childUpdates1);
+                    Toast.makeText(getApplicationContext(), Placesname, Toast.LENGTH_SHORT);
+                    String key = DeviceidRef.push().getKey();
+                    HashMap<String, Object> postValues = new HashMap<>();
+                    postValues.put("Rate", rate);
+                    postValues.put("date", date);
+                    postValues.put("title", Placesname);
+                    Map<String, Object> childUpdates = new HashMap<>();
+                    childUpdates.put(ts, postValues);
+                    DeviceidRef.updateChildren(childUpdates);
 
 
-                // childUpdates.put("/user-messages/Jirawatee/" + key, postValues);
+                    //  myRef.push().setValue(Placesname);
+
+                    String key1 = placeRef.push().getKey();
+                    HashMap<String, Object> postValues1 = new HashMap<>();
+                    postValues1.put("Rate", rate);
+                    Map<String, Object> childUpdates1 = new HashMap<>();
+                    childUpdates1.put(key1, postValues1);
+                    // childUpdates.put("/user-messages/Jirawatee/" + key, postValues);
+
+                    placeRef.updateChildren(childUpdates1);
 
 
+                    // childUpdates.put("/user-messages/Jirawatee/" + key, postValues);
 
-                //Toast.makeText(CheckIn.this,Placesname, Toast.LENGTH_LONG).show();
-                // myComRef.push().setValue(Comment);
+
+                    //Toast.makeText(CheckIn.this,Placesname, Toast.LENGTH_LONG).show();
+                    // myComRef.push().setValue(Comment);
               /*  } else {
                     Userdiary.push().setValue(Placesname);
 
@@ -243,9 +253,9 @@ public class CheckInNearby extends AppCompatActivity {
                 }*/
 
 
-                Intent goMap =new Intent(CheckInNearby.this,Diary.class);
-                startActivity(goMap);
-
+                    Intent goMap = new Intent(CheckInNearby.this, Diary.class);
+                    startActivity(goMap);
+                }
             }
         });
     }

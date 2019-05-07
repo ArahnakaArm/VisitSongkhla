@@ -19,8 +19,8 @@ public class Diary extends AppCompatActivity implements FormDiaryTab.OnFragmentI
         setContentView(R.layout.hotel);
         setNavi();
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.DR1)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.DR2)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.DR1)));
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 

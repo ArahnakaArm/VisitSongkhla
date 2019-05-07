@@ -21,6 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -248,6 +249,9 @@ public class  HistiricalTab extends Fragment {
                                     holder.setTitle(model.getTitle());
                                     // holder.setDes(model.getDescription());
                                     holder.setImage(getContext(), model.getUrl());
+                                    if(RVAdapter.getItemCount() == 0){
+                                        Toast.makeText(getContext(),"Sorry",Toast.LENGTH_SHORT).show();
+                                    }
                                     holder.mView.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {

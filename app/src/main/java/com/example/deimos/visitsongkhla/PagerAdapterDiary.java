@@ -16,10 +16,10 @@ public class PagerAdapterDiary extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                FormDiaryTab tab1 = new FormDiaryTab();
+                HistoryDiaryTab tab1 = new HistoryDiaryTab();
                 return tab1;
             case 1:
-                HistoryDiaryTab tab2 = new HistoryDiaryTab();
+                FormDiaryTab tab2 = new FormDiaryTab();
                 return tab2;
 
             default:

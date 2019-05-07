@@ -7,8 +7,13 @@
 
     tools:context=".Home">
 
-
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -93,7 +98,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="285dp"
+        android:layout_marginBottom="55dp"
         android:orientation="vertical">
 
             <LinearLayout
@@ -200,7 +205,7 @@
                 android:weightSum="3"
               >
                 <LinearLayout
-                    android:id="@+id/but_plan"
+                    android:id="@+id/but_pack"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_weight="1"
@@ -394,7 +399,7 @@
 
 
 
-
-
+    </LinearLayout>
+</ScrollView>
     <include layout="@layout/buttom_navi"/>
 </RelativeLayout>

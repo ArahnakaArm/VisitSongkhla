@@ -241,7 +241,7 @@ public class  HistoryDiaryTab extends Fragment {
                                 public void run() {
                                     mFrameOverlay.setVisibility(View.GONE);
                                 }
-                            },2200);
+                            },1500);
                             FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(mRef,CommonModel.class).build();
                             RVAdapter = new FirebaseRecyclerAdapter<CommonModel, HistoryDiaryTab.NewsViewHolder>(foodOptions) {
                                 @Override
