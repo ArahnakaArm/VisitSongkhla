@@ -62,13 +62,16 @@ public class Product extends AppCompatActivity {
     public static int topView = -1;
     StaggeredGridLayoutManager linearLayoutManager ;
 
-
+    Check_internet check_internet;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product);
         setNavi();
+
+
+
 
         new Product.MyTasks(Product.this).execute((Void) null);
 
@@ -159,7 +162,7 @@ public class Product extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             final String url = model.getUrl();
-                            Intent intent = new Intent(Product.this, Gallery_MorePlaces.class);
+                            Intent intent = new Intent(Product.this, GalleryNomoreplace.class);
                             intent.putExtra("image_name", model.getTitle());
                             intent.putExtra("image_url", model.getUrl());
                             intent.putExtra("Des", model.getDes());
@@ -216,11 +219,18 @@ public class Product extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             //remove the overlay
             mFrameOverlay.setVisibility(View.GONE);
+            check_connection();
             // setup the ListView with the new obtained data
             // theList.setVisibility(View.VISIBLE);
         }
 
     }
+    public void check_connection(){
+        check_internet = new Check_internet(this);
+        check_internet.execute();
+
+    }
+
 }
 
 

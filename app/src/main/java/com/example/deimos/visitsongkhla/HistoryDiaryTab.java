@@ -47,6 +47,7 @@ public class  HistoryDiaryTab extends Fragment {
     private static final int ACTIVITY_NUM = 1;
     FirebaseDatabase mFirebaseDatabase;
     Query Q;
+    Check_internet check_internet;
     private FirebaseRecyclerAdapter<CommonModel, HistoryDiaryTab.NewsViewHolder> RVAdapter;
     DatabaseReference mRef;
     public static int positionIndex = -1;
@@ -240,6 +241,7 @@ public class  HistoryDiaryTab extends Fragment {
                                 @Override
                                 public void run() {
                                     mFrameOverlay.setVisibility(View.GONE);
+                                    check_connection();
                                 }
                             },1500);
                             FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(mRef,CommonModel.class).build();
@@ -277,6 +279,11 @@ public class  HistoryDiaryTab extends Fragment {
         protected void onPostExecute(Void result) {
 
             mFrameOverlay.setVisibility(View.GONE);
+
+        }
+        public void check_connection(){
+            check_internet = new Check_internet(getContext());
+            check_internet.execute();
 
         }
 

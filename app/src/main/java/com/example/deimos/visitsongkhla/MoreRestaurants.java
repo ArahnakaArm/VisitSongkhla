@@ -15,11 +15,13 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class MoreRestaurants extends AppCompatActivity implements CommonTab.OnFragmentInteractionListener,HaralTab.OnFragmentInteractionListener {
     private static final int ACTIVITY_NUM=1;
+    Check_internet check_internet;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.morerestaurants);
         setNavi();
+        check_connection();
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.RE1)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.RE2)));
@@ -86,4 +88,11 @@ public class MoreRestaurants extends AppCompatActivity implements CommonTab.OnFr
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
         return true;
     }
+
+    public void check_connection(){
+        check_internet = new Check_internet(this);
+        check_internet.execute();
+
+    }
+
 }

@@ -12,13 +12,14 @@ import android.view.MenuItem;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class News extends AppCompatActivity implements ArticalTab.OnFragmentInteractionListener,HistiricalTab.OnFragmentInteractionListener,NeturalTab.OnFragmentInteractionListener {
-
+    Check_internet check_internet;
     private static final int ACTIVITY_NUM=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news);
         setNavi();
+        check_connection();
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.NE1)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.NE2)));
@@ -56,5 +57,11 @@ public class News extends AppCompatActivity implements ArticalTab.OnFragmentInte
         Menu menu =bottomNavigationViewEx.getMenu();
         MenuItem menuItem=menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
+    }
+
+    public void check_connection(){
+        check_internet = new Check_internet(this);
+        check_internet.execute();
+
     }
 }

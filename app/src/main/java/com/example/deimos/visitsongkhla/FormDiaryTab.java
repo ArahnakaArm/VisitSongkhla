@@ -59,6 +59,7 @@ public class FormDiaryTab extends Fragment {
     EditText edit1,edit2,edit3,edit4;
     Button summit;
     String android_id;
+    Check_internet check_internet;
     TextView textcheck;
     ProgressDialog dialogpush;
     Boolean formStateCheck = false;

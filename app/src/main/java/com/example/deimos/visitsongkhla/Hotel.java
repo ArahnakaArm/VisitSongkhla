@@ -13,11 +13,15 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class Hotel extends AppCompatActivity implements HatyaiHotelTab.OnFragmentInteractionListener,SongkhlaHotelTab.OnFragmentInteractionListener,EtcHotelTab.OnFragmentInteractionListener {
     private static final int ACTIVITY_NUM=1;
+    Check_internet check_internet;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hotel);
         setNavi();
+
+        check_connection();
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.HT1)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.HT2)));
@@ -59,4 +63,12 @@ public class Hotel extends AppCompatActivity implements HatyaiHotelTab.OnFragmen
         MenuItem menuItem=menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
     }
+
+
+    public void check_connection(){
+        check_internet = new Check_internet(this);
+        check_internet.execute();
+
+    }
+
 }

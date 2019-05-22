@@ -39,6 +39,7 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashscreen);
+
         loadLocale();
 
 
@@ -65,6 +66,8 @@ public class SplashScreen extends AppCompatActivity {
 
 
     }
+
+
     private void setLocate(String lang){
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
@@ -82,6 +85,7 @@ public class SplashScreen extends AppCompatActivity {
         String language = preferences.getString("My_Lang","");
         setLocate(language);
     }
+
 
 
 }

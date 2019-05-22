@@ -320,6 +320,13 @@
     <string name="MCT3">อำเภออื่นๆ</string>
     ////BACK////
     <string name="BK">กรุณากดย้อนกลับอีกครั้งเพื่อย่อแอปพลิเคชั่น</string>
+    ///INTERNET_CHECK////
+    <string name="IC1">ไม่มีการเชื่อมต่ออินเตอร์เน็ต</string>
+    <string name="IC2">คุณจำเป็นต้องเชื่อมต่อข้อมูลมือถือหรือ Wifi ในการเข้าถึงนี้โปรดเชื่อมต่ออินเทอร์เน็ต</string>
+    <string name="IC3">ตกลง</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
 </resources>
