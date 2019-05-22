@@ -54,6 +54,7 @@ public class MorePlaces extends AppCompatActivity {
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
     RecyclerView mRecyclerView;
+    Check_internet check_internet;
     private FirebaseRecyclerAdapter<CommonModel, MorePlaces.NewsViewHolder> RVAdapter;
     LinearLayoutManager linearLayoutManager ;
     FirebaseDatabase mFirebaseDatabase;
@@ -70,7 +71,7 @@ public class MorePlaces extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.places_list);
-
+        setNavi();
         linearLayoutManager = new LinearLayoutManager(MorePlaces.this);
         new MorePlaces.MyTasks(MorePlaces.this).execute((Void) null);
 
@@ -133,7 +134,7 @@ public class MorePlaces extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            setNavi();
+
             // the AsyncTask it's about to start so show the overlay
             mFrameOverlay = (FrameLayout) mActivity.findViewById(R.id.overlay);
             // set a touch listener and consume the event so the ListView
@@ -242,9 +243,18 @@ public class MorePlaces extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             //remove the overlay
             mFrameOverlay.setVisibility(View.GONE);
+            check_connection();
             // setup the ListView with the new obtained data
            // theList.setVisibility(View.VISIBLE);
         }
+
+
+
+    }
+
+    public void check_connection(){
+        check_internet = new Check_internet(this);
+        check_internet.execute();
 
     }
 }

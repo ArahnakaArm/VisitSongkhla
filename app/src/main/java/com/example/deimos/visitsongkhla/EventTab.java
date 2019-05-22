@@ -45,6 +45,7 @@ public class EventTab extends Fragment {
     DatabaseReference mRef;
     public static int positionIndex = -1;
     public static int topView = -1;
+    Check_internet check_internet;
     LinearLayoutManager linearLayoutManager ;
     private EventTab mActivity;
     private FrameLayout mFrameOverlay;
@@ -231,6 +232,7 @@ public class EventTab extends Fragment {
                                 @Override
                                 public void run() {
                                     mFrameOverlay.setVisibility(View.GONE);
+
                                 }
                             },2200);
                             FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(Q,CommonModel.class).build();
@@ -244,7 +246,7 @@ public class EventTab extends Fragment {
                                         @Override
                                         public void onClick(View v) {
                                             final String url = model.getUrl();
-                                            Intent intent = new Intent(getContext(), Gallery_MorePlaces.class);
+                                            Intent intent = new Intent(getContext(), GalleryNomoreplace.class);
                                             intent.putExtra("image_name", model.getTitle());
                                             intent.putExtra("image_url", model.getUrl());
                                             intent.putExtra("Des", model.getDes());
@@ -285,6 +287,11 @@ public class EventTab extends Fragment {
         protected void onPostExecute(Void result) {
 
             mFrameOverlay.setVisibility(View.GONE);
+
+        }
+        public void check_connection(){
+            check_internet = new Check_internet(getContext());
+            check_internet.execute();
 
         }
 

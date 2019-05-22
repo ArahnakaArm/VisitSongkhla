@@ -16,11 +16,12 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class Themes extends AppCompatActivity implements ArticalTab.OnFragmentInteractionListener,HistiricalTab.OnFragmentInteractionListener,NeturalTab.OnFragmentInteractionListener {
     private static final int ACTIVITY_NUM=1;
-
+    Check_internet check_internet;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.themes);
+        check_connection();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if(StringChooseThemes.getTheme() == getString(R.string.CT1)){
             toolbar.setTitle(getString(R.string.MCT1));
@@ -86,5 +87,10 @@ public class Themes extends AppCompatActivity implements ArticalTab.OnFragmentIn
         finish();
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
         return true;
+    }
+    public void check_connection(){
+        check_internet = new Check_internet(this);
+        check_internet.execute();
+
     }
 }

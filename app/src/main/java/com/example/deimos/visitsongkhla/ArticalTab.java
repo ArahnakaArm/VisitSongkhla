@@ -47,6 +47,7 @@ public class  ArticalTab extends Fragment {
     RecyclerView mRecyclerView;
     private static final int ACTIVITY_NUM = 1;
     FirebaseDatabase mFirebaseDatabase;
+
     Query Q;
     private FirebaseRecyclerAdapter<CommonModel, ArticalTab.NewsViewHolder> RVAdapter;
     DatabaseReference mRef;
@@ -266,7 +267,7 @@ public class  ArticalTab extends Fragment {
                                             intent.putExtra("Lat",model.getLat());
                                             intent.putExtra("Lng",model.getLng());
                                             intent.putExtra("Id",model.getId());
-                                            intent.putExtra("Category","Home-Theme");
+                                            intent.putExtra("Category","Home-Attract");
                                             startActivity(intent);
                                         }
                                     });

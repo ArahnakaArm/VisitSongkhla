@@ -61,6 +61,7 @@ public class Package extends AppCompatActivity {
     private static final int ACTIVITY_NUM = 1;
     public static int positionIndex = -1;
     public static int topView = -1;
+    Check_internet check_internet;
     LinearLayoutManager linearLayoutManager ;
 
 
@@ -233,9 +234,15 @@ public class Package extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             //remove the overlay
             mFrameOverlay.setVisibility(View.GONE);
+            check_connection();
             // setup the ListView with the new obtained data
             // theList.setVisibility(View.VISIBLE);
         }
+
+    }
+    public void check_connection(){
+        check_internet = new Check_internet(this);
+        check_internet.execute();
 
     }
 }

@@ -45,6 +45,8 @@ public class  NeturalTab extends Fragment {
     RecyclerView mRecyclerView;
     private static final int ACTIVITY_NUM = 1;
     FirebaseDatabase mFirebaseDatabase;
+    Check_internet check_internet;
+
     Query Q;
     private FirebaseRecyclerAdapter<CommonModel, NeturalTab.NewsViewHolder> RVAdapter;
     DatabaseReference mRef;
@@ -240,6 +242,7 @@ public class  NeturalTab extends Fragment {
                                 @Override
                                 public void run() {
                                     mFrameOverlay.setVisibility(View.GONE);
+
                                 }
                             },2200);
                             FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(Q,CommonModel.class).build();
@@ -259,11 +262,10 @@ public class  NeturalTab extends Fragment {
                                             intent.putExtra("Des", model.getDes());
                                             intent.putExtra("Local",model.getLocation());
                                             intent.putExtra("Tel",model.getTel());
-
                                             intent.putExtra("Lat",model.getLat());
                                             intent.putExtra("Lng",model.getLng());
                                             intent.putExtra("Id",model.getId());
-                                            intent.putExtra("Category","Home-Theme");
+                                            intent.putExtra("Category","Home-Attract");
                                             startActivity(intent);
                                         }
                                     });
@@ -295,6 +297,13 @@ public class  NeturalTab extends Fragment {
         protected void onPostExecute(Void result) {
 
             mFrameOverlay.setVisibility(View.GONE);
+
+
+        }
+
+        public void check_connection(){
+            check_internet = new Check_internet(getContext());
+            check_internet.execute();
 
         }
 

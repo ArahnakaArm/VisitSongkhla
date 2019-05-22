@@ -44,6 +44,7 @@ public class  EtcHotelTab extends Fragment {
     RecyclerView mRecyclerView;
     private static final int ACTIVITY_NUM = 1;
     FirebaseDatabase mFirebaseDatabase;
+    Check_internet check_internet;
     Query Q;
     private FirebaseRecyclerAdapter<CommonModel, EtcHotelTab.NewsViewHolder> RVAdapter;
     DatabaseReference mRef;
@@ -236,6 +237,7 @@ public class  EtcHotelTab extends Fragment {
                                 @Override
                                 public void run() {
                                     mFrameOverlay.setVisibility(View.GONE);
+
                                 }
                             },2200);
                             FirebaseRecyclerOptions foodOptions = new FirebaseRecyclerOptions.Builder<CommonModel>().setQuery(Q,CommonModel.class).build();
@@ -290,6 +292,13 @@ public class  EtcHotelTab extends Fragment {
         protected void onPostExecute(Void result) {
 
             mFrameOverlay.setVisibility(View.GONE);
+
+        }
+
+
+        public void check_connection(){
+            check_internet = new Check_internet(getContext());
+            check_internet.execute();
 
         }
 

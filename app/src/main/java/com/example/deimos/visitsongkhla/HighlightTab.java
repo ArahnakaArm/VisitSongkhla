@@ -244,7 +244,7 @@ public class HighlightTab extends Fragment {
                                         @Override
                                         public void onClick(View v) {
                                             final String url = model.getUrl();
-                                            Intent intent = new Intent(getContext(), Gallery_MorePlaces.class);
+                                            Intent intent = new Intent(getContext(), GalleryNomoreplace.class);
                                             intent.putExtra("image_name", model.getTitle());
                                             intent.putExtra("image_url", model.getUrl());
                                             intent.putExtra("Des", model.getDes());

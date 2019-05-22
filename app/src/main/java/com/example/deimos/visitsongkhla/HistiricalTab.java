@@ -265,7 +265,7 @@ public class  HistiricalTab extends Fragment {
                                             intent.putExtra("Lat",model.getLat());
                                             intent.putExtra("Lng",model.getLng());
                                             intent.putExtra("Id",model.getId());
-                                            intent.putExtra("Category","Home-Theme");
+                                            intent.putExtra("Category","Home-Attract");
                                             startActivity(intent);
                                         }
                                     });
