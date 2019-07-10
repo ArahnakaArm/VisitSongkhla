@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/QA"
-        android:textSize="15dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="17dp"
 
         android:layout_centerHorizontal="true"
         android:layout_marginTop="180dp"
@@ -36,14 +37,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:paddingTop="30dp">
-
-        <android.support.design.widget.TextInputLayout
+        android:paddingTop="5dp">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:textColor="@color/colorPrimary"
+    android:textSize="18dp"
+    android:id="@+id/textTitleFirst"
+    android:text="@string/FD14"/>
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_name"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -53,39 +62,63 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:hint="@string/FD1" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_surname"
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/sextext"
+            android:layout_marginTop="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/FD2"/>
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_marginTop="15dp"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/input_surname"
-                android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radiosex"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/radio_1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:hint="@string/FD2" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_email"
-            android:layout_width="match_parent"
-            android:layout_marginTop="15dp"
-            android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/input_email"
-                android:layout_width="match_parent"
+                android:checked="true"
+                android:text="@string/FD3"
+                />
+            <RadioButton android:id="@+id/radio_2"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="@string/FD3" />
-        </android.support.design.widget.TextInputLayout>
+                android:text="@string/FD4"
+                />
+            <RadioButton android:id="@+id/radio_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/FD50"
+                />
+        </RadioGroup>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:id="@+id/nationtext"
+            android:textColor="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:text="@string/FD51"/>
+        <Spinner
+            android:layout_marginTop="15dp"
+            android:id="@+id/spinner"
+            android:layout_width="150dp"
+            android:prompt="@string/country_prompt"
+            android:entries="@array/country_arrays"
+            android:layout_height="30dp" />
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_age"
             android:layout_width="match_parent"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:layout_height="wrap_content">
 
             <EditText
@@ -93,24 +126,65 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="@string/FD4" />
-        </android.support.design.widget.TextInputLayout>
+                android:maxLength="2"
+                android:hint="@string/FD52" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_traveltime"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content">
 
+            <EditText
+                android:id="@+id/input_traveltime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/FD53" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_travelbudget"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/input_travelbudget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/FD54" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_email"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="@string/FD55" />
+        </com.google.android.material.textfield.TextInputLayout>
         <Button android:id="@+id/btn_signup"
             android:layout_width="100dp"
             android:gravity="center"
             android:layout_height="wrap_content"
             android:text="@string/FD7"
-            android:visibility="gone"
-            android:drawablePadding="-15dp"
-            android:paddingLeft="17dp"
+            android:visibility="visible"
+            android:drawablePadding="-10dp"
+            android:paddingLeft="11dp"
             android:layout_gravity="center"
             android:drawableLeft="@drawable/iconsave"
             android:background="@color/colorPrimary"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
             android:textColor="@android:color/white"/>
 
 
     </LinearLayout>
 </RelativeLayout>
-</FrameLayout>
+</ScrollView>

@@ -108,18 +108,26 @@
     <string name = "DR1">Questionnaire</string>
     <string name = "DR2">Check-in History</string>
     //// Form Diary ////
-    <string name = "FD1">Name</string>
-    <string name = "FD2">Surname</string>
-    <string name = "FD3">Email</string>
-    <string name = "FD4">Age</string>
-    <string name = "FD5">Manage</string>
+    <string name = "FD1">Fullname</string>
+    <string name = "FD2">Gender</string>
+    <string name = "FD3">Male</string>
+    <string name = "FD4">Female</string>
+    <string name = "FD50">Other</string>
+    <string name = "FD51">Nationality</string>
+    <string name = "FD52">Age</string>
+    <string name = "FD53">Travel Time(Hours)</string>
+    <string name = "FD54">Travel Budget</string>
+    <string name = "FD55">Email</string>
+    <string name = "FD5">Managing</string>
     <string name = "FD6">Please Wait...</string>
     <string name = "FD7">Record</string>
     <string name = "FD8">Edit</string>
     <string name = "FD9">Please Enter Name</string>
-    <string name = "FD10">Please Enter Surname</string>
+    <string name = "FD10">Please Enter Travel Time</string>
     <string name = "FD11">Please Enter Email</string>
     <string name = "FD12">Please Enter Age</string>
+    <string name = "FD13">Please Enter Travel Budget</string>
+    <string name = "FD14">Please complete the questionnaire to help improve tourism in Songkhla Province.</string>
     //// HELP ////
     <string name = "HE1">Hospital</string>
     <string name = "HE2">Police Station</string>
@@ -288,7 +296,7 @@
     <string name="PN2">"Songkhla" is located on the eastern side of Thailand since ancient times. There is an ancient community and an ancient city with ancient monuments, antiques, traditions. And local play Folk art is a cultural heritage. Songkhla has just appeared for the first time in records of Arab-Persian merchants and seamen during the years 1993-2093. In the name of the city of Singkur or Singkara, but in the books of natural history and politics of the Kingdom of Siam Mr. Khalas Saraswati called the name of Songkhla "Muang Singkhon" and therefore assumed that the word Songkhla was derailed from the name "Singhala" (read Sing-Ha-La) or Singkhon. The reason that Songkhla is called Singha Laeng means Muang Sing. By getting this name from Persian merchants, India sailed for trading Saw the island of ko, the cat island when looking far Will see two lion statues crouched at the entrance to Songkhla city Indians therefore called this city Singha La, while Thailand called the city of Sting when Malay came to contact with the city of Sting, also called Singha La but pronounced distorted as a Western accent, namely Singora Thai. Called by the Malay and Western sounds. Distortion is Songkhla. Another reason claimed that Songkhla derives from "Singkhon" meaning mountain, claiming that the city of Songkhla is located at the foot of the red mountain. Subsequently, the royal title was given to Songkhla that "Wichian Khiri", which has a meaning corresponding to the topography</string>
     <string name="PN3">Back</string>
     ////VERSION////
-    <string name = "VS1">Version: 1.0.1</string>
+    <string name = "VS1">Version: 1.0.2</string>
     <string name = "VS2">Supported by : Academic Service Center,Prince of Songkla University</string>
     ////Rating/////
     <string name="R1">ฺVery Bad</string>
@@ -315,6 +323,17 @@
     <string name="IC1">No Internet Connection</string>
     <string name="IC2">You need to have Mobile Data or Wifi to access this.Please connect the internet.</string>
     <string name="IC3">OK</string>
+    ///ITEM_ERROR////
+    <string name="IE1">Data not found.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="country_prompt">Please choose nationalty</string>
+
+    <string-array name="country_arrays">
+        <item>Thai</item>
+        <item>Malaysia</item>
+        <item>Singapore</item>
+        <item>Other</item>
+    </string-array>
 </resources>

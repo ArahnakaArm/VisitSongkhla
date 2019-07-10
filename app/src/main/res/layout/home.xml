@@ -51,7 +51,7 @@
         android:textSize="17sp"
         android:textStyle="bold" />
 </LinearLayout>
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_marginTop="5dp"
         android:padding="5dp"
@@ -59,7 +59,7 @@
         android:layout_height="160dp"
         android:orientation="horizontal"
         android:layout_below="@+id/Li1">
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
     <LinearLayout
         android:layout_marginTop="10dp"
         android:id="@+id/Li2"
@@ -94,7 +94,7 @@
             android:text="@string/HO4"
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_marginTop="5dp"
         android:padding="5dp"
@@ -103,7 +103,7 @@
         android:orientation="horizontal"
 
         android:layout_below="@+id/Li2">
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
     <LinearLayout
         android:layout_marginTop="10dp"
         android:id="@+id/Li3"
@@ -138,7 +138,7 @@
             android:text="@string/HO6"
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_marginTop="5dp"
         android:padding="5dp"
@@ -147,8 +147,17 @@
         android:orientation="horizontal"
 
         android:layout_below="@+id/Li3">
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
     </ScrollView>
-    <include layout="@layout/buttom_navi"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemBackground="@color/white"
+        app:itemIconTint="@color/foreground"
+        app:itemTextColor="@color/foreground" />
 </RelativeLayout>
