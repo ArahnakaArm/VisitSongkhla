@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".Language">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/LanTH"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -36,9 +36,9 @@
             android:layout_gravity="right"
             android:src="@drawable/flag_th" />
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/LanEN"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -64,7 +64,7 @@
             android:src="@drawable/flag_us"
             android:layout_gravity="right"/>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 
 

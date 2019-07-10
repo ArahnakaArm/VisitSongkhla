@@ -29,24 +29,54 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA68nzo0MSO0T_D4XNVEOjo64HfWFIBvjw"
+          "current_key": "AIzaSyBg9g4o6-vVxylkWfD57rZAnLL4OPNxOb8"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "654060098952-m7uv4sa9304cadifk6h1rv7mc9o9fjcl.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654060098952:android:0ae7a6b29b20de6a",
+        "android_client_info": {
+          "package_name": "com.visitsongkhla.deimos.visitsongkhla"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654060098952-dnmnc9kmq441miu5gdj9hr6f11ulllv3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.visitsongkhla.deimos.visitsongkhla",
+            "certificate_hash": "4df9bbce60e2838424f6a65a8e7cbf5f50c66b99"
+          }
         },
-        "ads_service": {
-          "status": 2
+        {
+          "client_id": "654060098952-m7uv4sa9304cadifk6h1rv7mc9o9fjcl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg9g4o6-vVxylkWfD57rZAnLL4OPNxOb8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654060098952-m7uv4sa9304cadifk6h1rv7mc9o9fjcl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
