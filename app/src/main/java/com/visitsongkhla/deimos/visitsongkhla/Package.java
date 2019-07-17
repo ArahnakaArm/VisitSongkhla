@@ -104,7 +104,7 @@ public class Package extends AppCompatActivity {
                     case R.id.checkinnavi:                         Intent intent3 = new Intent(getApplicationContext(), CheckIn.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);                         startActivity(intent3);
                         Toast.makeText(getApplicationContext(), "Nearby", Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.map:
+                   case R.id.map:                                                  Intent intent4 = new Intent(getApplicationContext(), Maptest2.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);                         startActivity(intent4);
                         Toast.makeText(getApplicationContext(), "Nearby", Toast.LENGTH_SHORT).show();
                         break;
                 }

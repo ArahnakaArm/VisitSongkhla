@@ -1,17 +1,29 @@
 package com.visitsongkhla.deimos.visitsongkhla;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Handler;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,60 +32,69 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 
-public class Home extends AppCompatActivity {
-    private static final int ACTIVITY_NUM=0;
+public class Home extends AppCompatActivity implements LocationListener {
+    private static final int ACTIVITY_NUM = 0;
     private boolean doubleBackToExitPressedOnce;
     private static final String TAG = "Home";
     RecyclerView recyclerView;
-    private ArrayList<String>mNames = new ArrayList<>();
-    private ArrayList<String>mImageUrls = new ArrayList<>();
-    private ArrayList<String>mDes = new ArrayList<>();
-    private ArrayList<String>mTopic= new ArrayList<>();
-    private ArrayList<String>mTel= new ArrayList<>();
-    private ArrayList<String>mLocation= new ArrayList<>();
-    private ArrayList<String>mLat= new ArrayList<>();
-    private ArrayList<String>mLng= new ArrayList<>();
-    private ArrayList<String>mImage11= new ArrayList<>();
-    private ArrayList<String>mImage12= new ArrayList<>();
-    private ArrayList<String>mImage13= new ArrayList<>();
-    private ArrayList<String>mImage14= new ArrayList<>();
-    private ArrayList<String>mImage15= new ArrayList<>();
-    private ArrayList<String>mImageMore = new ArrayList<>();
+    private LocationManager locationManager;
+    private Location onlyOneLocation;
+    private final int REQUEST_FINE_LOCATION = 1234;
+    private ArrayList<String> mNames = new ArrayList<>();
+    private ArrayList<String> mImageUrls = new ArrayList<>();
+    private ArrayList<String> mDes = new ArrayList<>();
+    private ArrayList<String> mTopic = new ArrayList<>();
+    private ArrayList<String> mTel = new ArrayList<>();
+    private ArrayList<String> mLocation = new ArrayList<>();
+    private ArrayList<String> mLat = new ArrayList<>();
+    private ArrayList<String> mLng = new ArrayList<>();
+    private ArrayList<String> mImage11 = new ArrayList<>();
+    private ArrayList<String> mImage12 = new ArrayList<>();
+    private ArrayList<String> mImage13 = new ArrayList<>();
+    private ArrayList<String> mImage14 = new ArrayList<>();
+    private ArrayList<String> mImage15 = new ArrayList<>();
+    private ArrayList<String> mImageMore = new ArrayList<>();
 
 
-    private ArrayList<String>mNames2 = new ArrayList<>();
-    private ArrayList<String>mImageUrls2 = new ArrayList<>();
-    private ArrayList<String>mDes2 = new ArrayList<>();
-    private ArrayList<String>mTopic2= new ArrayList<>();
-    private ArrayList<String>mTel2= new ArrayList<>();
-    private ArrayList<String>mLocation2= new ArrayList<>();
-    private ArrayList<String>mLat2= new ArrayList<>();
-    private ArrayList<String>mLng2= new ArrayList<>();
-    private ArrayList<String>mImage21= new ArrayList<>();
-    private ArrayList<String>mImage22= new ArrayList<>();
-    private ArrayList<String>mImage23= new ArrayList<>();
-    private ArrayList<String>mImage24= new ArrayList<>();
-    private ArrayList<String>mImage25= new ArrayList<>();
+    private ArrayList<String> mNames2 = new ArrayList<>();
+    private ArrayList<String> mImageUrls2 = new ArrayList<>();
+    private ArrayList<String> mDes2 = new ArrayList<>();
+    private ArrayList<String> mTopic2 = new ArrayList<>();
+    private ArrayList<String> mTel2 = new ArrayList<>();
+    private ArrayList<String> mLocation2 = new ArrayList<>();
+    private ArrayList<String> mLat2 = new ArrayList<>();
+    private ArrayList<String> mLng2 = new ArrayList<>();
+    private ArrayList<String> mImage21 = new ArrayList<>();
+    private ArrayList<String> mImage22 = new ArrayList<>();
+    private ArrayList<String> mImage23 = new ArrayList<>();
+    private ArrayList<String> mImage24 = new ArrayList<>();
+    private ArrayList<String> mImage25 = new ArrayList<>();
 
-
-    private ArrayList<String>mNames3 = new ArrayList<>();
-    private ArrayList<String>mImageUrls3 = new ArrayList<>();
-    private ArrayList<String>mDes3 = new ArrayList<>();
-    private ArrayList<String>mTopic3= new ArrayList<>();
-    private ArrayList<String>mTel3= new ArrayList<>();
-    private ArrayList<String>mLocation3= new ArrayList<>();
-    private ArrayList<String>mLat3= new ArrayList<>();
-    private ArrayList<String>mLng3= new ArrayList<>();
-    private ArrayList<String>mImage31= new ArrayList<>();
-    private ArrayList<String>mImage32= new ArrayList<>();
-    private ArrayList<String>mImage33= new ArrayList<>();
-    private ArrayList<String>mImage34= new ArrayList<>();
-    private ArrayList<String>mImage35= new ArrayList<>();
+    double latitude,longitude;
+    private ArrayList<String> mNames3 = new ArrayList<>();
+    private ArrayList<String> mImageUrls3 = new ArrayList<>();
+    private ArrayList<String> mDes3 = new ArrayList<>();
+    private ArrayList<String> mTopic3 = new ArrayList<>();
+    private ArrayList<String> mTel3 = new ArrayList<>();
+    private ArrayList<String> mLocation3 = new ArrayList<>();
+    private ArrayList<String> mLat3 = new ArrayList<>();
+    private ArrayList<String> mLng3 = new ArrayList<>();
+    private ArrayList<String> mImage31 = new ArrayList<>();
+    private ArrayList<String> mImage32 = new ArrayList<>();
+    private ArrayList<String> mImage33 = new ArrayList<>();
+    private ArrayList<String> mImage34 = new ArrayList<>();
+    private ArrayList<String> mImage35 = new ArrayList<>();
     LinearLayoutManager layoutManager;
     RecyclerView recyclerView1;
     RecyclerView recyclerView2;
@@ -88,11 +109,18 @@ public class Home extends AppCompatActivity {
     TextView next2;
     TextView next3;
 
+    private static final int REQUEST_LOCATION = 1;
+
+    String filename;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loadLocale();
         setContentView(R.layout.home);
+        SimpleDateFormat timeStampFormat = new SimpleDateFormat("yyyyMMdd");
+        Date myDate = new Date();
+        filename = timeStampFormat.format(myDate);
+        CheckPermission();
 
 
         setNavi();
@@ -104,36 +132,36 @@ public class Home extends AppCompatActivity {
         next1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goMorePlaces = new Intent(Home.this,MorePlaces.class);
+                Intent goMorePlaces = new Intent(Home.this, MorePlaces.class);
                 goMorePlaces.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(goMorePlaces);
             }
         });
 
-        next2= findViewById(R.id.next3);
+        next2 = findViewById(R.id.next3);
         next2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goMoreRes = new Intent(Home.this,ChooseFood.class);
+                Intent goMoreRes = new Intent(Home.this, ChooseFood.class);
                 goMoreRes.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(goMoreRes);
             }
         });
 
-        next3= findViewById(R.id.next2);
+        next3 = findViewById(R.id.next2);
         next3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goMoreThemes = new Intent(Home.this,ChooseThemes.class);
+                Intent goMoreThemes = new Intent(Home.this, ChooseThemes.class);
                 goMoreThemes.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(goMoreThemes);
             }
         });
 
 
-
     }
-    public void setNavi(){
+
+    public void setNavi() {
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -152,17 +180,20 @@ public class Home extends AppCompatActivity {
                         startActivity(intent3);
                         break;
                     case R.id.map:
-                        Toast.makeText(Home.this, "Nearby", Toast.LENGTH_SHORT).show();
+                        Intent intent4 = new Intent(getApplicationContext(), Maptest2.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent4);
+
                         break;
                 }
                 return false;
             }
         });
-        android.view.Menu menu =bottomNavigationView.getMenu();
-        MenuItem menuItem=menu.getItem(ACTIVITY_NUM);
+        android.view.Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
     }
-    private void getImages(){
+
+    private void getImages() {
         mImageUrls.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FPlaces%2Fs1.JPG?alt=media&token=e3bdab07-a887-4008-975c-6224d0d3985e");
         mNames.add(getString(R.string.HOD1_1_mNames));
         mDes.add(getString(R.string.HOD1_1_mDes));
@@ -230,15 +261,17 @@ public class Home extends AppCompatActivity {
 
         initRecyclerView();
     }
-    private void initRecyclerView(){
+
+    private void initRecyclerView() {
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(layoutManager);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this,mNames, mImageUrls,mDes,mTel,mLocation,mLat,mLng,mImage11,mImage12,mImage13,
-                mImage14,mImage15,mImageMore);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames, mImageUrls, mDes, mTel, mLocation, mLat, mLng, mImage11, mImage12, mImage13,
+                mImage14, mImage15, mImageMore);
         recyclerView.setAdapter(adapter);
     }
-    private void getImages2(){
+
+    private void getImages2() {
         mImageUrls2.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FThemes%2Fp3.jpg?alt=media&token=a604c1bd-32f2-461e-b9ac-a616d8bbea39");
         mNames2.add(getString(R.string.HOD2_1_mNames));
         mDes2.add(getString(R.string.HOD2_1_mDes));
@@ -307,17 +340,18 @@ public class Home extends AppCompatActivity {
 
         initRecyclerView2();
     }
-    private void initRecyclerView2(){
+
+    private void initRecyclerView2() {
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView2 = findViewById(R.id.recyclerView2);
         recyclerView2.setLayoutManager(layoutManager);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this,mNames2, mImageUrls2,mDes2,mTel2,mLocation2,mLat2,mLng2
-                ,mImage21,mImage22,mImage23,
-                mImage24,mImage25,mImageMore);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames2, mImageUrls2, mDes2, mTel2, mLocation2, mLat2, mLng2
+                , mImage21, mImage22, mImage23,
+                mImage24, mImage25, mImageMore);
         recyclerView2.setAdapter(adapter);
     }
 
-    private void getImages3(){
+    private void getImages3() {
         mImageUrls3.add("https://firebasestorage.googleapis.com/v0/b/visitsongkhla.appspot.com/o/Home%2FRes%2F2.jpg?alt=media&token=9b52e4ca-4518-4998-a465-76e40885fcee");
         mNames3.add(getString(R.string.HOD3_1_mNames));
         mDes3.add(getString(R.string.HOD3_1_mDes));
@@ -386,46 +420,53 @@ public class Home extends AppCompatActivity {
 
         initRecyclerView3();
     }
-    private void initRecyclerView3(){
+
+    private void initRecyclerView3() {
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView3 = findViewById(R.id.recyclerView3);
         recyclerView3.setLayoutManager(layoutManager);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this,mNames3, mImageUrls3,mDes3,mTel3,mLocation3,mLat3,mLng3
-                ,mImage31,mImage32,mImage33,
-                mImage34,mImage35,mImageMore);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames3, mImageUrls3, mDes3, mTel3, mLocation3, mLat3, mLng3
+                , mImage31, mImage32, mImage33,
+                mImage34, mImage35, mImageMore);
         recyclerView3.setAdapter(adapter);
-    }   @Override
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
-        positionIndex= layoutManager.findFirstVisibleItemPosition();
+        positionIndex = layoutManager.findFirstVisibleItemPosition();
         View startView = recyclerView.getChildAt(0);
         topView = (startView == null) ? 0 : (startView.getTop() - recyclerView.getPaddingTop());
 
-        positionIndex2= layoutManager.findFirstVisibleItemPosition();
+        positionIndex2 = layoutManager.findFirstVisibleItemPosition();
         View startView2 = recyclerView2.getChildAt(0);
         topView3 = (startView == null) ? 0 : (startView.getLeft() - recyclerView2.getPaddingLeft());
 
-        positionIndex2= layoutManager.findFirstVisibleItemPosition();
+        positionIndex2 = layoutManager.findFirstVisibleItemPosition();
         View startView3 = recyclerView2.getChildAt(0);
         topView3 = (startView == null) ? 0 : (startView.getLeft() - recyclerView3.getPaddingLeft());
 
+        locationManager.removeUpdates(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (positionIndex!= -1) {
+        if (positionIndex != -1) {
             layoutManager.scrollToPositionWithOffset(positionIndex, topView);
         }
 
-        if (positionIndex2!= -1) {
+        if (positionIndex2 != -1) {
             layoutManager.scrollToPositionWithOffset(positionIndex2, topView2);
         }
 
-        if (positionIndex3!= -1) {
+        if (positionIndex3 != -1) {
             layoutManager.scrollToPositionWithOffset(positionIndex3, topView3);
         }
+
+        getLocation();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_setting, menu);
@@ -437,12 +478,13 @@ public class Home extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            Intent goSet = new Intent(Home.this,Setting.class);
+            Intent goSet = new Intent(Home.this, Setting.class);
             startActivity(goSet);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
@@ -457,16 +499,18 @@ public class Home extends AppCompatActivity {
 
             @Override
             public void run() {
-                doubleBackToExitPressedOnce=false;
+                doubleBackToExitPressedOnce = false;
             }
         }, 2000);
     }
-    public  void loadLocale(){
+
+    public void loadLocale() {
         SharedPreferences preferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
-        String language = preferences.getString("My_Lang","");
+        String language = preferences.getString("My_Lang", "");
         setLocate(language);
     }
-    private void setLocate(String lang){
+
+    private void setLocate(String lang) {
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
@@ -477,4 +521,73 @@ public class Home extends AppCompatActivity {
         editor.putString("My_Lang", lang);
         editor.apply();
     }
+
+
+
+
+
+    public void getLocation() {
+        try {
+            locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 5, this);
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void CheckPermission() {
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+        }
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("Location");
+        if (location != null) {
+            String key1 = myRef.push().getKey();
+            HashMap<String, Object> postValues1 = new HashMap<>();
+            postValues1.put("latt", location.getLatitude());
+            postValues1.put("long", location.getLongitude());
+            postValues1.put("date", filename);
+            java.util.Map<String, Object> childUpdates1 = new HashMap<>();
+            childUpdates1.put( key1,postValues1);
+            myRef.updateChildren(childUpdates1);
+        }
+    }
+
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
+        builder.setTitle(getString(R.string.GPC1))
+                .setMessage(getString(R.string.GPC2))
+                .setPositiveButton(getString(R.string.GPC3),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                            }
+                        })
+                .setNegativeButton(getString(R.string.GPC4),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
 }

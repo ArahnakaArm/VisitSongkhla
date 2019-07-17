@@ -13,9 +13,16 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.common.api.Status;
+import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.rtchagas.pingplacepicker.PingPlacePicker;
+
+import java.util.Arrays;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,14 +30,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CheckIn extends AppCompatActivity {
     private Button mPlacePicker;
+    private Button mSearch;
     private static final int ACTIVITY_NUM=2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.checkin);
         setNavi();
-        mPlacePicker=(Button) findViewById(R.id.button1);
         final Animation animAlpha = AnimationUtils.loadAnimation(this,R.anim.anim_alpha);
+        mSearch=findViewById(R.id.button2);
+        mSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.startAnimation(animAlpha);
+                float alpha = 0.45f;
+                float alpha2 = 1.00f;
+                AlphaAnimation alphaUp = new AlphaAnimation(alpha, alpha2);
+                alphaUp.setDuration(1000);
+                alphaUp.setFillAfter(true);
+                view.startAnimation(alphaUp);
+                Intent goSearch = new Intent(CheckIn.this,MapTest.class);
+                startActivity(goSearch);
+            }
+        });
+        mPlacePicker=(Button) findViewById(R.id.button1);
+
         mPlacePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,8 +118,11 @@ public class CheckIn extends AppCompatActivity {
                         Intent intent3 = new Intent(getApplicationContext(), CheckIn.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent3);
                         break;
-                    case R.id.map:
-                        Toast.makeText(getApplicationContext(), "Nearby", Toast.LENGTH_SHORT).show();
+                   case R.id.map:
+
+                        Intent intent4 = new Intent(getApplicationContext(), Maptest2.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent4);
+
                         break;
                 }
                 return false;
@@ -104,5 +131,22 @@ public class CheckIn extends AppCompatActivity {
         android.view.Menu menu =bottomNavigationView.getMenu();
         MenuItem menuItem=menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_setting, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            Intent goSet = new Intent(CheckIn.this,Setting.class);
+            startActivity(goSet);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

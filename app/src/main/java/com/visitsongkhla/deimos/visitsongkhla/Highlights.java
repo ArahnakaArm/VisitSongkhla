@@ -77,11 +77,15 @@ public class Highlights extends AppCompatActivity implements ArticalTab.OnFragme
                         Intent intent2 = new Intent(getApplicationContext(), com.visitsongkhla.deimos.visitsongkhla.Menu.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent2);
                         break;
-                    case R.id.checkinnavi:                         Intent intent3 = new Intent(getApplicationContext(), CheckIn.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);                         startActivity(intent3);
-                        Toast.makeText(getApplicationContext(), "Nearby", Toast.LENGTH_SHORT).show();
+                    case R.id.checkinnavi:
+                        Intent intent3 = new Intent(getApplicationContext(), CheckIn.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent3);
+
                         break;
-                    case R.id.map:
-                        Toast.makeText(getApplicationContext(), "Nearby", Toast.LENGTH_SHORT).show();
+                   case R.id.map:
+                       Intent intent4 = new Intent(getApplicationContext(), Maptest2.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                       startActivity(intent4);
+
                         break;
                 }
                 return false;

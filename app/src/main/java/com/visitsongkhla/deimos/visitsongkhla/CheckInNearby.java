@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.provider.Settings;
 
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hsalf.smilerating.BaseRating;
@@ -54,11 +57,12 @@ public class CheckInNearby extends AppCompatActivity {
     static int cMonthh;
     Long tsLong = System.currentTimeMillis()/1000;
     String ts = tsLong.toString();
-
+    private static final int ACTIVITY_NUM=2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.checkin_nearby);
+        setNavi();
         final String deviceId = Settings.Secure.getString(getContentResolver(),Settings.Secure.ANDROID_ID);
 
         //Toast.makeText(CheckIn.this,UserKey,Toast.LENGTH_LONG).show();
@@ -248,6 +252,35 @@ public class CheckInNearby extends AppCompatActivity {
                 }
             }
         });
+    }
+    public void setNavi(){
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_home:
+                        Intent intent1 = new Intent(getApplicationContext(), Home.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent1);
+                        break;
+                    case R.id.travelinfo:
+                        Intent intent2 = new Intent(getApplicationContext(), com.visitsongkhla.deimos.visitsongkhla.Menu.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent2);
+                        break;
+                    case R.id.checkinnavi:
+                        Intent intent3 = new Intent(getApplicationContext(), CheckIn.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent3);
+                        break;
+                    case R.id.map:                                                  Intent intent4 = new Intent(getApplicationContext(), Maptest2.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);                         startActivity(intent4);
+                        break;
+                }
+                return false;
+            }
+        });
+        android.view.Menu menu =bottomNavigationView.getMenu();
+        MenuItem menuItem=menu.getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
+
     }
 
 }

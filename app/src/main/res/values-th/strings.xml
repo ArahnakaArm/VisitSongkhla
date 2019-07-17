@@ -7,7 +7,11 @@
     <string name="BN2">ท่องเที่ยว</string>
     <string name="BN3">เช็คอิน</string>
     <string name="BN4">แผนที่</string>
-
+    ////GPS Check////
+    <string name="GPC1">GPS ไม่ได้เปิดใช้งาน</string>
+    <string name="GPC2">กรุณาเปิดใช้งาน GPS</string>
+    <string name="GPC3">เปิดใช้งาน</string>
+    <string name="GPC4">ยกเลิก</string>
     ////CHOOSETHEME////
     <string name="CT1">เมือง</string>
     <string name="CT2">หาดใหญ่</string>

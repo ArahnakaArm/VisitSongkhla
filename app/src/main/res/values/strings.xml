@@ -12,6 +12,13 @@
     <string name="CT2">หาดใหญ่</string>
     <string name="CT3">อื่นๆ</string>
 
+    ////GPS Check////
+    <string name="GPC1">GPS ไม่ได้เปิดใช้งาน</string>
+    <string name="GPC2">กรุณาเปิดใช้งาน GPS</string>
+    <string name="GPC3">เปิดใช้งาน</string>
+    <string name="GPC4">ยกเลิก</string>
+
+
     ////CHOOSEN////
     <string name="CH1">ยินดีต้อนรับสู่</string>
     <string name="CH2">VisitSongkhla</string>

@@ -11,7 +11,11 @@
     <string name="CT1">Capital</string>
     <string name="CT2">Hatyai</string>
     <string name="CT3">Other</string>
-
+    ////GPS Check////
+    <string name="GPC1">GPS Disabled</string>
+    <string name="GPC2">Please Enable GPS</string>
+    <string name="GPC3">Enable</string>
+    <string name="GPC4">Cancel</string>
     ////CHOOSEN////
     <string name = "CH1">Welcome</string>
     <string name = "CH2">VisitSongkhla</string>
